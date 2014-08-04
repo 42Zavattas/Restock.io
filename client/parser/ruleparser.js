@@ -34,7 +34,7 @@
     }
 
     var cur = beginNum ? beginNum.length : 0;
-    return !!(supportedType(val[cur]) && (cur === val.length - 1 || (val.length - 1 > cur && val[cur] === '{')));
+    return !!(supportedType(val[cur]) && (cur + 1 === val.length || val[cur] === '{'));
   }
 
   var testFunctions = [

@@ -103,6 +103,8 @@ describe('RuleParser', function () {
     rule = '{tab:2sb}';
     expect(ruleparser.test(rule).valid).toBeFalsy();
 
+    rule = '{name:2s}';
+    expect(ruleparser.test(rule).valid).toBeTruthy();
     rule = '5{tab:2s}';
     expect(ruleparser.test(rule).valid).toBeTruthy();
   });
