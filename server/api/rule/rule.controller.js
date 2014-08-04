@@ -15,7 +15,7 @@ exports.index = function(req, res) {
 exports.show = function(req, res) {
   Rule.findById(req.params.id, function (err, rule) {
     if(err) { return handleError(res, err); }
-    if(!rule) { return res.send(404); }
+    if(!rule || !rule.active) { return res.send(404); }
     if (rule.user !== req.user._id && req.user.role !== 'admin') {
       return res.send(401);
     }
@@ -26,7 +26,8 @@ exports.show = function(req, res) {
 // Get all rules of the current user
 exports.mine = function(req, res) {
   Rule.find({
-    user: req.user._id
+    user  : req.user._id,
+    active: true
   }).exec(function (err, rules) {
     if(err) { return handleError(res, err); }
     return res.json(200, rules);
@@ -64,10 +65,19 @@ exports.destroy = function(req, res) {
     if (rule.user !== req.user._id && req.user.role !== 'admin') {
       return res.send(401);
     }
-    rule.remove(function(err) {
-      if(err) { return handleError(res, err); }
-      return res.send(204);
-    });
+    if (req.user.role === 'admin') {
+      rule.remove(function(err) {
+        if(err) { return handleError(res, err); }
+        return res.send(204);
+      });
+    }
+    else {
+      rule.active = false;
+      rule.update(function(err) {
+        if(err) { return handleError(res, err); }
+        return res.send(204);
+      });
+    }
   });
 };
 

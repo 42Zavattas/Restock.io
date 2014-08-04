@@ -10,7 +10,7 @@ var RuleSchema = new Schema({
   rule      : String,
   result    : String,
   user      : { type: Schema.ObjectId, ref: 'User' },
-  active    : { type: Boolean, select: false },
+  active    : { type: Boolean, default: true, select: false },
   created_at: Date,
   updated_at: Date
 });
