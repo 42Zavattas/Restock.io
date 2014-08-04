@@ -22,10 +22,26 @@
     return !!(state === 0);
   }
 
+  function supportedType (type) {
+    var types = ['s', 'S', 'n', 'b', 'd', '{'];
+    return !!(types.indexOf(type) !== -1);
+  }
+
+  function checkRoot (val) {
+    var beginNum = val.match(/^[0-9]+/);
+    if (parseInt(beginNum, 10) > 100) {
+      return false;
+    }
+
+    var cur = beginNum ? beginNum.length : 0;
+    return !!(supportedType(val[cur]) && (cur === val.length - 1 || (val.length - 1 > cur && val[cur] === '{')));
+  }
+
   var testFunctions = [
     { f:limitLength, msg: 'Too many characters.' },
     { f:validateCharacters, msg: 'Invalid characters.' },
-    { f:checkBraces, msg: 'Wrong objet structure.' }
+    { f:checkBraces, msg: 'Wrong objet structure.' },
+    { f:checkRoot, msg: 'Invalid root element' }
   ];
 
   exports.test = function (rule) {
