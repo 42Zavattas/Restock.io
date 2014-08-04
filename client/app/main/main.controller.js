@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('restockApp')
-  .controller('MainCtrl', function ($scope) {
+  .controller('MainCtrl', function ($scope, $routeParams) {
 
     /* --> could be nice
     $http.get('/api/things').success(function(awesomeThings) {
@@ -13,8 +13,15 @@ angular.module('restockApp')
       socket.unsyncUpdates('thing');
     });
     */
-    console.log(ruleparser.test());
 
-    $scope.rule = { input: '', output: '' };
+    ruleparser.parse = function (str) {
+      return 'OK parsed';
+    };
+
+    $scope.rule = { input: $routeParams.q || '' };
+
+    $scope.$watch('rule.input', function () {
+      $scope.rule.output = ruleparser.parse($scope.rule.input);
+    });
 
   });
