@@ -13,6 +13,7 @@ angular.module('restockApp')
       socket.unsyncUpdates('thing');
     });
     */
+    console.log(ruleparser.test());
 
     $scope.rule = { input: '', output: '' };
 
