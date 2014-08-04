@@ -31,5 +31,6 @@
 }
 
 .rs-ruler-pre {
+  @include user-select(text);
   line-height: 58px;
 }
