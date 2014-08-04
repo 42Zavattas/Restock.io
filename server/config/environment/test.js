@@ -5,6 +5,6 @@
 module.exports = {
   // MongoDB connection options
   mongo: {
-    uri: 'mongodb://localhost/restock-test'
+    uri: 'mongodb://zavatta:danylB@kahana.mongohq.com:10095/restock-test'
   }
 };
