@@ -6,13 +6,16 @@ var crypto = require('crypto');
 var authTypes = ['github', 'twitter', 'facebook', 'google'];
 
 var UserSchema = new Schema({
-  name: String,
-  email: { type: String, lowercase: true },
-  role: { type: String, default: 'user' },
+  name          : String,
+  email         : { type: String, lowercase: true },
+  role          : { type: String, default: 'user' },
+  rules         : [{ type: Schema.ObjectId, ref: 'Rule' }],
   hashedPassword: String,
-  provider: String,
-  salt: String,
-  google: {}
+  provider      : String,
+  salt          : String,
+  google        : {},
+  created_at    : Date,
+  updated_at    : Date
 });
 
 /**
@@ -93,6 +96,12 @@ var validatePresenceOf = function(value) {
  */
 UserSchema
   .pre('save', function(next) {
+    var now = new Date();
+    this.updated_at = now;
+    if (!this.created_at) {
+      this.created_at = now;
+    }
+
     if (!this.isNew) return next();
 
     if (!validatePresenceOf(this.hashedPassword) && authTypes.indexOf(this.provider) === -1)
