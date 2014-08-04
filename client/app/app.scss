@@ -1,6 +1,17 @@
 @import 'compass/reset';
 @import 'compass/css3';
 
+// Colors
+// ------
+$white: #ecf0f1;
+$red: #bc6f43;
+$orange: #bf9646;
+$yellow: #c1bd48;
+$green: #82c64e;
+$green2: #a4c44b;
+$blue: #7ec5d4;
+
+
 // Fonts
 // -----
 
@@ -38,11 +49,25 @@ body {
   font-size: 16px;
   font-family: "Sinkin Light";
   padding: 1em;
+  background: $white;
+  @include user-select(none);
 }
 
 h1 {
-  text-align: center;
-  font-size: 96px;
+  text-align: right;
+  margin-right: 18px;
+  font-size: 23px;
+  line-height: 138px;
+  color: $green;
+  .embed {
+    display: inline-block;
+    line-height: 82px;
+    padding-top: 7px;
+    padding-left: 4px;
+    padding-right: 3px;
+    background: $green;
+    color: white;
+  }
 }
 
 
