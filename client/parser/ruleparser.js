@@ -1,9 +1,5 @@
 (function(exports){
 
-  function checkIsNull (val) {
-    return !!(val && val.length);
-  }
-
   function limitLength (val) {
     return !!(val.length <= 50);
   }
@@ -14,12 +10,14 @@
   }
 
   var testFunctions = [
-    { f: checkIsNull, msg: 'Null given' },
     { f:limitLength, msg: 'Too many characters' },
     { f:validateCharacters, msg: 'Invalid characters' }
   ];
 
   exports.test = function (rule) {
+    if (!rule || !rule.length) {
+      return { valid: true };
+    }
     for (i = 0; i < testFunctions.length; i++) {
       //console.log(testFunctions[i].f(rule));
       if (testFunctions[i].f(rule) === false) {

@@ -18,13 +18,13 @@ describe('RuleParser', function () {
     expect(ruleparser.test).toEqual(jasmine.any(Function));
   });
 
-  it('should fail when not providing element', function () {
+  it('should try to use null', function () {
 
     rule = null;
-    expect(ruleparser.test(rule).valid).toBeFalsy();
+    expect(ruleparser.test(rule).valid).toBeTruthy();
 
     rule = '';
-    expect(ruleparser.test(rule).valid).toBeFalsy();
+    expect(ruleparser.test(rule).valid).toBeTruthy();
 
     rule = '5s';
     expect(ruleparser.test(rule).valid).toBeTruthy();
