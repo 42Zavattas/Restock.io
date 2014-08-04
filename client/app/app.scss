@@ -68,6 +68,16 @@ h1 {
     background: $blue;
     color: white;
   }
+  a {
+    text-decoration: none;
+    color: $blue;
+    &:hover {
+      color: darken($blue, 10);
+      .embed {
+        background: darken($blue, 10);
+      }
+    }
+  }
 }
 
 
