@@ -18,6 +18,7 @@ function onConnect(socket) {
   });
 
   // Insert sockets below
+  //require('../api/rule/rule.socket').register(socket);
 }
 
 module.exports = function (socketio) {
