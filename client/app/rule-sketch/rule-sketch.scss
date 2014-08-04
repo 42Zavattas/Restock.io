@@ -4,6 +4,7 @@
   color: rgba(black, .8);
   padding: 15px;
   @include text-shadow(rgba(black, .3) 0 2px);
+  font-family: monospaced;
 }
 
 .sk-capsule {
@@ -14,7 +15,7 @@
 
 .sk-nb {
   font-family: "Sinkin Bold";
-  font-size: 36px;
+  font-size: 24px;
 }
 
 .sk-mult {
@@ -26,6 +27,7 @@
 }
 
 .sk-list {
+  list-style-type: circle;
   display: flex;
   margin-left: 30px;
   align-items: flex-start;

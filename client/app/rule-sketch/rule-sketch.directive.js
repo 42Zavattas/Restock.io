@@ -11,6 +11,7 @@ angular.module('restockApp')
       link: function (scope, element, attrs) {
 
         var container = element.find('.rs-sketch-container');
+        var mock = {};
 
         function draw() {
           console.log('drawing');
