@@ -29,8 +29,12 @@
 
   function checkRoot (val) {
     var beginNum = val.match(/^[0-9]+/);
-    if (parseInt(beginNum, 10) > 100) {
-      return false;
+
+    if (beginNum) {
+      beginNum = beginNum[0];
+      if (parseInt(beginNum, 10) > 100) {
+        return false;
+      }
     }
 
     var cur = beginNum ? beginNum.length : 0;
