@@ -9,9 +9,17 @@ angular.module('restockApp')
         rule: '='
       },
       link: function (scope, element, attrs) {
+
+        var container = element.find('.rs-sketch-container');
+
+        function draw() {
+          console.log('drawing');
+        }
+
         scope.$watch('rule.input', function () {
-          console.log(scope.rule);
+          draw();
         });
+
       }
     };
   });
