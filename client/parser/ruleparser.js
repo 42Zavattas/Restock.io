@@ -8,13 +8,20 @@
     return !!(val.length <= 50);
   }
 
+  function validateCharacters (val) {
+    var pattern = /^[a-zA-Z0-9{}:,]+$/;
+    return !!(val.match(pattern));
+  }
+
   var testFunctions = [
     { f: checkIsNull, msg: 'Null given' },
-    { f:limitLength, msg: 'Too many characters' }
+    { f:limitLength, msg: 'Too many characters' },
+    { f:validateCharacters, msg: 'Invalid characters' }
   ];
 
   exports.test = function (rule) {
     for (i = 0; i < testFunctions.length; i++) {
+      //console.log(testFunctions[i].f(rule));
       if (testFunctions[i].f(rule) === false) {
         return { valid: false, msg: testFunctions[i].msg };
       }
