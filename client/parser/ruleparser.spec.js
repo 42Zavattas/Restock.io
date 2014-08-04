@@ -149,7 +149,7 @@ describe('RuleParser', function () {
     rule = '2{name:s,birth:d,skills:5{tags:24}}';
     expect(ruleparser.test(rule).valid).toBeFalsy();
 
-    rule = '5{teams:4{name:s},lols:d,gimp:b,houses:5{name:s,code:n}}';
+    rule = '5{teams:4{name:s},houses:5{name:s,code:n}}';
     expect(ruleparser.test(rule).valid).toBeTruthy();
   });
 

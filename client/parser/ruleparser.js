@@ -9,9 +9,23 @@
     return !!(val.match(pattern));
   }
 
+  function checkBraces (val) {
+    var state = 0;
+    for (var i = 0; i < val.length; i++) {
+      if (val[i] === '{') {
+        state++;
+      }
+      else if (val[i] === '}') {
+        state--;
+      }
+    }
+    return !!(state === 0);
+  }
+
   var testFunctions = [
-    { f:limitLength, msg: 'Too many characters' },
-    { f:validateCharacters, msg: 'Invalid characters' }
+    { f:limitLength, msg: 'Too many characters.' },
+    { f:validateCharacters, msg: 'Invalid characters.' },
+    { f:checkBraces, msg: 'Wrong objet structure.' }
   ];
 
   exports.test = function (rule) {
