@@ -1,5 +1,8 @@
 <section class="rs-ruler">
-  <input ng-model="rule.input"type="text" class="rs-ruler-input">
+  <div class="flex centered">
+    <div class="rs-badge">HTTP<br>GET</div>
+    <input ng-model="rule.input"type="text" class="rs-ruler-input" placeholder="...">
+  </div>
   <p class="rs-ruler-pre">restock.io/?q={{ rule.input }}</p>
   <p class="rs-ruler-result">Result : {{ rule.output }}</p>
 </section>

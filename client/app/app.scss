@@ -80,6 +80,14 @@ h1 {
   }
 }
 
+.flex {
+  display: flex;
+  &.centered {
+    align-items: center;
+    justify-content: center;
+  }
+}
+
 
 // Component styles are injected through grunt
 // injector

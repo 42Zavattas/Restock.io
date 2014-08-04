@@ -34,3 +34,12 @@
   @include user-select(text);
   line-height: 58px;
 }
+
+.rs-badge {
+  font-family: "Lucida Console";
+  font-size: 10px;
+  color: white;
+  background: $green;
+  padding: 3px;
+  border: 1px solid darken($green, 8);
+}
