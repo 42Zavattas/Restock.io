@@ -13,7 +13,9 @@ var UserSchema = new Schema({
   hashedPassword: String,
   provider      : String,
   salt          : String,
-  google        : {}
+  google        : {},
+  created_at    : Date,
+  updated_at    : Date
 });
 
 /**
@@ -94,6 +96,12 @@ var validatePresenceOf = function(value) {
  */
 UserSchema
   .pre('save', function(next) {
+    now = new Date();
+    this.updated_at = now;
+    if (!this.created_at) {
+      this.created_at = now;
+    }
+
     if (!this.isNew) return next();
 
     if (!validatePresenceOf(this.hashedPassword) && authTypes.indexOf(this.provider) === -1)
