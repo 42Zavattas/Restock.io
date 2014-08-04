@@ -6,8 +6,9 @@
 .rs-ruler-input {
   outline: none;
   border: none;
-  border-bottom: 3px solid rgba(black, .2);
-  background: white;
+  border-bottom: 5px solid rgba(black, .2);
+  background: rgba(white, .4);
+  @include box-shadow(rgba(black, .5) 0 4px 8px);
   font-family: "Sinkin Light";
   font-size: 31px;
   width: 80%;
@@ -20,13 +21,12 @@
   }
   &:focus {
     color: rgba(black, .7);
-    border-color: $blue;
+    border-color: $green;
   }
 }
 
 .rs-ruler-result {
   position: absolute;
-  background: rgba($red, .1);
   padding: 30px;
   left: 0; right: 0;
   top: 200px;
