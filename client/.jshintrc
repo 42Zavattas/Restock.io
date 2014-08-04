@@ -19,6 +19,7 @@
   "trailing": true,
   "smarttabs": true,
   "globals": {
+    "ruleparser": true,
     "jQuery": true,
     "angular": true,
     "console": true,
