@@ -5,8 +5,7 @@ angular.module('restockApp', [
   'ngResource',
   'ngSanitize',
   'ngRoute',
-  'btford.socket-io',
-  'ui.bootstrap'
+  'btford.socket-io'
 ])
   .config(function ($routeProvider, $locationProvider, $httpProvider) {
     $routeProvider
