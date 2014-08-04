@@ -14,27 +14,7 @@ angular.module('restockApp')
     });
     */
 
-    ruleparser.parse = function (str) {
-      return 'OK parsed';
-    };
-
-    ruleparser.test= function (str) {
-    if (str === '5{name:s}') {
-      return {
-        valid: true
-      };
-    }
-      return {
-        valid: false,
-        msg: 'Invalid character'
-      };
-    };
-
     $scope.rule = { input: $routeParams.q || '' };
-
-    $scope.$watch('rule.input', function () {
-      $scope.rule.output = ruleparser.parse($scope.rule.input);
-    });
 
     $scope.isValid = function (str) {
       var res = ruleparser.test(str);
@@ -42,6 +22,7 @@ angular.module('restockApp')
         $scope.errorMsg = res.msg;
         return false;
       }
+      $scope.errorMsg = '';
       return true;
     };
 

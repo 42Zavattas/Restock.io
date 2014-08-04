@@ -1,5 +1,6 @@
 .rs-ruler {
   text-align: center;
+  position: relative;
 }
 
 .rs-ruler-input {
@@ -23,11 +24,11 @@
 }
 
 .rs-ruler-result {
+  position: absolute;
   background: rgba($red, .1);
-  margin: 20px 0;
   padding: 30px;
-  width: 600px;
-  margin: 0 auto;
+  left: 0; right: 0;
+  top: 200px;
 }
 
 .rs-ruler-pre {
@@ -43,4 +44,19 @@
   background: $green;
   padding: 3px;
   border: 1px solid darken($green, 8);
+}
+
+.rs-error-msg {
+  position: absolute;
+  left: 0; right: 0; bottom: -30px;
+  margin: 0 auto;
+  text-align: center;
+  span {
+    color: red;
+    font-size: 11px;
+  }
+}
+
+input[type=text].invalid {
+  border-color: $red;
 }

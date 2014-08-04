@@ -1,5 +1,12 @@
 <section class="rs-ruler">
-<input autofocus ng-model="rule.input"type="text" class="rs-ruler-input" placeholder="...">
+<div class="rs-error-msg" ng-show="errorMsg"><span>{{ errorMsg }}</span></div>
+<input
+  ng-class="{ invalid: !isValid(rule.input) }"
+  autofocus
+  ng-model="rule.input"
+  type="text"
+  class="rs-ruler-input"
+  placeholder="...">
 <div ng-if="isValid(rule.input)">
   <div class="flex centered">
     <div class="rs-badge">HTTP<br>GET</div>
@@ -7,6 +14,6 @@
       restock.io/api/{{ rule.input }}
     </a>
   </div>
-  <rule-sketch rule="rule"></rule-sketch>
 </div>
+<rule-sketch class="rs-ruler-result" rule="rule"></rule-sketch>
 </section>
