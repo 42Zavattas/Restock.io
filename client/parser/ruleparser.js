@@ -47,16 +47,6 @@
     return !!(types.indexOf(type) !== -1);
   }
 
-  function checkRoot (val) {
-    var beginNum = val.match(/^[0-9]+/);
-    if (beginNum) {
-      beginNum = beginNum[0];
-    }
-
-    var cur = beginNum ? beginNum.length : 0;
-    return !!(supportedType(val[cur]) && (cur + 1 === val.length || val[cur] === '{'));
-  }
-
   function getObjectContent (str) {
     return str.substr(0, Math.min(str.indexOf('{'), str.indexOf('}')));
   }
@@ -70,8 +60,7 @@
     { f:limitLength, msg: 'Too many characters.' },
     { f:validateCharacters, msg: 'Invalid characters.' },
     { f:checkBraces, msg: 'Wrong objet structure.' },
-    { f:checkDeep, msg: 'Your struture is too deep.' },
-    { f:checkRoot, msg: 'Invalid root element.' }
+    { f:checkDeep, msg: 'Your struture is too deep.' }
   ];
 
   exports.test = function (rule) {

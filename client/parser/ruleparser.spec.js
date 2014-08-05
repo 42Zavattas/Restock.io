@@ -72,40 +72,6 @@ describe('RuleParser', function () {
 
   it('should validate types', function () {
 
-    rule = 'w';
-    expect(ruleparser.test(rule).valid).toBeFalsy();
-    rule = 'a';
-    expect(ruleparser.test(rule).valid).toBeFalsy();
-    rule = '2';
-    expect(ruleparser.test(rule).valid).toBeFalsy();
-
-    rule = 's';
-    expect(ruleparser.test(rule).valid).toBeTruthy();
-    rule = 'n';
-    expect(ruleparser.test(rule).valid).toBeTruthy();
-    rule = 'd';
-    expect(ruleparser.test(rule).valid).toBeTruthy();
-    rule = 'b';
-    expect(ruleparser.test(rule).valid).toBeTruthy();
-  });
-
-  it('should test root elements', function () {
-
-    rule = 's5n';
-    expect(ruleparser.test(rule).valid).toBeFalsy();
-    rule = '5n{name:s}';
-    expect(ruleparser.test(rule).valid).toBeFalsy();
-    rule = '5ss';
-    expect(ruleparser.test(rule).valid).toBeFalsy();
-    rule = 'nnn';
-    expect(ruleparser.test(rule).valid).toBeFalsy();
-
-    rule = '18n';
-    expect(ruleparser.test(rule).valid).toBeTruthy();
-    rule = '{name:2s}';
-    expect(ruleparser.test(rule).valid).toBeTruthy();
-    rule = '5{tab:2s}';
-    expect(ruleparser.test(rule).valid).toBeTruthy();
   });
 
   it('should validate nested objects', function () {
@@ -121,37 +87,19 @@ describe('RuleParser', function () {
 
   it('should validate parse errors', function () {
 
-    rule = '5{tea{ms:4{names:4s}}';
-    expect(ruleparser.test(rule).valid).toBeFalsy();
-    rule = '5{teams::4{names:4s}}';
-    expect(ruleparser.test(rule).valid).toBeFalsy();
-    rule = '4{teams:4{}names:4s}}';
-    expect(ruleparser.test(rule).valid).toBeFalsy();
-    rule = '3{teams:4{names:4s,}}';
-    expect(ruleparser.test(rule).valid).toBeFalsy();
-    rule = '3{teams:4{names:4s},}';
-    expect(ruleparser.test(rule).valid).toBeFalsy();
-    rule = '3{teams:4{names:4s}.}';
-    expect(ruleparser.test(rule).valid).toBeFalsy();
-    rule = '3{teams:4{names:4s}';
-    expect(ruleparser.test(rule).valid).toBeFalsy();
-    rule = '3{teams:d{names:4s';
-    expect(ruleparser.test(rule).valid).toBeFalsy();
-    rule = '3teams:dnames:4s';
-    expect(ruleparser.test(rule).valid).toBeFalsy();
-    rule = '3:4names:4s';
-    expect(ruleparser.test(rule).valid).toBeFalsy();
-    rule = '1:4na{ms:4s';
-    expect(ruleparser.test(rule).valid).toBeFalsy();
-    rule = '1:4s';
-    expect(ruleparser.test(rule).valid).toBeFalsy();
+    expect(ruleparser.test('5{tea{ms:4{names:4s}}').valid).toBeFalsy();
+    expect(ruleparser.test('5{teams::4{names:4s}}').valid).toBeFalsy();
+    expect(ruleparser.test('4{teams:4{}names:4s}}').valid).toBeFalsy();
+    expect(ruleparser.test('3{teams:4{names:4s,}}').valid).toBeFalsy();
+    expect(ruleparser.test('3{teams:4{names:4s},}').valid).toBeFalsy();
+    expect(ruleparser.test('3{teams:4{names:4s}.}').valid).toBeFalsy();
+    expect(ruleparser.test('3{teams:4{names:4s}').valid).toBeFalsy();
+    expect(ruleparser.test('3{teams:d{names:4s').valid).toBeFalsy();
+    expect(ruleparser.test('1:4na{ms:4s').valid).toBeFalsy();
 
     //no type specified at the end
-    rule = '2{name:s,birth:d,skills:5{tags:24}}';
-    expect(ruleparser.test(rule).valid).toBeFalsy();
-
-    rule = '5{teams:4{name:s},houses:5{name:s,code:n}}';
-    expect(ruleparser.test(rule).valid).toBeTruthy();
+    expect(ruleparser.test('2{name:s,birth:d,skills:5{tags:24}}').valid).toBeFalsy();
+    expect(ruleparser.test('5{teams:4{name:s},houses:5{name:s,code:n}}').valid).toBeTruthy();
   });
 
   it('should test basic lexer', function () {
@@ -178,6 +126,45 @@ describe('RuleParser', function () {
     ruleparser.lex('15z', err);
     expect(err.msg).toMatch(/Unknown type/);
     ruleparser.lex('{s:s,n:8qa}', err);
+    expect(err.msg).toMatch(/Unknown type/);
+
+    ruleparser.lex('s5n', err);
+    expect(err.msg).toMatch(/Unknown type/);
+    ruleparser.lex('5n{name:s}', err);
+    expect(err.msg).toMatch(/Unknown type/);
+    ruleparser.lex('5ss', err);
+    expect(err.msg).toMatch(/Unknown type/);
+    ruleparser.lex('nnn', err);
+    expect(err.msg).toMatch(/Unknown type/);
+
+    ruleparser.lex('18n', err);
+    expect(err.msg).toBeFalsy();
+    ruleparser.lex('{name:2s}', err);
+    expect(err.msg).toBeFalsy();
+    ruleparser.lex('5{tab:2s}', err);
+    expect(err.msg).toBeFalsy();
+
+    ruleparser.lex('w', err);
+    expect(err.msg).toMatch(/Unknown type/);
+    ruleparser.lex('a', err);
+    expect(err.msg).toMatch(/Unknown type/);
+    ruleparser.lex('2', err);
+    expect(err.msg).toMatch(/Unknown type/);
+
+    ruleparser.lex('s', err);
+    expect(err.msg).toBeFalsy();
+    ruleparser.lex('n', err);
+    expect(err.msg).toBeFalsy();
+    ruleparser.lex('d', err);
+    expect(err.msg).toBeFalsy();
+    ruleparser.lex('b', err);
+    expect(err.msg).toBeFalsy();
+
+    ruleparser.lex('3teams:dnames:4s', err);
+    expect(err.msg).toMatch(/Unknown type/);
+    ruleparser.lex('3:4names:4s', err);
+    expect(err.msg).toMatch(/Unknown type/);
+    ruleparser.lex('1:4s', err);
     expect(err.msg).toMatch(/Unknown type/);
   });
 
