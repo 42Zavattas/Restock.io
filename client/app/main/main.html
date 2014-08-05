@@ -1,18 +1,3 @@
 <section class="rs-ruler">
-<div class="rs-error-msg" ng-show="errorMsg"><span>{{ errorMsg }}</span></div>
-<input
-  ng-class="{ invalid: !isValid(rule.input), waiting: rule.input === '' }"
-  autofocus
-  ng-model="rule.input"
-  type="text"
-  class="rs-ruler-input">
-<div ng-if="isValid(rule.input) && rule.input !== ''">
-  <div class="flex centered">
-    <div class="rs-badge">HTTP<br>GET</div>
-    <a target="_blank" ng-href="http://www.restock.io/api/{{rule.input}}" class="rs-ruler-pre">
-      restock.io/api/{{ rule.input }}
-    </a>
-  </div>
-</div>
 <rule-sketch class="rs-ruler-result" rule="rule"></rule-sketch>
 </section>

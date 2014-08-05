@@ -21,18 +21,6 @@
   </head>
   <body ng-app="restockApp">
 
-    <h1><a href="/"><span class="embed">REST</span>ock.io</a></h1>
-
-    <nav class="rs-main-nav">
-      <ul>
-        <li ng-show="!ui.isLogged"><a class="brand" href="/login">Login</a></li>
-        <li ng-show="!ui.isLogged"><a href="/signup">Sign up for free</a></li>
-        <li ng-show="ui.isLogged"><a class="brand" ng-click="logout()" href="">Disconnect</a></li>
-        <li ng-show="ui.isLogged"><a href="/account">Account</a></li>
-        <li><a href="/pricing">Pricing</a></li>
-      </ul>
-    </nav>
-
     <div ng-view></div>
 
     <script src="socket.io/socket.io.js"></script>
