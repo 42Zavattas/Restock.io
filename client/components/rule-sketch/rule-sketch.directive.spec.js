@@ -4,7 +4,7 @@ describe('Directive: ruleSketch', function () {
 
   // load the directive's module and view
   beforeEach(module('restockApp'));
-  beforeEach(module('app/rule-sketch/rule-sketch.html'));
+  beforeEach(module('components/rule-sketch/rule-sketch.html'));
 
   var element, scope;
 
