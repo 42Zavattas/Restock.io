@@ -12,13 +12,12 @@ angular.module('restockApp')
         return false;
       }
       res = ruleparser.lex(str, err);
-      console.log(res);
-      console.log(err);
       if (err.msg) {
         $scope.errorMsg = err.msg;
         return false;
       }
       $scope.errorMsg = '';
+      $scope.rule.lexed = res;
       return true;
     };
 
