@@ -9,7 +9,6 @@ var errors = require('./components/errors');
 module.exports = function(app) {
 
   // Insert routes below
-  app.use('/api/dicos', require('./api/dico'));
   app.use('/api/rules', require('./api/rule'));
   app.use('/api/users', require('./api/user'));
 
