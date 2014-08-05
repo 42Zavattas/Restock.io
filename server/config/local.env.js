@@ -9,8 +9,8 @@ module.exports = {
   DOMAIN: 'http://localhost:9000',
   SESSION_SECRET: "restock-secret",
 
-  GOOGLE_ID: 'app-id',
-  GOOGLE_SECRET: 'secret',
+  GOOGLE_ID: '242806159473-sf1872964so50usa1f7ovg4ps178i2sd.apps.googleusercontent.com',
+  GOOGLE_SECRET: 'nCU6pTvFmgBMmkqn81xazt4A',
 
   // Control debug level for modules using visionmedia/debug
   DEBUG: ''
