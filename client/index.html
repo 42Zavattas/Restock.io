@@ -23,17 +23,22 @@
 
     <div class="rs-shadow"></div>
 
-    <h1><a href="/"><span class="embed">REST</span>ock.io</a></h1>
+    <header class="rs-main-head">
 
-    <nav class="rs-main-nav">
-      <ul>
-        <li ng-show="!ui.isLogged"><a class="brand" href="/login">Login</a></li>
-        <li ng-show="!ui.isLogged"><a href="/signup">Sign up for free</a></li>
-        <li ng-show="ui.isLogged"><a class="brand" ng-click="logout()" href="">Disconnect</a></li>
-        <li ng-show="ui.isLogged"><a href="/account">Account</a></li>
-        <li><a href="/pricing">Pricing</a></li>
-      </ul>
-    </nav>
+      <h1><a href="/"><span class="embed">REST</span>ock.io</a></h1>
+
+      <nav class="rs-main-nav">
+        <ul>
+          <li><a href="editor" class="rs-brand">Editor</a></li>
+          <li ng-show="!ui.isLogged"><a class="brand" href="/login">Login</a></li>
+          <li ng-show="!ui.isLogged"><a href="/signup">Sign up for free</a></li>
+          <li ng-show="ui.isLogged"><a class="brand" ng-click="logout()" href="">Disconnect</a></li>
+          <li ng-show="ui.isLogged"><a href="/account">Account</a></li>
+          <li><a href="/pricing">Pricing</a></li>
+        </ul>
+      </nav>
+
+    </header>
 
     <div ng-view></div>
 

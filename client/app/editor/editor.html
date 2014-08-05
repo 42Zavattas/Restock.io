@@ -1,3 +1,23 @@
-<div class="col-md-12">
-This is the editor view.
+<section class="rs-ruler">
+<input
+  ng-class="{ invalid: !isValid(rule.input), waiting: rule.input === '' }"
+  autofocus
+  ng-model="rule.input"
+  type="text"
+  class="rs-ruler-input">
+<div ng-if="errorMsg">
+  <div class="flex centered rs-sub-input">
+    <div class="rs-badge error">ERROR</div>
+    <div class="rs-error-msg">{{ errorMsg }}</div>
+  </div>
 </div>
+<div ng-if="isValid(rule.input) && rule.input !== ''">
+  <div class="flex centered rs-sub-input">
+    <div class="rs-badge">HTTP<br>GET</div>
+    <a target="_blank" ng-href="{{domain}}api/{{rule.input}}" class="rs-ruler-url">
+      {{ domain }}api/{{ rule.input }}
+    </a>
+  </div>
+</div>
+<rule-sketch class="rs-ruler-result" rule="rule"></rule-sketch>
+</section>

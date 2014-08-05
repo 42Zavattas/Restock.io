@@ -58,7 +58,6 @@ input, textarea, select, button {
 body {
   font-size: 16px;
   font-family: "Sinkin Light";
-  padding: 1em;
   background: $blue;
   @include user-select(none);
 }
@@ -70,11 +69,16 @@ body {
   @include background-image(radial-gradient(rgba(black, .3), rgba(black, .6)));
 }
 
+.rs-main-head {
+  margin: 1em;
+  display: flex;
+  align-items: center;
+  margin-bottom: 100px;
+}
+
 h1 {
-  text-align: right;
   font-size: 23px;
   color: rgba(black, .3);
-  margin-bottom: 126px;
   .embed {
     display: inline-block;
     line-height: 70px;
@@ -92,6 +96,32 @@ h1 {
       color: darken($blue, 10);
       .embed {
         background: darken($blue, 10);
+      }
+    }
+  }
+}
+
+.rs-main-nav {
+  margin-left: auto;
+  ul {
+    display: flex;
+    li {
+      margin-left: 50px;
+      a {
+        text-decoration: none;
+        color: rgba(black, .4);
+        padding: 15px;
+        display:block;
+        border: 1px solid transparent;
+        &.brand {
+          border-color: rgba($blue, .7);
+          color: darken($blue, 15);
+        }
+        @include border-radius(5px);
+        &:hover {
+          color: white;
+          background: rgba($blue, .7);
+        }
       }
     }
   }
@@ -152,34 +182,6 @@ input.form-control {
   @include border-radius(3px);
   &:focus {
     border-color: $blue !important;
-  }
-}
-
-.rs-main-nav {
-  position: absolute;
-  top: 46px;
-  left: 46px;
-  ul {
-    display: flex;
-    li {
-      margin-right: 50px;
-      a {
-        text-decoration: none;
-        color: rgba(black, .4);
-        padding: 15px;
-        display:block;
-        border: 1px solid transparent;
-        &.brand {
-          border-color: rgba($blue, .7);
-          color: darken($blue, 15);
-        }
-        @include border-radius(5px);
-        &:hover {
-          color: white;
-          background: rgba($blue, .7);
-        }
-      }
-    }
   }
 }
 
