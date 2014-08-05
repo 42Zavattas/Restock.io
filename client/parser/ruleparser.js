@@ -183,10 +183,4 @@
     return lex(str, err);
   };
 
-  exports.parse = function (rule) {
-    if (!this.test(rule)) {
-      return null;
-    }
-  };
-
 })(typeof exports === 'undefined' ? this['ruleparser'] = {} : exports);

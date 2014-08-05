@@ -13,7 +13,8 @@ function getElementOfType (type) {
   var indexes = {
     's': types.getWord,
     'S': types.getParagraph,
-    'n': types.getNumber,
+    'n': types.getLittleNumber,
+    'N': types.getNumber,
     'b': types.getBoolean,
     'd': types.getDate,
     'e': types.getEmail,

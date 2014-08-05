@@ -13,9 +13,6 @@ describe('RuleParser', function () {
 
     expect(ruleparser).toBeDefined();
 
-    expect(ruleparser.parse).toBeDefined();
-    expect(ruleparser.parse).toEqual(jasmine.any(Function));
-
     expect(ruleparser.test).toBeDefined();
     expect(ruleparser.test).toEqual(jasmine.any(Function));
 

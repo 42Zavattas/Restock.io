@@ -1,21 +1,28 @@
 'use strict';
 
 angular.module('restockApp')
-  .controller('AccountCtrl', function ($scope, User, Auth) {
+  .controller('AccountCtrl', function ($scope, Restangular, Auth) {
+
     $scope.errors = {};
 
-    $scope.changePassword = function(form) {
+    Restangular.one('rules', 'mine').getList().then(function (res) {
+      console.log(res);
+    });
+
+
+    $scope.changePassword = function (form) {
       $scope.submitted = true;
-      if(form.$valid) {
+      if (form.$valid) {
         Auth.changePassword( $scope.user.oldPassword, $scope.user.newPassword )
-        .then( function() {
+        .then(function () {
           $scope.message = 'Password successfully changed.';
         })
-        .catch( function() {
+        .catch(function () {
           form.password.$setValidity('mongoose', false);
           $scope.errors.other = 'Incorrect password';
           $scope.message = '';
         });
       }
 		};
+
   });

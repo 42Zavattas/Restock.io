@@ -11,6 +11,10 @@ exports.getParagraph = function () {
   return chance.paragraph();
 }
 
+exports.getLittleNumber = function () {
+  return chance.integer({min: 0, max: 100});
+}
+
 exports.getNumber = function () {
   return chance.integer();
 }
