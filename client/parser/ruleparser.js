@@ -145,7 +145,7 @@
     if (res !== null) {
       out.type = 'array';
       out.nbChilds = Number(str.substr(0, res[0].length));
-      out.child = lex(findNode(str.substr(res[0].length)));
+      out.child = lex(findNode(str.substr(res[0].length)), err);
       return out;
     }
 
@@ -161,12 +161,15 @@
         }
         out.props.push({
           name: props[i].substring(0, props[i].indexOf(':')),
-          val: lex(props[i].substr(props[i].indexOf(':') + 1))
+          val: lex(props[i].substr(props[i].indexOf(':') + 1), err)
         });
       }
+      return out;
     }
 
-    return out;
+    // Problematic
+    err.msg = 'Unknown type \'' + str + '\'';
+    return false;
 
   }
 

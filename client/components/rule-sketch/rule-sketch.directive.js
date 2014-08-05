@@ -10,8 +10,8 @@ angular.module('restockApp')
       },
       link: function (scope) {
 
-        scope.$watch('rule.input', function () {
-          console.log('RESULTAT', '--------', ruleparser.lex(scope.rule.input));
+        scope.$watch('rule.lexed', function () {
+          console.log('changes !');
         });
 
       }
