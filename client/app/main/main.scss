@@ -1,6 +1,8 @@
 .rs-ruler {
-  text-align: center;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .rs-ruler-input {
@@ -9,7 +11,7 @@
   border-bottom: 5px solid rgba(black, .2);
   background: rgba(white, .4);
   @include box-shadow(rgba(black, .3) 0 4px 8px);
-  font-family: "Sinkin Light";
+  font-family: "monospace";
   font-size: 31px;
   width: 80%;
   height: 130px;
@@ -38,28 +40,44 @@
   top: 200px;
 }
 
-.rs-ruler-pre {
+.rs-sub-input {
+  margin: 20px auto;
+}
+
+.rs-ruler-url {
   @include user-select(text);
   margin-left: 20px;
-  line-height: 58px;
+  color: rgba(black, .5);
+  text-decoration: none;
+  @include text-shadow(rgba(white, .1) 0 1px);
+  &:hover {
+    text-decoration:underline;
+  }
+}
+
+.rs-error-msg {
+  margin-left: 20px;
 }
 
 .rs-badge {
   font-family: "Lucida Console";
   font-size: 10px;
-  color: white;
-  background: $green;
-  padding: 3px;
+  color: rgba(white, .7);
+  background: rgba($green,.4);
+  padding: 2px;
+  padding-top: 3px;
+  padding-bottom: 1px;
+  display:block;
+  text-align:center;
   border: 1px solid darken($green, 8);
+  @include box-shadow(rgba(black,.6) 0 1px 2px);
+  &.error {
+    background: rgba($red, .5);
+    border: 1px solid darken($red, 10);
+  }
 }
 
 .rs-error-msg {
-  position: absolute;
-  left: 0; right: 0; bottom: -30px;
-  margin: 0 auto;
-  text-align: center;
-  span {
-    color: red;
-    font-size: 11px;
-  }
+  color:rgba(black, .5);
+  @include text-shadow(rgba(white, .1) 0 1px);
 }

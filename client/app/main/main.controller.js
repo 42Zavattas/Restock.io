@@ -1,8 +1,9 @@
 'use strict';
 
 angular.module('restockApp')
-  .controller('MainCtrl', function ($scope, $routeParams) {
+  .controller('MainCtrl', function ($scope, $routeParams, $location) {
 
+    $scope.domain = $location.absUrl();
     $scope.rule = { input: $routeParams.q || '', lexed: null };
 
     $scope.isValid = function (str) {
