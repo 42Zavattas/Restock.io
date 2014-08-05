@@ -173,7 +173,12 @@
 
   }
 
-  exports.lex = function (str, err) { return lex(str, err); };
+  exports.lex = function (str, err) {
+    if (str === '') {
+      return null;
+    }
+    return lex(str, err);
+  };
 
   exports.parse = function (rule) {
     if (!this.test(rule)) {
