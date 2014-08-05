@@ -3,7 +3,7 @@
 angular.module('restockApp')
   .controller('EditorCtrl', function ($scope, $routeParams, $location) {
 
-    $scope.domain = $location.absUrl();
+    $scope.domain = $location.protocol() + '://' + $location.host() + ':' + $location.port();
     $scope.rule = { input: $routeParams.q || '', lexed: null };
 
     $scope.isValid = function (str) {
