@@ -178,6 +178,7 @@
     if (str === '') {
       return null;
     }
+    err.msg = false;
     return lex(str, err);
   };
 
