@@ -161,7 +161,8 @@
       var props = (function (props) {
         var out = [];
         for (var i = 0; i < props.length; i++) {
-          if (props[i].indexOf('{') !== -1) {
+          if ((props[i].indexOf('{') !== -1 && props[i].indexOf('}') === -1)
+            || props[i].indexOf('{') === -1 && props[i].indexOf('}') !== -1) {
             out.push([props[i++], props[i]].join(','));
           } else {
             out.push(props[i]);
