@@ -219,6 +219,10 @@ footer {
   margin: 0 auto;
 }
 
+strong {
+  font-family: "Sinkin Bold";
+}
+
 // Component styles are injected through grunt
 // injector
 @import 'account/login/login.scss';

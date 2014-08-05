@@ -21,10 +21,57 @@ table {
   }
 }
 
+.doc-h2 {
+  font-family: "Sinkin";
+  font-size: 24px;
+  margin-bottom: 2em;
+  span {
+    border-bottom: 2px dashed rgba(black, .2);
+  }
+}
+
+.doc-index-bloc {
+}
+
+ol {
+  list-style-type:upper-roman;
+}
+
+.doc-index {
+  ol {
+    list-style-type:lower-alpha;
+    margin-left: 20px;
+  }
+  li {
+    margin-bottom: 5px;
+    a {
+      text-decoration: none;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+.smart-hr {
+  width: 60%;
+  height: 8px;
+  background: rgba(black, .1);
+  border-top: 1px solid rgba(black, .2);
+  margin: 0 auto;
+  margin-bottom: 4em;
+}
+
 pre {
   font-family: monospace;
   background: rgba(white, .7);
   padding: 12px;
   margin-bottom: 2em;
   @include box-shadow(rgba(black, .3) 0 4px 8px);
+}
+
+.code {
+  background: rgba(white, .4);
+  padding: 5px;
+  font-family: monospace;
 }
