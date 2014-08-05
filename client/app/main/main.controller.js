@@ -22,4 +22,6 @@ angular.module('restockApp')
       return true;
     };
 
+    $scope.isValid($scope.rule.input);
+
   });

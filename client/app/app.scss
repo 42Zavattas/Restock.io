@@ -183,6 +183,32 @@ input.form-control {
   }
 }
 
+.rs-hr {
+  display:block;
+  background: rgba(white, .1);
+  margin: 50px auto;
+  width: 90%;
+  border: 1px solid rgba(white, .2);
+  @include box-shadow(rgba(black, .3) 0 2px 9px);
+  &.slim {
+    margin: 0 auto;
+  }
+}
+
+footer {
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  text-align: center;
+  color:rgba(black,.6);
+  font-family: monospace;
+  font-size: 11px;
+  background: rgba(white, .08);
+  margin: 0 auto;
+  padding: 70px 0;
+  border-top: 2px solid rgba(white, .2);
+  @include box-shadow(rgba(black,.3) 0 1px 9px inset);
+}
+
 
 // Component styles are injected through grunt
 // injector

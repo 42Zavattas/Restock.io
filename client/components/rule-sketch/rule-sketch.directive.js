@@ -9,7 +9,9 @@ angular.module('restockApp')
         rule: '='
       },
       link: function (scope) {
-        
+        scope.$watch('rule', function () {
+          console.log(scope.rule);
+        });
       }
     };
   });
