@@ -158,7 +158,17 @@
       }
       out.type = 'object';
       out.props = [];
-      var props = str.substr(1, str.length - 2).split(',');
+      var props = (function (props) {
+        var out = [];
+        for (var i = 0; i < props.length; i++) {
+          if (props[i].indexOf('{') !== -1) {
+            out.push([props[i++], props[i]].join(','));
+          } else {
+            out.push(props[i]);
+          }
+        }
+        return out;
+      })(str.substr(1, str.length - 2).split(','));
       for (var i = 0; i < props.length; i++) {
         if (!/^[^:]+:.+$/.test(props[i])) {
           err.msg = "No value for property '" + props[i] + "'";
