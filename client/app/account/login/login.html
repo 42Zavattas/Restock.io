@@ -5,20 +5,13 @@
   <form class="form" name="form" ng-submit="login(form)" novalidate>
 
     <div class="form-group">
-      <input type="email" placeholder="Enter your email" name="email" class="form-control" ng-model="user.email" required>
+      <input ng-class="{'has-error':(form.email.$error.email || form.email.$error.required) && submitted}"
+             type="email" placeholder="Enter your email" name="email" class="form-control" ng-model="user.email" required>
     </div>
 
     <div class="form-group">
-      <input type="password" placeholder="Enter your password" name="password" class="form-control" ng-model="user.password" required>
-    </div>
-
-    <div class="form-group has-error">
-      <p class="help-block" ng-show="form.email.$error.required && form.password.$error.required && submitted">
-        Please enter your email and password.
-      </p>
-      <p class="help-block" ng-show="form.email.$error.email && submitted">
-        Please enter a valid email.
-      </p>
+      <input ng-class="{'has-error':(form.password.$error.minlength || form.password.$error.required) && submitted}"
+            type="password" placeholder="Enter your password" name="password" ng-minlength="3" class="form-control" ng-model="user.password" required>
     </div>
 
     <button class="btn btn-login" type="submit">
