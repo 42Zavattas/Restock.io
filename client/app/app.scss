@@ -206,11 +206,6 @@ footer {
   font-size: 11px;
   margin: 0 auto;
   padding: 120px 0 70px 0;
-  span {
-    background: rgba(black, .1);
-    padding: 5px 8px;
-    @include border-radius(10px);
-  }
 }
 
 .container {
