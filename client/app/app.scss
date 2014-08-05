@@ -59,6 +59,7 @@ body {
   font-size: 16px;
   font-family: "Sinkin Light";
   background: $blue;
+  color: rgba(black, .6);
   @include user-select(none);
 }
 
@@ -83,7 +84,6 @@ a.rs-logo {
       color: darken($blue, 10);
     }
     .embed {
-      //background: darken($blue, 10);
       color: $green2;
     }
   }
@@ -97,7 +97,6 @@ a.rs-logo {
       padding-top: 7px;
       padding-left: 4px;
       padding-right: 3px;
-      //background: rgba(black, .1);
       margin-right: 3px;
       color: white;
     }
@@ -106,6 +105,7 @@ a.rs-logo {
 
 .rs-main-nav {
   margin-left: auto;
+  margin-right: 15px;
   ul {
     display: flex;
     li {
@@ -120,10 +120,10 @@ a.rs-logo {
           border-color: rgba($blue, .7);
           color: darken($blue, 15);
         }
-        @include border-radius(5px);
         &:hover {
           color: white;
-          background: rgba($blue, .7);
+          //background: rgba($blue, .7);
+          border-bottom-color: rgba($blue, .7);
         }
       }
     }
