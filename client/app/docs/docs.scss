@@ -6,7 +6,7 @@ table {
     font-family: "Sinkin Italic";
     margin-bottom: 1em;
   }
-  tr {
+  tbody tr {
     border-bottom: 1px solid rgba(black, .1);
     &:last-child {
       border-bottom: none;
