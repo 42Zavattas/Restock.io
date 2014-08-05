@@ -59,9 +59,15 @@ body {
   font-size: 16px;
   font-family: "Sinkin Light";
   padding: 1em;
-  background: $white;
-  @include background-image(radial-gradient(rgba(black, 0), rgba(black, .1)));
+  background: $blue;
   @include user-select(none);
+}
+
+.rs-shadow {
+  z-index: -1;
+  position: fixed;
+  top: 0; bottom: 0; left: 0; right: 0;
+  @include background-image(radial-gradient(rgba(black, .3), rgba(black, .6)));
 }
 
 h1 {
