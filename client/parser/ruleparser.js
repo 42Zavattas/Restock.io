@@ -51,9 +51,6 @@
     var beginNum = val.match(/^[0-9]+/);
     if (beginNum) {
       beginNum = beginNum[0];
-      if (parseInt(beginNum, 10) > 100) {
-        return false;
-      }
     }
 
     var cur = beginNum ? beginNum.length : 0;
@@ -145,6 +142,10 @@
     if (res !== null) {
       out.type = 'array';
       out.nbChilds = Number(str.substr(0, res[0].length));
+      if (out.nbChilds > 50) {
+        err.msg = 'Too much elements (limit: 50, or premium account)';
+        return false;
+      }
       out.child = lex(findNode(str.substr(res[0].length)), err);
       return out;
     }
