@@ -18,6 +18,9 @@
       {{ domain }}/api/{{ rule.input }}
     </a>
   </div>
+  <div class="rs-badge big clickable" ng-if="ui.isLogged">
+    <i class="icon-disk"></i> Save this Stock
+  </div>
 </div>
 <rule-sketch class="rs-ruler-result" rule="rule"></rule-sketch>
 </section>

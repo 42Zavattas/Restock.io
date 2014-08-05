@@ -68,6 +68,19 @@
     background: rgba($red, .5);
     border: 1px solid darken($red, 10);
   }
+  &.big {
+    background: darken($blue, 40);
+    border: 1px solid darken($blue, 50);
+    height: 40px;
+    font-size: 17px;
+    padding: 9px 10px;
+  }
+  &.clickable {
+    cursor: pointer;
+    &:hover {
+      background-color: darken($blue, 30);
+    }
+  }
 }
 
 .rs-error-msg {

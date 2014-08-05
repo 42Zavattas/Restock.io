@@ -15,6 +15,7 @@ angular.module('restockApp')
         Auth.changePassword($scope.user.oldPassword, $scope.user.newPassword)
         .then(function () {
           $scope.message = 'Password successfully changed.';
+          $scope.user.success = true;
           $scope.user.newPassword = '';
           $scope.user.oldPassword = '';
         })

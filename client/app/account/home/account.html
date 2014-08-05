@@ -23,17 +23,17 @@
       </tr>
     </tbody>
   </table>
-  <p class="marged-bottom"><strong>Nothing for now</strong></p>
+  <h3 class="marged-bottom"><strong>Nothing for now</strong></h3>
 
   <form class="form change-pwd" name="form" ng-submit="changePassword(form)" novalidate>
 
     <input type="password" placeholder="Enter your current password" class="form-control" ng-model="user.oldPassword"
-           name="password" ng-class="{'has-error':form.password.$invalid && submitted}" required mongoose-error>
+           name="password" ng-class="{'has-error':!user.success && form.password.$invalid && submitted}" required mongoose-error>
     <input type="password" placeholder="Enter a new password" class="form-control" ng-model="user.newPassword" ng-minlength="3"
-           ng-class="{'has-error':(form.newPassword.$error.minlength || form.newPassword.$error.required) && (form.newPassword.$dirty || submitted)}"
+           ng-class="{'has-error':!user.success && (form.newPassword.$error.minlength || form.newPassword.$error.required) && (form.newPassword.$dirty || submitted)}"
            name="newPassword" required>
 
-    <p class="msg">{{message}}</p>
+    <div class="msg">{{message}}</div>
 
     <button class="btn" type="submit">Save changes</button>
   </form>
