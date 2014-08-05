@@ -1,10 +1,17 @@
 'use strict';
 
 angular.module('restockApp')
-  .controller('EditorCtrl', function ($scope, $routeParams, $location) {
+  .controller('EditorCtrl', function ($scope, $http, $routeParams, $location) {
 
     $scope.domain = $location.protocol() + '://' + $location.host() + ':' + $location.port();
     $scope.rule = { input: $routeParams.q || '', lexed: null };
+
+    $scope.saveStock = function (rule) {
+      $http.post('/api/rules').then(function (res) {
+        console.log(res);
+      });
+      console.log(rule);
+    };
 
     $scope.isValid = function (str) {
       var res = ruleparser.test(str), err = {};

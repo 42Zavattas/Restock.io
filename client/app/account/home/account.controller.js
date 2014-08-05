@@ -1,11 +1,11 @@
 'use strict';
 
 angular.module('restockApp')
-  .controller('AccountCtrl', function ($scope, Restangular, Auth) {
+  .controller('AccountCtrl', function ($scope, $http, Auth) {
 
     $scope.errors = {};
 
-    Restangular.one('rules', 'mine').getList().then(function (res) {
+    $http.get('/rules/mine').then(function () {
       console.log(res);
     });
 
