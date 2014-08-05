@@ -9,11 +9,10 @@ angular.module('restockApp')
       console.log(res);
     });
 
-
     $scope.changePassword = function (form) {
       $scope.submitted = true;
       if (form.$valid) {
-        Auth.changePassword( $scope.user.oldPassword, $scope.user.newPassword )
+        Auth.changePassword($scope.user.oldPassword, $scope.user.newPassword)
         .then(function () {
           $scope.message = 'Password successfully changed.';
         })
