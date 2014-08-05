@@ -99,7 +99,7 @@
     var res;
 
     // "regular" node
-    res = str.match(/^(s|S|n|N|b|d)/);
+    res = str.match(/^(s|S|n|N|b|d)$/);
     if (res !== null) {
       return str.charAt(0);
     }
