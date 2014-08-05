@@ -18,7 +18,7 @@
       {{ domain }}/api/{{ rule.input }}
     </a>
   </div>
-  <div class="rs-badge big clickable" ng-if="ui.isLogged">
+  <div ng-click="saveStock(rule.input)" ng-disabled="!ui.isLogged" class="rs-badge big clickable">
     <i class="icon-disk"></i> Save this Stock
   </div>
 </div>
