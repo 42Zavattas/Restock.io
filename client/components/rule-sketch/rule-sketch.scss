@@ -1,3 +1,10 @@
+.rs-ruler-result.invalid .rs-sketch-container {
+  border-color:$red;
+}
+.rs-ruler-result.valid .rs-sketch-container {
+  border-color:$green;
+}
+
 .rs-sketch-container {
   margin: 0 auto;
   width: 800px;
