@@ -48,6 +48,7 @@ $blue: #7ec5d4;
 
 * {
   box-sizing: border-box;
+  outline: none;
 }
 
 input, textarea, select, button {
@@ -101,6 +102,10 @@ h1 {
 
 .mid {
   width: 50%;
+}
+
+.has-error {
+  border: 1px solid lighten($red, 10) !important;
 }
 
 .btn {
