@@ -7,13 +7,6 @@
     font-family: 'Sinkin Bold';
     margin-bottom: 20px;
   }
-  input {
-    width: 100%;
-    padding: 10px 20px;
-    border: none;
-    margin-bottom: 10px;
-    @include border-radius(3px);
-  }
   > p {
     font-size: 13px;
     margin-bottom: 10px;
