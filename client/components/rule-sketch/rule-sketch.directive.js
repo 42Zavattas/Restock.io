@@ -3,7 +3,7 @@
 angular.module('restockApp')
   .directive('ruleSketch', function () {
     return {
-      templateUrl: 'app/rule-sketch/rule-sketch.html',
+      templateUrl: 'components/rule-sketch/rule-sketch.html',
       restrict: 'E',
       scope: {
         rule: '='
