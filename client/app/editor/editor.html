@@ -1,7 +1,7 @@
 <section class="rs-ruler">
 <input
   ng-class="{ invalid: !isValid(rule.input), waiting: rule.input === '' }"
-  autofocus
+  focus-me="!loading"
   ng-model="rule.input"
   type="text"
   class="rs-ruler-input">
