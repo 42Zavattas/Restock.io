@@ -49,7 +49,6 @@
 
   function checkRoot (val) {
     var beginNum = val.match(/^[0-9]+/);
-
     if (beginNum) {
       beginNum = beginNum[0];
       if (parseInt(beginNum, 10) > 100) {
@@ -90,6 +89,60 @@
     }
     return { valid: true };
   };
+
+  /**
+   * ----------------------------------------------
+   *                       Lexer
+   * ----------------------------------------------
+   */
+
+  /**
+   * Extract the next node in the given string
+   */
+  function findNode (str) {
+    var res;
+
+    // "regular" node
+    res = str.match(/^(s|S|n|N|b|d)/);
+    if (res !== null) {
+      console.log(res);
+      return str.charAt(0);
+    }
+
+    // "object" node
+    if (str.charAt(0) === '{') {
+    }
+
+    return str;
+  }
+
+  /**
+   * Convert a rule string to a lexed object
+   */
+  function lex (str) {
+    var out = {}, res;
+
+    console.log("-> LEXING '"+str+"'");
+
+    // Find if current node is a "regular"
+    res = str.match(/^(s|S|n|N|b|d)$/);
+    if (res !== null) {
+      out.type = str;
+      return out;
+    }
+
+    // Find if current node is an Array
+    res = str.match(/^[0-9]+/);
+    if (res !== null) {
+      out.type = 'array';
+      out.nbChilds = Number(str.substr(0, res[0].length));
+      out.child = lex(findNode(str.substr(res[0].length)));
+      return out;
+    }
+
+  }
+
+  exports.lex = function (str) { return lex(str); };
 
   exports.parse = function (rule) {
     if (!this.test(rule)) {

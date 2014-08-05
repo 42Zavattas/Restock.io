@@ -8,17 +8,10 @@ angular.module('restockApp')
       scope: {
         rule: '='
       },
-      link: function (scope, element, attrs) {
-
-        var container = element.find('.rs-sketch-container');
-        var mock = {};
-
-        function draw() {
-          console.log('drawing');
-        }
+      link: function (scope) {
 
         scope.$watch('rule.input', function () {
-          draw();
+          console.log('RESULTAT', '--------', ruleparser.lex(scope.rule.input));
         });
 
       }
