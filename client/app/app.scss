@@ -179,7 +179,7 @@ input.has-error {
 
 input.form-control {
   width: 100%;
-  padding: 10px 20px;
+  padding: 10px 12px;
   margin-bottom: 10px;
   border: 1px solid transparent;
   @include border-radius(3px);
@@ -225,6 +225,7 @@ strong {
 
 // Component styles are injected through grunt
 // injector
+@import 'account/home/account.scss';
 @import 'account/login/login.scss';
 @import 'admin/admin.scss';
 @import 'docs/docs.scss';

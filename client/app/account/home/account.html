@@ -1,19 +1,21 @@
-<form class="form" name="form" ng-submit="changePassword(form)" novalidate>
+<div class="container">
 
-  <div class="form-group">
-    <label>Current Password</label>
+  <ul class="stocklist">
+    <li ng-if="!stocks.length">No saved stock to show</li>
+    <li ng-repeat="stock in stocks"></li>
+  </ul>
 
-    <input type="password" class="form-control" ng-model="user.oldPassword"
-           name="password" ng-class="{'has-error':form.password.$error.mongoose}" mongoose-error>
-  </div>
+  <form class="form change-pwd" name="form" ng-submit="changePassword(form)" novalidate>
 
-  <div class="form-group">
-    <label>New Password</label>
-
-    <input type="password" class="form-control" ng-model="user.newPassword" ng-minlength="3"
+    <input type="password" placeholder="Enter your current password" class="form-control" ng-model="user.oldPassword"
+           name="password" ng-class="{'has-error':form.password.$invalid && submitted}" required mongoose-error>
+    <input type="password" placeholder="Enter a new password" class="form-control" ng-model="user.newPassword" ng-minlength="3"
            ng-class="{'has-error':(form.newPassword.$error.minlength || form.newPassword.$error.required) && (form.newPassword.$dirty || submitted)}"
            name="newPassword" required>
-  </div>
 
-  <button class="btn" type="submit">Save changes</button>
-</form>
+    <p class="msg">{{message}}</p>
+
+    <button class="btn" type="submit">Save changes</button>
+  </form>
+
+</div>
