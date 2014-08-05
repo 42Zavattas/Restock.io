@@ -74,7 +74,7 @@ body {
   display: flex;
   align-items: center;
   width: 800px;
-  margin: 15px auto 30px auto;
+  margin: 25px auto 50px auto;
 }
 
 a.rs-logo {
@@ -93,7 +93,7 @@ a.rs-logo {
     color: rgba(black, .3);
     .embed {
       display: inline-block;
-      color: white;
+      color: rgba(white, .7);
     }
   }
 }
@@ -116,8 +116,7 @@ a.rs-logo {
           color: darken($blue, 15);
         }
         &:hover {
-          color: white;
-          //background: rgba($blue, .7);
+          color: rgba(white, .7);
           border-bottom-color: rgba($blue, .7);
         }
       }
