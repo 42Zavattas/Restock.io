@@ -3,7 +3,7 @@
 var mongoose = require('mongoose'),
     Schema = mongoose.Schema;
 
-var RuleSchema = new Schema({
+var StockSchema = new Schema({
   name      : String,
   desc      : String,
   code      : String,
@@ -15,7 +15,7 @@ var RuleSchema = new Schema({
   updated_at: Date
 });
 
-RuleSchema
+StockSchema
   .pre('save', function(next) {
     var now = new Date();
     this.updated_at = now;
@@ -25,4 +25,4 @@ RuleSchema
     next();
   });
 
-module.exports = mongoose.model('Rule', RuleSchema);
+module.exports = mongoose.model('Stock', StockSchema);

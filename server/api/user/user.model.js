@@ -9,7 +9,7 @@ var UserSchema = new Schema({
   name          : String,
   email         : { type: String, lowercase: true },
   role          : { type: String, default: 'user' },
-  rules         : [{ type: Schema.ObjectId, ref: 'Rule' }],
+  rules         : [{ type: Schema.ObjectId, ref: 'Stock' }],
   hashedPassword: String,
   provider      : String,
   salt          : String,

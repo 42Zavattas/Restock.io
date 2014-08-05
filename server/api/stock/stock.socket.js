@@ -4,21 +4,21 @@
 
 'use strict';
 
-var Rule = require('./rule.model');
+var Stock = require('./stock.model');
 
 exports.register = function(socket) {
-  Rule.schema.post('save', function (doc) {
+  Stock.schema.post('save', function (doc) {
     onSave(socket, doc);
   });
-  Rule.schema.post('remove', function (doc) {
+  Stock.schema.post('remove', function (doc) {
     onRemove(socket, doc);
   });
 }
 
 function onSave(socket, doc, cb) {
-  socket.emit('rule:save', doc);
+  socket.emit('stock:save', doc);
 }
 
 function onRemove(socket, doc, cb) {
-  socket.emit('rule:remove', doc);
+  socket.emit('stock:remove', doc);
 }

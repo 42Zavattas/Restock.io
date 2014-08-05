@@ -1,79 +1,79 @@
 'use strict';
 
 var _ = require('lodash');
-var Rule = require('./rule.model');
+var Stock = require('./stock.model');
 
-// Get list of rules
+// Get list of stocks
 exports.index = function(req, res) {
-  Rule.find({}, '+active').exec(function (err, rules) {
+  Stock.find({}, '+active').exec(function (err, stocks) {
     if(err) { return handleError(res, err); }
-    return res.json(200, rules);
+    return res.json(200, stocks);
   });
 };
 
-// Get a single rule
+// Get a single stock
 exports.show = function(req, res) {
-  Rule.findById(req.params.id, function (err, rule) {
+  Stock.findById(req.params.id, function (err, stock) {
     if(err) { return handleError(res, err); }
-    if(!rule || !rule.active) { return res.send(404); }
-    if (rule.user !== req.user._id && req.user.role !== 'admin') {
+    if(!stock || !stock.active) { return res.send(404); }
+    if (stock.user !== req.user._id && req.user.role !== 'admin') {
       return res.send(401);
     }
-    return res.json(rule);
+    return res.json(stock);
   });
 };
 
-// Get all rules of the current user
+// Get all stocks of the current user
 exports.mine = function(req, res) {
-  Rule.find({
+  Stock.find({
     user  : req.user._id,
     active: true
-  }).exec(function (err, rules) {
+  }).exec(function (err, stocks) {
     if(err) { return handleError(res, err); }
-    return res.json(200, rules);
+    return res.json(200, stocks);
   });
 };
 
 exports.create = function(req, res) {
   req.body.user = req.user._id;
-  Rule.create(req.body, function(err, rule) {
+  Stock.create(req.body, function(err, stock) {
     if(err) { return handleError(res, err); }
-    return res.json(201, rule);
+    return res.json(201, stock);
   });
 };
 
 exports.update = function(req, res) {
   if(req.body._id) { delete req.body._id; }
-  Rule.findById(req.params.id, function (err, rule) {
+  Stock.findById(req.params.id, function (err, stock) {
     if (err) { return handleError(res, err); }
-    if(!rule) { return res.send(404); }
-    if (rule.user !== req.user._id && req.user.role !== 'admin') {
+    if(!stock) { return res.send(404); }
+    if (stock.user !== req.user._id && req.user.role !== 'admin') {
       return res.send(401);
     }
-    var updated = _.merge(rule, req.body);
+    var updated = _.merge(stock, req.body);
     updated.save(function (err) {
       if (err) { return handleError(res, err); }
-      return res.json(200, rule);
+      return res.json(200, stock);
     });
   });
 };
 
 exports.destroy = function(req, res) {
-  Rule.findById(req.params.id, function (err, rule) {
+  Stock.findById(req.params.id, function (err, stock) {
     if(err) { return handleError(res, err); }
-    if(!rule) { return res.send(404); }
-    if (rule.user !== req.user._id && req.user.role !== 'admin') {
+    if(!stock) { return res.send(404); }
+    if (stock.user !== req.user._id && req.user.role !== 'admin') {
       return res.send(401);
     }
     if (req.user.role === 'admin') {
-      rule.remove(function(err) {
+      stock.remove(function(err) {
         if(err) { return handleError(res, err); }
         return res.send(204);
       });
     }
     else {
-      rule.active = false;
-      rule.update(function(err) {
+      stock.active = false;
+      stock.update(function(err) {
         if(err) { return handleError(res, err); }
         return res.send(204);
       });
