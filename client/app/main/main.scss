@@ -1,6 +1,8 @@
 .rs-ruler {
-  text-align: center;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .rs-ruler-input {
@@ -11,7 +13,7 @@
   @include box-shadow(rgba(black, .3) 0 4px 8px);
   font-family: "monospace";
   font-size: 31px;
-  width: 80%;
+  width: 800px;
   height: 130px;
   text-align: center;
   padding-top: 20px;
