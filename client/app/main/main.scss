@@ -41,6 +41,12 @@ a.rs-launch-item {
   border: 1px solid rgba(black, .2);
   border-right: none;
   text-decoration: none;
+  i {
+    display:block;
+    margin: 50px auto 20px auto;
+    font-size: 48px;
+    color: rgba($blue, .5);
+  }
   &:last-child {
     border-right: 1px solid rgba(black, .2);
   }
@@ -53,6 +59,9 @@ a.rs-launch-item {
   &:hover {
     background: rgba(black, .6);
     h2 {
+      color: rgba(white, .7);
+    }
+    i {
       color: rgba(white, .7);
     }
   }
