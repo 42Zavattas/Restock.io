@@ -11,6 +11,10 @@ exports.getParagraph = function () {
   return chance.paragraph();
 }
 
+exports.getNumber = function () {
+  return chance.integer();
+}
+
 exports.getEmail = function () {
   return chance.email();
 }

@@ -42,15 +42,6 @@
     return true;
   }
 
-  function supportedType (type) {
-    var types = ['s', 'S', 'n', 'b', 'd', '{'];
-    return !!(types.indexOf(type) !== -1);
-  }
-
-  function getObjectContent (str) {
-    return str.substr(0, Math.min(str.indexOf('{'), str.indexOf('}')));
-  }
-
   function lastValidate (val) {
     var cur = val.indexOf('{');
     getObjectContent(val.substr(cur, val.length));

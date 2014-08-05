@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('restockApp')
-  .controller('SettingsCtrl', function ($scope, User, Auth) {
+  .controller('AccountCtrl', function ($scope, User, Auth) {
     $scope.errors = {};
 
     $scope.changePassword = function(form) {

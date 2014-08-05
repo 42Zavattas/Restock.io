@@ -11,9 +11,9 @@ angular.module('restockApp')
         templateUrl: 'app/account/signup/signup.html',
         controller: 'SignupCtrl'
       })
-      .when('/settings', {
-        templateUrl: 'app/account/settings/settings.html',
-        controller: 'SettingsCtrl',
+      .when('/account', {
+        templateUrl: 'app/account/home/account.html',
+        controller: 'AccountCtrl',
         authenticate: true
       });
   });
