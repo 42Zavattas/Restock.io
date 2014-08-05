@@ -9,8 +9,8 @@
 <div ng-if="isValid(rule.input) && rule.input !== ''">
   <div class="flex centered">
     <div class="rs-badge">HTTP<br>GET</div>
-    <a target="_blank" ng-href="http://www.restock.io/api/={{rule.input}}" class="rs-ruler-pre">
-      restock.io/api/{{ rule.input }}
+    <a target="_blank" ng-href="{{domain}}api/{{rule.input}}" class="rs-ruler-pre">
+      {{ domain }}api/{{ rule.input }}
     </a>
   </div>
 </div>
