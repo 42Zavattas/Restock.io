@@ -42,11 +42,6 @@
     return true;
   }
 
-  function lastValidate (val) {
-    var cur = val.indexOf('{');
-    getObjectContent(val.substr(cur, val.length));
-  }
-
   var testFunctions = [
     { f:limitLength, msg: 'Too many characters.' },
     { f:validateCharacters, msg: 'Invalid characters.' },
