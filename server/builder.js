@@ -9,18 +9,20 @@ var ruleparser = require('../client/parser/ruleparser.js');
 var types = require('./types.js');
 
 function getElementOfType (type) {
-  if (type.toLowerCase() === 's') {
-    return types.getString(type === type.toUpperCase());
-  }
-  else if (type === 'n') {
-    return types.getNumber();
-  }
-  else if (type === 'b') {
-    return types.getBoolean();
-  }
-  else if (type === 'd') {
-    return types.getDate();
-  }
+
+  var indexes = {
+    's': types.getWord,
+    'S': types.getParagraph,
+    'n': types.getNumber,
+    'b': types.getBoolean,
+    'd': types.getDate,
+    'e': types.getEmail,
+    'p': types.getPhone,
+    'a': types.getAddress,
+    'c': types.getColor,
+  };
+
+  return indexes[type]();
 }
 
 function recurse (lex) {

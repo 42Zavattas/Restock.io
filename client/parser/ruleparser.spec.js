@@ -25,14 +25,9 @@ describe('RuleParser', function () {
 
   it('should try to use null', function () {
 
-    rule = null;
-    expect(ruleparser.test(rule).valid).toBeTruthy();
-
-    rule = '';
-    expect(ruleparser.test(rule).valid).toBeTruthy();
-
-    rule = '5s';
-    expect(ruleparser.test(rule).valid).toBeTruthy();
+    expect(ruleparser.test(null).valid).toBeTruthy();
+    expect(ruleparser.test('').valid).toBeTruthy();
+    expect(ruleparser.test('5s').valid).toBeTruthy();
   });
 
   it('should fail when providing too long query', function () {
@@ -40,8 +35,7 @@ describe('RuleParser', function () {
     rule = '123456789123456789123456789123456789123456789123456';
     expect(ruleparser.test(rule).valid).toBeFalsy();
 
-    rule = '5s';
-    expect(ruleparser.test(rule).valid).toBeTruthy();
+    expect(ruleparser.test('5s').valid).toBeTruthy();
   });
 
   it('should check the regex pattern', function () {
@@ -68,10 +62,6 @@ describe('RuleParser', function () {
     expect(ruleparser.test(rule).valid).toBeFalsy();
     rule = '2{nam|e:s,date:d,age:n}';
     expect(ruleparser.test(rule).valid).toBeFalsy();
-  });
-
-  it('should validate types', function () {
-
   });
 
   it('should validate nested objects', function () {
@@ -137,17 +127,24 @@ describe('RuleParser', function () {
     ruleparser.lex('nnn', err);
     expect(err.msg).toMatch(/Unknown type/);
 
+    ruleparser.lex('3teams:dnames:4s', err);
+    expect(err.msg).toMatch(/Unknown type/);
+    ruleparser.lex('3:4names:4s', err);
+    expect(err.msg).toMatch(/Unknown type/);
+    ruleparser.lex('1:4s', err);
+    expect(err.msg).toMatch(/Unknown type/);
+
+    ruleparser.lex('w', err);
+    expect(err.msg).toMatch(/Unknown type/);
+    ruleparser.lex('a', err);
+    expect(err.msg).toMatch(/Unknown type/);
+
     ruleparser.lex('18n', err);
     expect(err.msg).toBeFalsy();
     ruleparser.lex('{name:2s}', err);
     expect(err.msg).toBeFalsy();
     ruleparser.lex('5{tab:2s}', err);
     expect(err.msg).toBeFalsy();
-
-    ruleparser.lex('w', err);
-    expect(err.msg).toMatch(/Unknown type/);
-    ruleparser.lex('a', err);
-    expect(err.msg).toMatch(/Unknown type/);
 
     ruleparser.lex('s', err);
     expect(err.msg).toBeFalsy();
@@ -157,13 +154,6 @@ describe('RuleParser', function () {
     expect(err.msg).toBeFalsy();
     ruleparser.lex('b', err);
     expect(err.msg).toBeFalsy();
-
-    ruleparser.lex('3teams:dnames:4s', err);
-    expect(err.msg).toMatch(/Unknown type/);
-    ruleparser.lex('3:4names:4s', err);
-    expect(err.msg).toMatch(/Unknown type/);
-    ruleparser.lex('1:4s', err);
-    expect(err.msg).toMatch(/Unknown type/);
   });
 
   it('should test when trying to go up the limitations', function () {

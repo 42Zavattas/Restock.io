@@ -3,15 +3,28 @@
 var Chance = require('chance');
 var chance = new Chance();
 
-exports.getString = function (large) {
-  if (large) {
-    return chance.paragraph();
-  }
+exports.getWord = function () {
   return chance.word();
 }
 
-exports.getNumber = function () {
-  return chance.integer();
+exports.getParagraph = function () {
+  return chance.paragraph();
+}
+
+exports.getEmail = function () {
+  return chance.email();
+}
+
+exports.getAddress = function () {
+  return chance.address();
+}
+
+exports.getPhone = function () {
+  return chance.phone();
+}
+
+exports.getColor = function () {
+  return chance.color();
 }
 
 exports.getBoolean = function () {
