@@ -60,6 +60,7 @@ body {
   font-family: "Sinkin Light";
   background: $blue;
   @include user-select(none);
+  margin-bottom:140px;
 }
 
 .rs-shadow {
@@ -198,15 +199,15 @@ input.form-control {
 }
 
 footer {
-  position: fixed;
-  bottom: 0; left: 0; right: 0;
+  position: absolute;
+  bottom: -140px; left: 0; right: 0;
   text-align: center;
   color:rgba(black,.6);
   font-family: monospace;
   font-size: 11px;
   background: rgba(white, .08);
   margin: 0 auto;
-  padding: 70px 0;
+  padding: 50px 0;
   border-top: 2px solid rgba(white, .2);
   @include box-shadow(rgba(black,.3) 0 1px 9px inset);
 }
