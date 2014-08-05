@@ -18,7 +18,6 @@ function onConnect(socket) {
   });
 
   // Insert sockets below
-  //require('../api/dico/dico.socket').register(socket);
   //require('../api/rule/rule.socket').register(socket);
 }
 
