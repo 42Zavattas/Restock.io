@@ -1,11 +1,10 @@
 .rs-sketch-container {
   margin: 0 auto;
   width: 800px;
-  min-height:400px;
-  position: absolute;
-  top: 228px; left:0; right:0;
+  height:400px;
+  position: relative;
   background: rgba(black, .3);
   margin-top: 2em;
-  border: 1px solid rgba(white, .4);
+  border: 1px solid rgba(white, .2);
   @include box-shadow(rgba(black, .5) 0 0 12px inset);
 }

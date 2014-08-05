@@ -5,6 +5,7 @@
     ng-model="rule.input"
     type="text"
     class="rs-ruler-input">
+  <rule-sketch class="rs-ruler-result" rule="rule"></rule-sketch>
   <div ng-if="errorMsg">
     <div class="flex centered rs-sub-input">
       <div class="rs-badge error">ERROR</div>
@@ -22,5 +23,4 @@
       <i class="icon-disk"></i> Save this Stock
     </div>
   </div>
-  <rule-sketch class="rs-ruler-result" rule="rule"></rule-sketch>
 </section>
