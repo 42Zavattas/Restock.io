@@ -60,7 +60,6 @@ body {
   font-family: "Sinkin Light";
   background: $blue;
   @include user-select(none);
-  margin-bottom:140px;
 }
 
 .rs-shadow {
@@ -86,7 +85,7 @@ h1 {
     padding-top: 7px;
     padding-left: 4px;
     padding-right: 3px;
-    background: rgba(black, .1);
+    //background: rgba(black, .1);
     margin-right: 3px;
     color: white;
   }
@@ -96,7 +95,8 @@ h1 {
     &:hover {
       color: darken($blue, 10);
       .embed {
-        background: darken($blue, 10);
+        //background: darken($blue, 10);
+        color: $green2;
       }
     }
   }
@@ -190,26 +190,21 @@ input.form-control {
   display:block;
   background: rgba(white, .1);
   margin: 50px auto;
-  width: 90%;
+  width: 100%;
   border: 1px solid rgba(white, .2);
-  @include box-shadow(rgba(black, .3) 0 2px 9px);
+  @include box-shadow(rgba(black, .2) 0 -1px);
   &.slim {
     margin: 0 auto;
   }
 }
 
 footer {
-  position: absolute;
-  bottom: -140px; left: 0; right: 0;
   text-align: center;
   color:rgba(black,.6);
   font-family: monospace;
   font-size: 11px;
-  background: rgba(white, .08);
   margin: 0 auto;
-  padding: 50px 0;
-  border-top: 2px solid rgba(white, .2);
-  @include box-shadow(rgba(black,.3) 0 1px 9px inset);
+  padding: 70px 0;
 }
 
 
