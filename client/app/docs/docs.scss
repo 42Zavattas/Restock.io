@@ -27,6 +27,11 @@ table {
   background: rgba(white, .05);
   padding: 1em;
   line-height: 1.8em;
+  margin-bottom: 2em;
+}
+
+.segment {
+  padding-top: 3em;
 }
 
 .doc-h2 {
@@ -79,7 +84,7 @@ ol {
   height: 8px;
   background: rgba(black, .1);
   border-top: 1px solid rgba(black, .2);
-  margin: 4em auto;
+  margin: 0 auto;
 }
 
 pre {
@@ -102,4 +107,14 @@ pre {
 
 .no-marged {
   margin: 0;
+}
+
+.gotop {
+  float: right;
+  font-size: 22px;
+  color: rgba(black, .4);
+  text-decoration: none;
+  &:hover {
+    color: white;
+  }
 }
