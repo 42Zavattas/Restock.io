@@ -70,34 +70,36 @@ body {
 }
 
 .rs-main-head {
-  margin: 1em;
   display: flex;
   align-items: center;
   margin-bottom: 100px;
 }
 
-h1 {
-  font-size: 23px;
+a.rs-logo {
+  text-decoration: none;
   color: rgba(black, .3);
-  .embed {
-    display: inline-block;
-    line-height: 70px;
-    padding-top: 7px;
-    padding-left: 4px;
-    padding-right: 3px;
-    //background: rgba(black, .1);
-    margin-right: 3px;
-    color: white;
-  }
-  a {
-    text-decoration: none;
-    color: rgba(black, .3);
-    &:hover {
+  &:hover {
+    h1 {
       color: darken($blue, 10);
-      .embed {
-        //background: darken($blue, 10);
-        color: $green2;
-      }
+    }
+    .embed {
+      //background: darken($blue, 10);
+      color: $green2;
+    }
+  }
+  h1 {
+    font-size: 23px;
+    padding: 0 10px;
+    color: rgba(black, .3);
+    .embed {
+      display: inline-block;
+      line-height: 70px;
+      padding-top: 7px;
+      padding-left: 4px;
+      padding-right: 3px;
+      //background: rgba(black, .1);
+      margin-right: 3px;
+      color: white;
     }
   }
 }
