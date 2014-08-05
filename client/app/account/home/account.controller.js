@@ -1,9 +1,13 @@
 'use strict';
 
 angular.module('restockApp')
-  .controller('AccountCtrl', function ($scope, Auth) {
+  .controller('AccountCtrl', function ($scope, Restangular, Auth) {
 
     $scope.errors = {};
+
+    Restangular.one('rules', 'mine').getList().then(function (res) {
+      console.log(res);
+    });
 
     $scope.changePassword = function (form) {
       $scope.submitted = true;

@@ -5,9 +5,10 @@ angular.module('restockApp', [
   'ngResource',
   'ngSanitize',
   'ngRoute',
+  'restangular',
   'btford.socket-io'
 ])
-  .config(function ($routeProvider, $locationProvider, $httpProvider) {
+  .config(function ($routeProvider, $locationProvider, $httpProvider, RestangularProvider) {
     $routeProvider
       .otherwise({
         redirectTo: '/'
@@ -15,6 +16,11 @@ angular.module('restockApp', [
 
     $locationProvider.html5Mode(true);
     $httpProvider.interceptors.push('authInterceptor');
+
+    RestangularProvider.setBaseUrl('/api');
+    RestangularProvider.setRestangularFields({
+      id: '_id'
+    });
   })
 
   .factory('authInterceptor', function ($rootScope, $q, $cookieStore, $location) {
