@@ -133,11 +133,13 @@
       out.nbChilds = Number(str.substr(0, res[0].length));
       if (out.nbChilds > 50) {
         err.msg = 'Too much elements (limit: 50, or premium account)';
+        err.valid = false;
         return false;
       }
       var rest = str.substr(res[0].length);
       if (rest === '') {
         err.msg = 'No value given for array childs';
+        err.valid = false;
         return false;
       }
       out.child = lex(findNode(rest), err);
@@ -148,6 +150,7 @@
     if (str.charAt(0) === '{') {
       if (str.charAt(str.length - 1) !== '}') {
         err.msg = 'Syntax error near \'' + str.charAt(str.length - 1) + '\'';
+        err.valid = false;
         return false;
       }
       out.type = 'object';
@@ -167,6 +170,7 @@
       for (var i = 0; i < props.length; i++) {
         if (!/^[^:]+:.+$/.test(props[i])) {
           err.msg = "No value for property '" + props[i] + "'";
+          err.valid = false;
           return false;
         }
         out.props.push({
@@ -179,6 +183,7 @@
 
     // Problematic
     err.msg = 'Unknown type \'' + str + '\'';
+    err.valid = false;
     return false;
 
   }
@@ -188,6 +193,7 @@
       return null;
     }
     err.msg = false;
+    err.valid = true;
     return lex(str, err);
   };
 
