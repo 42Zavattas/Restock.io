@@ -20,6 +20,7 @@
   "smarttabs": true,
   "globals": {
     "ruleparser": true,
+    "jasmine": true,
     "jQuery": true,
     "angular": true,
     "console": true,
