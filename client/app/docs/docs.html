@@ -1,8 +1,13 @@
 <section class="container">
 
+  <h2 class="doc-h2">
+    <span>Documentation</span>
+  </h2>
+
   <div class="doc-index-bloc">
     <ol class="doc-index">
-      <li><a href="/docs#types">List of codes</a></li>
+      <li><a href="/docs#intro">Introduction</a></li>
+      <li><a href="/docs#codes"><strong>List of codes</strong></a></li>
       <li><a href="/docs#examples">Examples</a></li>
       <li>
         <a href="/docs#environment">Environment</a>
@@ -15,28 +20,27 @@
     </ul>
   </div>
 
-  <h2 class="doc-h2">
-    <span>Documentation</span>
-  </h2>
+  <h3 id="intro" class="doc-h3">Introduction</h3>
 
-  <pre>this is a script bloc</pre>
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus leo diam, porttitor nec odio at, vehicula ultrices leo. Ut interdum libero et ligula pharetra fringilla. Pellentesque vel justo consequat, condimentum velit id, egestas lorem. Nullam vel dolor scelerisque, porta lacus a, convallis nunc. Praesent commodo est in nisi congue rhoncus. In urna magna, bibendum quis quam at, consectetur imperdiet est. Mauris id congue tortor. Ut orci elit, faucibus a rhoncus a, sagittis in tortor. Nam ac tellus placerat, fermentum nunc ut, molestie ante. Aenean lacinia id sapien eget aliquet.</p>
 
   <div class="smart-hr"></div>
 
+  <h3 id="codes" class="doc-h3">List of codes</h3>
+
   <table>
-    <caption>List of codes</caption>
-    <tfoot></tfoot>
+    <caption>Basic</caption>
     <tbody>
       <tr>
-        <td>
-          <span class="code">s</span>
+        <td class="code-cell">
+          <span class="code">s</span> /
           <span class="code">S</span>
         </td>
         <td>Any <strong>string</strong></td>
       </tr>
       <tr>
         <td>
-          <span class="code">n</span>
+          <span class="code">n</span> /
           <span class="code">N</span>
         </td>
         <td>Any <strong>number</strong></td>
@@ -55,5 +59,56 @@
       </tr>
     </tbody>
   </table>
+
+  <table>
+    <caption>Extended</caption>
+    <tfoot></tfoot>
+    <tbody>
+      <tr>
+        <td class="code-cell"><span class="code">e</span></td>
+        <td>Any <strong>email</strong></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="smart-hr"></div>
+
+  <h3 id="examples" class="doc-h3">Examples</h3>
+
+  <table>
+    <tbody>
+      <tr>
+        <td><span class="code">{data:s}</span></td>
+        <td><pre class="no-marged">
+{
+  data: "huinaowo"
+}</pre>
+        </td>
+      </tr>
+      <tr>
+        <td><span class="code">3{data:s,valid:b}</span></td>
+        <td><pre class="no-marged">
+[
+  {
+    "data":"bomo",
+    "valid":false
+  },
+  {
+    "data":"casnanoz",
+    "valid":true
+  },
+  {
+    "data":"dad",
+    "valid":true
+  }
+]</pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="smart-hr"></div>
+
+  <h3 id="environment" class="doc-h3">Environment</h3>
 
 </section>

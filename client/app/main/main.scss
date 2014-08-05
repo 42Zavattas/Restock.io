@@ -1,5 +1,5 @@
 .rs-caps {
-  max-width: 1024px;
+  width: 800px;
   margin: 0 auto;
   color: rgba(black, .6);
   h2 {
@@ -24,9 +24,14 @@
 }
 
 .rs-launch {
+  width: 800px;
+  margin: 0 auto;
+  padding: 3em 0;
+  @include box-shadow(rgba(black, .3) 0 1px 5px);
+  border: 1px solid rgba(white, .2);
   display: flex;
   justify-content: center;
-  margin-bottom: 132px;
+  margin-bottom: 50px;
 }
 
 a.rs-launch-item {

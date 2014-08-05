@@ -1,7 +1,9 @@
 table {
   width: 100%;
+  margin-bottom: 2em;
   caption {
-    font-family: "Sinkin";
+    color: rgba(black, .3);
+    font-family: "Sinkin Italic";
     margin-bottom: 1em;
   }
   tr {
@@ -15,8 +17,8 @@ table {
   }
   td {
     padding: 20px;
+    @include user-select(text);
     &.code {
-      @include user-select(text);
     }
   }
 }
@@ -30,6 +32,17 @@ table {
   }
 }
 
+.doc-h3 {
+  font-family: "Sinkin";
+  margin-bottom: 3em;
+  text-align:center;
+  color: $green;
+  @include text-shadow(rgba(black, .3) 0 1px 1px);
+  span {
+    border-bottom: 2px dashed rgba(black, .2);
+  }
+}
+
 .doc-index-bloc {
 }
 
@@ -38,13 +51,15 @@ ol {
 }
 
 .doc-index {
+  margin-bottom: 4em;
   ol {
     list-style-type:lower-alpha;
     margin-left: 20px;
   }
   li {
-    margin-bottom: 5px;
+    line-height: 24px;
     a {
+      color: rgba(black, .6);
       text-decoration: none;
       &:hover {
         text-decoration: underline;
@@ -58,8 +73,7 @@ ol {
   height: 8px;
   background: rgba(black, .1);
   border-top: 1px solid rgba(black, .2);
-  margin: 0 auto;
-  margin-bottom: 4em;
+  margin: 4em auto;
 }
 
 pre {
@@ -70,8 +84,16 @@ pre {
   @include box-shadow(rgba(black, .3) 0 4px 8px);
 }
 
+.code-cell {
+  width: 150px;
+}
+
 .code {
-  background: rgba(white, .4);
+  color: white;
   padding: 5px;
   font-family: monospace;
+}
+
+.no-marged {
+  margin: 0;
 }
