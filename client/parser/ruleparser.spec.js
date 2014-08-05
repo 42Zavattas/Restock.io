@@ -3,6 +3,9 @@
 describe('RuleParser', function () {
 
   var rule;
+  var res;
+  var err = {};
+
   beforeEach(module('ruleparser'));
 
   it('should load ruleparser with functions', function () {
@@ -16,6 +19,9 @@ describe('RuleParser', function () {
 
     expect(ruleparser.test).toBeDefined();
     expect(ruleparser.test).toEqual(jasmine.any(Function));
+
+    expect(ruleparser.lex).toBeDefined();
+    expect(ruleparser.lex).toEqual(jasmine.any(Function));
   });
 
   it('should try to use null', function () {
@@ -94,12 +100,6 @@ describe('RuleParser', function () {
     expect(ruleparser.test(rule).valid).toBeFalsy();
     rule = 'nnn';
     expect(ruleparser.test(rule).valid).toBeFalsy();
-    rule = '{tab:5s}n';
-    expect(ruleparser.test(rule).valid).toBeFalsy();
-    rule = '{tab:2sb}';
-    expect(ruleparser.test(rule).valid).toBeFalsy();
-    rule = '180n';
-    expect(ruleparser.test(rule).valid).toBeFalsy();
 
     rule = '18n';
     expect(ruleparser.test(rule).valid).toBeTruthy();
@@ -153,6 +153,44 @@ describe('RuleParser', function () {
 
     rule = '5{teams:4{name:s},houses:5{name:s,code:n}}';
     expect(ruleparser.test(rule).valid).toBeTruthy();
+  });
+
+  it('should test basic lexer', function () {
+    expect(ruleparser.lex('5s', err)).toEqual(jasmine.any(Object));
+    expect(err.msg).toBeFalsy();
+    expect(ruleparser.lex('d', err)).toEqual(jasmine.any(Object));
+    expect(err.msg).toBeFalsy();
+    expect(ruleparser.lex('{s:s}', err)).toEqual(jasmine.any(Object));
+    expect(err.msg).toBeFalsy();
+    expect(ruleparser.lex('5{name:s}', err)).toEqual(jasmine.any(Object));
+    expect(err.msg).toBeFalsy();
+  });
+
+  it('should fail on this syntax error', function () {
+    ruleparser.lex('{tab:5s}n', err);
+    expect(err.msg).toMatch(/Syntax error/);
+  });
+
+  it('should test some unknown types', function () {
+    ruleparser.lex('{tab:2sb}', err);
+    expect(err.msg).toMatch(/Unknown type/);
+    ruleparser.lex('{tab:2s,obj:{name:6x}}', err);
+    expect(err.msg).toMatch(/Unknown type/);
+    ruleparser.lex('15z', err);
+    expect(err.msg).toMatch(/Unknown type/);
+    ruleparser.lex('{s:s,n:8qa}', err);
+    expect(err.msg).toMatch(/Unknown type/);
+  });
+
+  it('should test when trying to go up the limitations', function () {
+    expect(ruleparser.lex('180n', err)).toBeFalsy();
+    expect(err.msg).toBe('Too much elements (limit: 50, or premium account)');
+    ruleparser.lex('{name:4s,age:52d}', err);
+    expect(err.msg).toBe('Too much elements (limit: 50, or premium account)');
+    ruleparser.lex('40{name:4s,teams:{members:54s}}', err);
+    expect(err.msg).toBe('Too much elements (limit: 50, or premium account)');
+    ruleparser.lex('{teams:{members:4s},{houses:{cats:59s}}}', err);
+    expect(err.msg).toBe('Too much elements (limit: 50, or premium account)');
   });
 
 });
