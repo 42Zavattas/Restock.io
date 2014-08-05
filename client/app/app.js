@@ -44,12 +44,19 @@ angular.module('restockApp', [
   })
 
   .run(function ($rootScope, $location, Auth) {
+
+    $rootScope.ui = {
+      isLogged: false
+    };
+
     // Redirect to login if route requires auth and you're not logged in
     $rootScope.$on('$routeChangeStart', function (event, next) {
       Auth.isLoggedInAsync(function(loggedIn) {
+        $rootScope.ui.isLogged = loggedIn;
         if (next.authenticate && !loggedIn) {
           $location.path('/login');
         }
       });
     });
+
   });

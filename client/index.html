@@ -25,9 +25,11 @@
 
     <nav class="rs-main-nav">
       <ul>
-        <li><a class="brand" href="/login">Login</a></li>
-        <li><a href="/signup">Sign up for free</a></li>
-        <li><a href="">Pricing</a></li>
+        <li ng-show="!ui.isLogged"><a class="brand" href="/login">Login</a></li>
+        <li ng-show="!ui.isLogged"><a href="/signup">Sign up for free</a></li>
+        <li ng-show="ui.isLogged"><a class="brand" ng-click="disconnect()" href="">Disconnect</a></li>
+        <li ng-show="ui.isLogged"><a href="/account">Account</a></li>
+        <li><a href="/pricing">Pricing</a></li>
       </ul>
     </nav>
 

@@ -45,6 +45,15 @@ $blue: #7ec5d4;
                                         "sinkinsans/sinkinsans_600semibolditalic_macroman/SinkinSans-600SemiBoldItali-webfont.ttf",
                                         "sinkinsans/sinkinsans_600semibolditalic_macroman/SinkinSans-600SemiBoldItali-webfont.woff"));
 
+
+* {
+  box-sizing: border-box;
+}
+
+input, textarea, select, button {
+  @include user-select(text);
+}
+
 body {
   font-size: 16px;
   font-family: "Sinkin Light";
@@ -61,7 +70,7 @@ h1 {
   margin-bottom: 126px;
   .embed {
     display: inline-block;
-    line-height: 82px;
+    line-height: 70px;
     padding-top: 7px;
     padding-left: 4px;
     padding-right: 3px;
@@ -86,6 +95,36 @@ h1 {
   &.centered {
     align-items: center;
     justify-content: center;
+  }
+
+}
+
+.mid {
+  width: 50%;
+}
+
+.btn {
+  font-size: 17px;
+  padding: 10px 20px;
+  text-decoration: none;
+  color: white;
+  border: 1px solid darken($blue, 10);
+  background-color: transparent;
+  color: darken($blue, 10);
+  text-align: center;
+  cursor: pointer;
+  @include border-radius(3px);
+  &:hover {
+    background-color: darken($blue, 25);
+    color: white;
+  }
+  &.google-plus {
+    background-color: #dd4b39;
+    border: 1px solid darken(#dd4b39, 10);
+    color: white;
+    &:hover {
+      background-color: darken(#dd4b39, 10);
+    }
   }
 }
 

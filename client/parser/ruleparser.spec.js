@@ -73,10 +73,6 @@ describe('RuleParser', function () {
     expect(ruleparser.test(rule).valid).toBeFalsy();
     rule = '2';
     expect(ruleparser.test(rule).valid).toBeFalsy();
-    rule = '{tab:22}';
-    expect(ruleparser.test(rule).valid).toBeFalsy();
-    rule = '{tab:x}';
-    expect(ruleparser.test(rule).valid).toBeFalsy();
 
     rule = 's';
     expect(ruleparser.test(rule).valid).toBeTruthy();

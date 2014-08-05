@@ -1,1 +1,37 @@
-
+.login-wrapper {
+  width: 500px;
+  margin: 0 auto;
+  padding: 50px 20px;
+  h2 {
+    font-size: 22px;
+    font-family: 'Sinkin Bold';
+    margin-bottom: 20px;
+  }
+  input {
+    width: 100%;
+    padding: 10px 20px;
+    border: none;
+    margin-bottom: 10px;
+    @include border-radius(3px);
+  }
+  > p {
+    font-size: 13px;
+    margin-bottom: 10px;
+  }
+  p.help-block {
+    padding: 10px 0;
+    color: $red;
+    font-size: 15px;
+  }
+  form {
+    > button {
+      width: 100%;
+    }
+    .flex {
+      margin-top: 5px;
+      a:first-child {
+        margin-right: 5px;
+      }
+    }
+  }
+}
