@@ -152,6 +152,10 @@
 
     // Object
     if (str.charAt(0) === '{') {
+      if (str.charAt(str.length - 1) !== '}') {
+        err.msg = 'Syntax error near \'' + str.charAt(str.length - 1) + '\'';
+        return false;
+      }
       out.type = 'object';
       out.props = [];
       var props = str.substr(1, str.length - 2).split(',');
