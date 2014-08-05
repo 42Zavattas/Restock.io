@@ -3,7 +3,6 @@
 describe('RuleParser', function () {
 
   var rule;
-  var res;
   var err = {};
 
   beforeEach(module('ruleparser'));
