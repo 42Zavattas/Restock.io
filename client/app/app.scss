@@ -74,7 +74,7 @@ body {
   display: flex;
   align-items: center;
   width: 800px;
-  margin: 0 auto 30px auto;
+  margin: 15px auto 30px auto;
 }
 
 a.rs-logo {
@@ -93,10 +93,6 @@ a.rs-logo {
     color: rgba(black, .3);
     .embed {
       display: inline-block;
-      line-height: 70px;
-      padding-top: 7px;
-      padding-left: 4px;
-      padding-right: 3px;
       color: white;
     }
   }
@@ -104,11 +100,11 @@ a.rs-logo {
 
 .rs-main-nav {
   margin-left: auto;
-  margin-right: 15px;
   ul {
     display: flex;
     li {
-      margin-left: 50px;
+      margin-left: 25px;
+      &:first-child { margin-left: 0; }
       a {
         text-decoration: none;
         color: rgba(black, .4);
