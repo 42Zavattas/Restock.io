@@ -5,10 +5,9 @@
     <thead ng-if="stocks.length">
       <tr>
         <th>Rule</th>
-        <th>Name</th>
         <th>Code</th>
         <th>Created</th>
-        <th>Updated</th>
+        <th>Actions</th>
       </tr>
     </thead>
     <tbody>
@@ -16,10 +15,11 @@
         <td class="code-cell">
           <span class="code">{{stock.rule}}</span>
         </td>
-        <td>{{stock.name}}</td>
         <td>{{stock.code}}</td>
-        <td>{{stock.created_at | date:'dd/MM/yyyy HH:mm'}}</td>
-        <td>{{stock.updated_at | date:'dd/MM/yyyy HH:mm'}}</td>
+        <td>{{stock.created_at | date:'HH:mm dd/MM/yyyy'}}</td>
+        <td>
+          <button class="btn"><i class="icon-remove"></i></button>
+        </td>
       </tr>
     </tbody>
   </table>

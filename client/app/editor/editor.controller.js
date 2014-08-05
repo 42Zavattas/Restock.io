@@ -7,7 +7,7 @@ angular.module('restockApp')
     $scope.rule = { input: $routeParams.q || '', lexed: null };
 
     $scope.saveStock = function (rule) {
-      $http.post('/api/rules').then(function (res) {
+      $http.post('/api/stocks', { rule: rule }).then(function (res) {
         console.log(res);
       });
       console.log(rule);

@@ -15,7 +15,7 @@ table {
       background: rgba(white, .03);
     }
   }
-  td {
+  td, th {
     padding: 20px;
     @include user-select(text);
     &.code {
