@@ -82,7 +82,6 @@
       return { valid: true };
     }
     for (i = 0; i < testFunctions.length; i++) {
-      //console.log(testFunctions[i].f(rule));
       if (testFunctions[i].f(rule) === false) {
         return { valid: false, msg: testFunctions[i].msg };
       }
@@ -105,12 +104,19 @@
     // "regular" node
     res = str.match(/^(s|S|n|N|b|d)/);
     if (res !== null) {
-      console.log(res);
       return str.charAt(0);
     }
 
     // "object" node
     if (str.charAt(0) === '{') {
+      var count = [1, 0], preventLoop = 100, i = 0;
+      while (++i && count[0] !== count[1] && preventLoop--) {
+        switch (str.charAt(i)) {
+          case '{': ++count[0]; break;
+          case '}': ++count[1]; break;
+        }
+      }
+      return str.substring(0, i);
     }
 
     return str;
@@ -119,19 +125,22 @@
   /**
    * Convert a rule string to a lexed object
    */
-  function lex (str) {
+  function lex (str, err) {
+
     var out = {}, res;
 
-    console.log("-> LEXING '"+str+"'");
+    if (typeof err === 'undefined') {
+      var err = {};
+    }
 
-    // Find if current node is a "regular"
+    // Regular
     res = str.match(/^(s|S|n|N|b|d)$/);
     if (res !== null) {
       out.type = str;
       return out;
     }
 
-    // Find if current node is an Array
+    // Array
     res = str.match(/^[0-9]+/);
     if (res !== null) {
       out.type = 'array';
@@ -140,9 +149,28 @@
       return out;
     }
 
+    // Object
+    if (str.charAt(0) === '{') {
+      out.type = 'object';
+      out.props = [];
+      var props = str.substr(1, str.length - 2).split(',');
+      for (var i = 0; i < props.length; i++) {
+        if (!/^[^:]+:.+$/.test(props[i])) {
+          err.msg = "No value for property '" + props[i] + "'";
+          return false;
+        }
+        out.props.push({
+          name: props[i].substring(0, props[i].indexOf(':')),
+          val: lex(props[i].substr(props[i].indexOf(':') + 1))
+        });
+      }
+    }
+
+    return out;
+
   }
 
-  exports.lex = function (str) { return lex(str); };
+  exports.lex = function (str, err) { return lex(str, err); };
 
   exports.parse = function (rule) {
     if (!this.test(rule)) {
