@@ -15,18 +15,30 @@ function getElementOfType (type) {
   else if (type === 'n') {
     return types.getNumber();
   }
-  else if (type === 'array') {
-    
-  }
-  else if (type === 'object') {
-    
-  }
   else if (type === 'b') {
     return types.getBoolean();
   }
   else if (type === 'd') {
     return types.getDate();
   }
+}
+
+function recurse (lex) {
+  if (lex.type !== 'array' && lex.type !== 'object') {
+    return getElementOfType(lex.type);
+  }
+  else if (lex.type === 'array') {
+    var container = [];
+    for (var i = 0; i < lex.nbChilds; i++) {
+      container.push(recurse(lex.child));
+    }
+    return container;
+  }
+  var object = {};
+  for (var i = 0; i < lex.props.length; i++) {
+    object[lex.props[i].name] = recurse(lex.props[i].val);
+  }
+  return object;
 }
 
 function build (req, res) {
@@ -39,9 +51,8 @@ function build (req, res) {
   if (err.msg) {
     return res.send(400, err);
   }
-  console.log(types.getString(false));
-  console.log(lex);
-  return res.json(200, lex);
+  var result = recurse(lex);
+  return res.send(200, result);
 }
 
 function handleError(res, err) {
