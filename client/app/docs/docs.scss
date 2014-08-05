@@ -1,0 +1,30 @@
+table {
+  width: 100%;
+  caption {
+    font-family: "Sinkin";
+    margin-bottom: 1em;
+  }
+  tr {
+    border-bottom: 1px solid rgba(black, .1);
+    &:last-child {
+      border-bottom: none;
+    }
+    &:hover {
+      background: rgba(white, .03);
+    }
+  }
+  td {
+    padding: 20px;
+    &.code {
+      @include user-select(text);
+    }
+  }
+}
+
+pre {
+  font-family: monospace;
+  background: rgba(white, .7);
+  padding: 12px;
+  margin-bottom: 2em;
+  @include box-shadow(rgba(black, .3) 0 4px 8px);
+}
