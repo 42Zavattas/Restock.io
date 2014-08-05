@@ -135,7 +135,12 @@
         err.msg = 'Too much elements (limit: 50, or premium account)';
         return false;
       }
-      out.child = lex(findNode(str.substr(res[0].length)), err);
+      var rest = str.substr(res[0].length);
+      if (rest === '') {
+        err.msg = 'No value given for array childs';
+        return false;
+      }
+      out.child = lex(findNode(rest), err);
       return out;
     }
 

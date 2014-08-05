@@ -148,8 +148,6 @@ describe('RuleParser', function () {
     expect(err.msg).toMatch(/Unknown type/);
     ruleparser.lex('a', err);
     expect(err.msg).toMatch(/Unknown type/);
-    ruleparser.lex('2', err);
-    expect(err.msg).toMatch(/Unknown type/);
 
     ruleparser.lex('s', err);
     expect(err.msg).toBeFalsy();
@@ -177,6 +175,12 @@ describe('RuleParser', function () {
     expect(err.msg).toBe('Too much elements (limit: 50, or premium account)');
     ruleparser.lex('{teams:{members:4s},{houses:{cats:59s}}}', err);
     expect(err.msg).toBe('Too much elements (limit: 50, or premium account)');
+  });
+
+  it('should fail when putting only a number, without type', function () {
+    ruleparser.lex('5', err); expect(err.msg).toMatch(/No value given for array childs/);
+    ruleparser.lex('{name:50}', err); expect(err.msg).toMatch(/No value given for array childs/);
+    ruleparser.lex('{name:50{name:3}}', err); expect(err.msg).toMatch(/No value given for array childs/);
   });
 
 });
