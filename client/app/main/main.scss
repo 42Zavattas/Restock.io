@@ -9,7 +9,7 @@
   outline: none;
   border: none;
   border-bottom: 5px solid rgba(black, .2);
-  background: rgba(white, .4);
+  background: rgba(white, .7);
   @include box-shadow(rgba(black, .3) 0 4px 8px);
   font-family: "monospace";
   font-size: 31px;
@@ -31,13 +31,6 @@
   &.waiting{
    border-color: $blue;
   }
-}
-
-.rs-ruler-result {
-  position: absolute;
-  padding: 30px;
-  left: 0; right: 0;
-  top: 200px;
 }
 
 .rs-sub-input {

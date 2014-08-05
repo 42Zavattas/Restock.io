@@ -1,60 +1,6 @@
 .rs-sketch-container {
   margin: 0 auto;
+  width: 800px;
+  min-height:400px;
   position: relative;
-  color: rgba(black, .8);
-  padding: 15px;
-  @include text-shadow(rgba(black, .3) 0 2px);
-  font-family: monospaced;
-}
-
-.sk-capsule {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.sk-nb {
-  font-family: "Sinkin Bold";
-  font-size: 24px;
-}
-
-.sk-mult {
-  margin: 0 20px;
-}
-
-.sk-bracket {
-  font-size: 128px;
-}
-
-.sk-list {
-  list-style-type: circle;
-  display: flex;
-  margin-left: 30px;
-  align-items: flex-start;
-  flex-direction: column;
-  > li {
-    margin: 10px 0;
-  }
-}
-
-.sk-type-str, .sk-type-nbr {
-  padding: 3px;
-  font-size: 11px;
-  border: 1px solid rgba(black, .1);
-  @include border-radius(3px);
-  @include text-shadow(none);
-}
-
-.sk-type-str {
-  background: $green2;
-}
-
-.sk-type-nbr{
-  background: $red;
-  color: white;
-}
-
-.sk-prop {
-  font-size: 11px;
-  @include text-shadow(none);
 }
