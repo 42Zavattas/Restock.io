@@ -1,19 +1,41 @@
-<form class="form" name="form" ng-submit="changePassword(form)" novalidate>
+<div class="container">
 
-  <div class="form-group">
-    <label>Current Password</label>
+  <table ng-class="{'no-margin':!stocks.length}">
+    <caption>Saved Stocks</caption>
+    <thead ng-if="stocks.length">
+      <tr>
+        <th>Rule</th>
+        <th>Name</th>
+        <th>Code</th>
+        <th>Created</th>
+        <th>Updated</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="stock in stocks">
+        <td class="code-cell">
+          <span class="code">{{stock.rule}}</span>
+        </td>
+        <td>{{stock.name}}</td>
+        <td>{{stock.code}}</td>
+        <td>{{stock.created_at | date:'dd/MM/yyyy HH:mm'}}</td>
+        <td>{{stock.updated_at | date:'dd/MM/yyyy HH:mm'}}</td>
+      </tr>
+    </tbody>
+  </table>
+  <p class="marged-bottom"><strong>Nothing for now</strong></p>
 
-    <input type="password" class="form-control" ng-model="user.oldPassword"
-           name="password" ng-class="{'has-error':form.password.$error.mongoose}" mongoose-error>
-  </div>
+  <form class="form change-pwd" name="form" ng-submit="changePassword(form)" novalidate>
 
-  <div class="form-group">
-    <label>New Password</label>
-
-    <input type="password" class="form-control" ng-model="user.newPassword" ng-minlength="3"
+    <input type="password" placeholder="Enter your current password" class="form-control" ng-model="user.oldPassword"
+           name="password" ng-class="{'has-error':form.password.$invalid && submitted}" required mongoose-error>
+    <input type="password" placeholder="Enter a new password" class="form-control" ng-model="user.newPassword" ng-minlength="3"
            ng-class="{'has-error':(form.newPassword.$error.minlength || form.newPassword.$error.required) && (form.newPassword.$dirty || submitted)}"
            name="newPassword" required>
-  </div>
 
-  <button class="btn" type="submit">Save changes</button>
-</form>
+    <p class="msg">{{message}}</p>
+
+    <button class="btn" type="submit">Save changes</button>
+  </form>
+
+</div>
