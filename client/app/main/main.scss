@@ -46,6 +46,9 @@ a.rs-launch-item {
     margin: 50px auto 20px auto;
     font-size: 48px;
     color: rgba($blue, .5);
+    &.brand {
+      color: $orange;
+    }
   }
   &:last-child {
     border-right: 1px solid rgba(black, .2);
