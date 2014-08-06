@@ -80,7 +80,7 @@ exports.destroy = function(req, res) {
   Stock.findById(req.params.id, function (err, stock) {
     if(err) { return handleError(res, err); }
     if(!stock) { return res.send(404); }
-    if (stock.user !== req.user._id && req.user.role !== 'admin') {
+    if (!stock.user.equals(req.user._id) && req.user.role !== 'admin') {
       return res.send(401);
     }
     if (req.user.role === 'admin') {
@@ -91,7 +91,7 @@ exports.destroy = function(req, res) {
     }
     else {
       stock.active = false;
-      stock.update(function(err) {
+      stock.save(function(err) {
         if(err) { return handleError(res, err); }
         return res.send(204);
       });
