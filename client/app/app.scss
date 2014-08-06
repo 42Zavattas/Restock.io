@@ -203,11 +203,14 @@ input.form-control {
 
 footer {
   text-align: center;
-  color:rgba(black,.6);
+  color:rgba(black,.4);
   font-family: monospace;
   font-size: 11px;
   margin: 0 auto;
   padding: 70px 0 70px 0;
+  a {
+    color: rgba(black, .5);
+  }
 }
 
 .container {
@@ -228,5 +231,4 @@ strong {
 @import 'editor/editor.scss';
 @import 'main/main.scss';
 @import 'pricing/pricing.scss';
-@import 'rule-sketch/rule-sketch.scss';
 // endinjector
