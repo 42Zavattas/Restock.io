@@ -29,10 +29,11 @@ exports.show = function(req, res) {
 exports.getSaved = function(req, res) {
   var url = '/' + req.params.user + '/' + req.params.rand;
   Stock.findOne({
-    url: url
+    url: url,
+    active: true
   }).exec(function (err, stock) {
     if(err) { return handleError(res, err); }
-    if(!stock || stock.active === false) { return res.send(404); }
+    if(!stock) { return res.send(404); }
     stock.calls++;
     stock.save();
     return res.send(200, JSON.parse(stock.content));
