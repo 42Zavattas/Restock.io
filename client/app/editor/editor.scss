@@ -59,8 +59,11 @@
   background: transparent;
   font-size: 24px;
   color: rgba(black, .4);
-  &:hover {
+  &:hover:not(.lock) {
     color: rgba(black, .7);
+  }
+  &.lock {
+    cursor: default;
   }
 }
 
