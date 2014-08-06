@@ -1,66 +1,5 @@
 (function(exports){
 
-  function limitLength (val) {
-    return !!(val.length <= 50);
-  }
-
-  function validateCharacters (val) {
-    var pattern = /^[a-zA-Z0-9{}:,]+$/;
-    return !!(val.match(pattern));
-  }
-
-  function checkBraces (val) {
-    var state = 0;
-    for (var i = 0; i < val.length; i++) {
-      if (val[i] === '{') {
-        state++;
-      }
-      else if (val[i] === '}') {
-        state--;
-      }
-    }
-    return !!(state === 0);
-  }
-
-  function isNumber (n) {
-    return !isNaN(parseFloat(n)) && isFinite(n);
-  }
-
-  function checkDeep (val) {
-    var state = 0;
-    for (var i = 0; i < val.length; i++) {
-      if (val[i] === '{') {
-        state++;
-      }
-      else if (val[i] === '}') {
-        state--;
-      }
-      if (state === 3 || (state === 2 && isNumber(val[i]) && val[i - 1] === ':')) {
-        return false;
-      }
-    }
-    return true;
-  }
-
-  var testFunctions = [
-    { f:limitLength, msg: 'Too many characters.' },
-    { f:validateCharacters, msg: 'Invalid characters.' },
-    { f:checkBraces, msg: 'Wrong objet structure.' },
-    { f:checkDeep, msg: 'Your struture is too deep.' }
-  ];
-
-  exports.test = function (rule) {
-    if (!rule || !rule.length) {
-      return { valid: true };
-    }
-    for (i = 0; i < testFunctions.length; i++) {
-      if (testFunctions[i].f(rule) === false) {
-        return { valid: false, msg: testFunctions[i].msg };
-      }
-    }
-    return { valid: true };
-  };
-
   /**
    * ----------------------------------------------
    *                       Lexer
@@ -68,6 +7,15 @@
    */
 
   var matchTypes = /^(s|S|n|N|b|d|e|p|a|t|c|i)$/;
+
+  /**
+   * Build the error object
+   */
+  function buildError (err, msg) {
+    err.msg = msg;
+    err.valid = false;
+    return false;
+  }
 
   /**
    * Extract the next node in the given string
@@ -120,15 +68,11 @@
       out.type = 'array';
       out.nbChilds = Number(str.substr(0, res[0].length));
       if (out.nbChilds > 50) {
-        err.msg = 'Too much elements (limit: 50)';
-        err.valid = false;
-        return false;
+        return buildError(err, 'Too much elements (limit: 50)');
       }
       var rest = str.substr(res[0].length);
       if (rest === '') {
-        err.msg = 'No value given for array childs';
-        err.valid = false;
-        return false;
+        return buildError(err, 'No value given for array childs');
       }
       out.child = lex(findNode(rest), err);
       return out;
@@ -137,9 +81,7 @@
     // Object
     if (str.charAt(0) === '{') {
       if (str.charAt(str.length - 1) !== '}') {
-        err.msg = 'Syntax error near \'' + str.charAt(str.length - 1) + '\'';
-        err.valid = false;
-        return false;
+        return buildError(err, 'Syntax error near \'' + str.charAt(str.length - 1) + '\'');
       }
       out.type = 'object';
       out.props = [];
@@ -156,15 +98,11 @@
         return out;
       })(str.substr(1, str.length - 2).split(','));
       if (props.length > 3) {
-        err.msg = "Too much properties (max: 3)";
-        err.valid = false;
-        return false;
+        return buildError(err, 'Too much properties (max: 3)');
       }
       for (var i = 0; i < props.length; i++) {
         if (!/^[^:]+:.+$/.test(props[i])) {
-          err.msg = "No value for property '" + props[i] + "'";
-          err.valid = false;
-          return false;
+          return buildError(err, "No value for property '" + props[i] + "'");
         }
         out.props.push({
           name: props[i].substring(0, props[i].indexOf(':')),
@@ -175,11 +113,69 @@
     }
 
     // Problematic
-    err.msg = 'Unknown type \'' + str + '\'';
-    err.valid = false;
-    return false;
-
+    return buildError(err, 'Unknown type \'' + str + '\'');
   }
+
+  /**
+   * ----------------------------------------------
+   *                       Tester
+   * ----------------------------------------------
+   */
+
+  function limitLength (val) {
+    return !!(val.length <= 50);
+  }
+
+  function validateCharacters (val) {
+    var pattern = /^[a-zA-Z0-9{}:,]+$/;
+    return !!(val.match(pattern));
+  }
+
+  function checkBraces (val) {
+    var state = 0;
+    for (var i = 0; i < val.length; i++) {
+      if (val[i] === '{') {
+        state++;
+      }
+      else if (val[i] === '}') {
+        state--;
+      }
+    }
+    return !!(state === 0);
+  }
+
+  function isNumber (n) {
+    return !isNaN(parseFloat(n)) && isFinite(n);
+  }
+
+  function checkDeep (val) {
+    var state = 0;
+    for (var i = 0; i < val.length; i++) {
+      if (val[i] === '{') {
+        state++;
+      }
+      else if (val[i] === '}') {
+        state--;
+      }
+      if (state === 3 || (state === 2 && isNumber(val[i]) && val[i - 1] === ':')) {
+        return false;
+      }
+    }
+    return true;
+  }
+
+  var testFunctions = [
+    { f:limitLength, msg: 'Too many characters.' },
+    { f:validateCharacters, msg: 'Invalid characters.' },
+    { f:checkBraces, msg: 'Wrong objet structure.' },
+    { f:checkDeep, msg: 'Your struture is too deep.' }
+  ];
+
+  /**
+   * ----------------------------------------------
+   *                       Exports
+   * ----------------------------------------------
+   */
 
   exports.lex = function (str, err) {
     if (str === '') {
@@ -188,6 +184,18 @@
     err.msg = false;
     err.valid = true;
     return lex(str, err);
+  };
+
+  exports.test = function (rule) {
+    if (!rule || !rule.length) {
+      return { valid: true };
+    }
+    for (var i = 0; i < testFunctions.length; i++) {
+      if (testFunctions[i].f(rule) === false) {
+        return { valid: false, msg: testFunctions[i].msg };
+      }
+    }
+    return { valid: true };
   };
 
 })(typeof exports === 'undefined' ? this['ruleparser'] = {} : exports);
