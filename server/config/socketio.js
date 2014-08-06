@@ -58,12 +58,12 @@ module.exports = function (socketio) {
     socket.on('disconnect', function () {
       onDisconnect(socket);
       printClientIp(socket);
-      console.info('DISCONNECTED', socket.address);
+      console.info('DISCONNECTED');
     });
 
     // Call onConnect.
     onConnect(socket);
     printClientIp(socket);
-    console.info('CONNECTED', socket.address);
+    console.info('CONNECTED');
   });
 };
