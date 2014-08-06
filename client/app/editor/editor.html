@@ -32,6 +32,7 @@
     </div>
   </div>
   <textarea
+    disabled
     ng-class="{ invalid: !isValid(rule.input), valid: isValid(rule.input) && rule.input !== '' }"
     class="rs-sketch-container">{{ res | json }}</textarea>
 </section>

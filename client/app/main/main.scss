@@ -31,7 +31,40 @@
   border: 1px solid rgba(white, .2);
   display: flex;
   justify-content: center;
-  margin-bottom: 50px;
+}
+
+.rs-glue-launch {
+  width: 600px;
+  margin: 0 auto;
+  margin-bottom: 5em;
+  background: rgba(black, .7);
+  padding: 1em;
+  border-top: 1px solid rgba(black,.7);
+  @include box-shadow(rgba(black,.5) 0 2px 8px);
+  display:flex;
+  justify-content: space-between;
+  a {
+    font-family:monospace;
+    display:block;
+    border: 1px solid rgba(white,.1);
+    padding: 1em;
+    text-align: center;
+    text-decoration:none;
+    font-size:12px;
+    color: rgba(white,.3);
+    &:hover {
+      color: rgba(white,.7);
+      border-color:rgba(white,.7);
+    }
+    span {
+      display: block;
+    }
+    i {
+      font-size:28px;
+      display:block;
+      padding: .5em 0;
+    }
+  }
 }
 
 a.rs-launch-item {
