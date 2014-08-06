@@ -1,0 +1,67 @@
+
+.tr-up {
+    animation-name: trUp;
+    animation-iteration-count: 1;
+    animation-timing-function: cubic-bezier(0.240, 1.650, 0.785, 1.120);
+    animation-duration: 350ms;
+}
+
+@-webkit-keyframes trUp {
+  0% {
+    -webkit-transform: perspective(100px) rotateX(2deg) translateY(30px);;
+  }
+  100% {
+    -webkit-transform: perspective(0px) rotateX(0deg) translateY(0);
+  }
+}
+
+.tr-down {
+    animation-name: trDown2;
+    animation-iteration-count: 1;
+    animation-timing-function: cubic-bezier(0.240, 1.650, 0.785, 1.120);
+    animation-duration: 350ms;
+}
+
+@-webkit-keyframes trDown2 {
+  0% {
+    -webkit-transform: translateY(-30px);
+  }
+  100% {
+    -webkit-transform: translateY(0);
+  }
+}
+
+.tr-expand {
+    animation-name: trExpand;
+    animation-iteration-count: 1;
+    animation-timing-function: cubic-bezier(0.240, 1.650, 0.785, 1.120);
+    animation-duration: 250ms;
+}
+
+@-webkit-keyframes trExpand {
+  0% {
+    -webkit-transform: scale(1.1);
+  }
+  100% {
+    -webkit-transform: scale(1);
+  }
+}
+
+.tr-slow-up {
+    animation-name: trSlowUp;
+    animation-iteration-count: 1;
+    animation-timing-function: cubic-bezier(0.240, 1.650, 0.785, 1.120);
+    animation-duration: 500ms;
+}
+
+@-webkit-keyframes trSlowUp {
+  0% {
+    -webkit-transform: translateY(40px);
+  }
+  60% {
+    -webkit-transform: translateY(-2px);
+  }
+  100% {
+    -webkit-transform: translateY(0);
+  }
+}
