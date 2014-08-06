@@ -133,8 +133,6 @@ describe('RuleParser', function () {
 
     ruleparser.lex('w', err);
     expect(err.msg).toMatch(/Unknown type/);
-    ruleparser.lex('a', err);
-    expect(err.msg).toMatch(/Unknown type/);
 
     ruleparser.lex('18n', err);
     expect(err.msg).toBeFalsy();

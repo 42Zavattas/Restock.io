@@ -67,6 +67,8 @@
    * ----------------------------------------------
    */
 
+  var matchTypes = /^(s|S|n|N|b|d|e|p|a|t|c|i)$/;
+
   /**
    * Extract the next node in the given string
    */
@@ -74,7 +76,7 @@
     var res;
 
     // "regular" node
-    res = str.match(/^(s|S|n|N|b|d)$/);
+    res = str.match(matchTypes);
     if (res !== null) {
       return str.charAt(0);
     }
@@ -106,7 +108,7 @@
     }
 
     // Regular
-    res = str.match(/^(s|S|n|N|b|d)$/);
+    res = str.match(matchTypes);
     if (res !== null) {
       out.type = str;
       return out;
