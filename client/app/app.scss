@@ -168,6 +168,15 @@ input.has-error {
     border-color: darken($blue, 31);
     color: white;
   }
+  &.danger {
+    border-color: $red;
+    color: $red;
+    &:hover {
+      color: black;
+      background-color: $red);
+      border-color: darken($red, 10);
+    }
+  }
   &.google-plus {
     background-color: #dd4b39;
     border: 1px solid darken(#dd4b39, 10);

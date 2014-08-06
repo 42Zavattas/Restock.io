@@ -18,7 +18,7 @@ function onConnect(socket) {
   });
 
   // Insert sockets below
-  //require('../api/stock/stock.socket').register(socket);
+  require('../api/stock/stock.socket').register(socket);
 }
 
 module.exports = function (socketio) {
