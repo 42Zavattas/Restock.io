@@ -56,11 +56,11 @@ table {
 }
 
 .doc-h3 {
-  font-family: "Sinkin";
+  font-family: "Sinkin Bold";
   margin-bottom: 3em;
   text-align:center;
-  color: $green;
-  @include text-shadow(rgba(black, .3) 0 1px 1px);
+  color: darken($green,10);
+  @include text-shadow(rgba(black, .2) 0 1px 1px);
   span {
     border-bottom: 2px dashed rgba(black, .2);
   }
