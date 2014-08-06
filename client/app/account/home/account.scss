@@ -14,3 +14,27 @@
     margin-bottom: 10px;
   }
 }
+
+th {
+  font-family: "Sinkin Bold";
+}
+
+td.date {
+  font-size: 12px;
+}
+
+.text-center {
+  text-align:center;
+}
+
+.del-icon {
+  cursor:pointer;
+  padding:10px;
+  background:transparent;
+  border:1px solid transparent;
+  color:rgba(white,.3);
+  &:hover {
+    background: rgba($red,.4);
+    color:rgba(white,.8);
+  }
+}

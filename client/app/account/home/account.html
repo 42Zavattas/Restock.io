@@ -10,9 +10,9 @@
       <tr>
         <th>Rule</th>
         <th>Url</th>
-        <th>Calls</th>
-        <th>Created</th>
-        <th>Actions</th>
+        <th class="text-center">Calls</th>
+        <th class="text-center">Created</th>
+        <th>&nbsp;</th>
       </tr>
     </thead>
     <tbody>
@@ -23,10 +23,12 @@
         <td>
           <a class="little-link" target="blanck" ng-href="{{ui.domain}}/api/stocks{{stock.url}}">/api/stocks{{stock.url}}</a>
         </td>
-        <td>{{stock.calls}}</td>
-        <td>{{stock.created_at | date:'dd/MM/yyyy'}}</td>
+        <td class="text-center"><strong>{{stock.calls}}</strong></td>
+        <td class="text-center date">{{stock.created_at | date:'dd/MM/yyyy'}}</td>
         <td>
-          <button ng-click="deleteStock(stock)" class="btn danger"><i class="icon-remove"></i></button>
+          <button ng-click="deleteStock(stock)" class="del-icon">
+            <i class="icon-remove"></i>
+          </button>
         </td>
       </tr>
     </tbody>
