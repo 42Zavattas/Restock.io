@@ -72,9 +72,9 @@ router.getStringified = function (rule) {
   }
   var err = {};
   var lex = ruleparser.lex(rule, err);
-  /*if (err.msg) {
-    return res.send(400, err);    --> ?
-  }*/
+  if (err.msg) {
+    return err;
+  }
   return JSON.stringify(recurse(lex));
 }
 

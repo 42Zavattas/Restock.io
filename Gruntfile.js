@@ -364,6 +364,12 @@ module.exports = function (grunt) {
         cwd: '<%= yeoman.client %>',
         dest: '.tmp/',
         src: ['{app,components}/**/*.css']
+      },
+      parser: {
+        expand: true,
+        cwd: '<%= yeoman.client %>',
+        dest: '<%= yeoman.dist %>/client/',
+        src: ['parser/**/*']
       }
     },
 
@@ -618,6 +624,7 @@ module.exports = function (grunt) {
     'concat',
     'ngAnnotate',
     'copy:dist',
+    'copy:parser',
     'cdnify',
     'cssmin',
     'uglify',
