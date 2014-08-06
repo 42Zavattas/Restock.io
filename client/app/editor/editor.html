@@ -1,6 +1,6 @@
 <section class="rs-ruler editor-view">
   <div class="rs-super-input">
-    <div class="rs-super-notif" ng-if="errorMsg">
+    <div class="rs-super-notif" ng-if="errorMsg && rule.input !== ''">
       <div class="rs-sub-input">
         <div class="rs-badge error">ERR<br>400</div>
         <div class="rs-error-msg">{{ errorMsg }}</div>
