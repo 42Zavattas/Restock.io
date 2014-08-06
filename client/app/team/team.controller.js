@@ -10,7 +10,7 @@ angular.module('restockApp')
         social: [
           { name: 'github', url: 'https://github.com/Apercu' },
           { name: 'stackoverflow', url: 'http://stackoverflow.com/users/2054072/aper%C3%A7u' },
-          { name: 'linkedin', url: 'fr.linkedin.com/in/bgronon/' }
+          { name: 'linkedin', url: 'http://fr.linkedin.com/in/bgronon/' }
         ]
       },
       {
