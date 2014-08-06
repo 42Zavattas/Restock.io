@@ -72,14 +72,14 @@
   font-family: "Lucida Console";
   font-size: 10px;
   color: rgba(white, .7);
-  background: rgba($green,.4);
+  background: rgba($green,.7);
   padding: 2px;
   padding-top: 3px;
   padding-bottom: 1px;
   display:block;
   text-align:center;
   border: 1px solid darken($green, 8);
-  @include box-shadow(rgba(black,.6) 0 1px 2px);
+  @include box-shadow(rgba(black,.3) 0 1px 1px);
   &.error {
     background: rgba($red, .5);
     border: 1px solid darken($red, 10);
