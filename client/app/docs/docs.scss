@@ -44,6 +44,9 @@ table {
   span {
     border-bottom: 2px dashed rgba(black, .2);
   }
+  &.center {
+    text-align:center;
+  }
 }
 
 .doc-h3 {
