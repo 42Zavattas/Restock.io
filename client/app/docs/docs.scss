@@ -20,6 +20,10 @@ table {
     @include user-select(text);
     &.code {
     }
+    &.medium {
+      max-width:100px;
+      word-wrap: break-word;
+    }
   }
 }
 
