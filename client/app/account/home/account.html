@@ -35,21 +35,4 @@
   </table>
   <h3 ng-if="!stocks.length" class="marged-bottom"><strong>Nothing for now</strong></h3>
 
-  <h2 class="doc-h2">
-    <span>Change password</span>
-  </h2>
-
-  <form class="form change-pwd" name="form" ng-submit="changePassword(form)" novalidate>
-
-    <input type="password" placeholder="Enter your current password" class="form-control" ng-model="user.oldPassword"
-           name="password" ng-class="{'has-error':!user.success && form.password.$invalid && submitted}" required mongoose-error>
-    <input type="password" placeholder="Enter a new password" class="form-control" ng-model="user.newPassword" ng-minlength="3"
-           ng-class="{'has-error':!user.success && (form.newPassword.$error.minlength || form.newPassword.$error.required) && (form.newPassword.$dirty || submitted)}"
-           name="newPassword" required>
-
-    <div class="msg">{{message}}</div>
-
-    <button class="btn" type="submit">Save changes</button>
-  </form>
-
 </div>
