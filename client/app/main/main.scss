@@ -37,10 +37,10 @@
 a.rs-launch-item {
   text-align: center;
   padding: 30px;
-  background: rgba(black, .1);
-  border: 1px solid rgba(black, .2);
   border-right: none;
   text-decoration: none;
+  width: 230px;
+  border-bottom: 5px solid transparent;
   i {
     display:block;
     margin: 50px auto 20px auto;
@@ -50,9 +50,6 @@ a.rs-launch-item {
       color: $orange;
     }
   }
-  &:last-child {
-    border-right: 1px solid rgba(black, .2);
-  }
   h2 {
     text-transform: uppercase;
     font-family: monospace;
@@ -60,11 +57,8 @@ a.rs-launch-item {
     margin-bottom: 20px;
   }
   &:hover {
-    background: rgba(black, .6);
-    h2 {
-      color: rgba(white, .7);
-    }
-    i {
+    border-color: rgba(white, .7);
+    h2, i {
       color: rgba(white, .7);
     }
   }
