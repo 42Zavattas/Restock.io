@@ -21,7 +21,7 @@ angular.module('restockApp')
         return ;
       }
       $scope.stocks.saving = true;
-      var test = $http.post('/api/stocks', { rule: rule }).then(function () {
+      $http.post('/api/stocks', { rule: rule }).then(function () {
         $scope.stocks.saving = false;
         $scope.stocks.saved.push(rule);
       }, function () {

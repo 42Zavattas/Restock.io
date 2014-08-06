@@ -3,8 +3,6 @@
 var express = require('express');
 var router = express.Router();
 
-router.get('/:rule', build);
-
 var ruleparser = require('../client/parser/ruleparser.js');
 var types = require('./types.js');
 
@@ -29,18 +27,19 @@ function getElementOfType (type) {
 }
 
 function recurse (lex) {
+  var i;
   if (lex.type !== 'array' && lex.type !== 'object') {
     return getElementOfType(lex.type);
   }
   else if (lex.type === 'array') {
     var container = [];
-    for (var i = 0; i < lex.nbChilds; i++) {
+    for (i = 0; i < lex.nbChilds; i++) {
       container.push(recurse(lex.child));
     }
     return container;
   }
   var object = {};
-  for (var i = 0; i < lex.props.length; i++) {
+  for (i = 0; i < lex.props.length; i++) {
     object[lex.props[i].name] = recurse(lex.props[i].val);
   }
   return object;
@@ -60,6 +59,8 @@ function build (req, res) {
   return res.send(200, result);
 }
 
+router.get('/:rule', build);
+
 function handleError(res, err) {
   return res.send(500, err);
 }
@@ -71,11 +72,10 @@ router.getStringified = function (rule) {
   }
   var err = {};
   var lex = ruleparser.lex(rule, err);
-  if (err.msg) {
-    return res.send(400, err);
-  }
-  var result = recurse(lex);
-  return JSON.stringify(result);;
+  /*if (err.msg) {
+    return res.send(400, err);    --> ?
+  }*/
+  return JSON.stringify(recurse(lex));
 }
 
 module.exports = router;

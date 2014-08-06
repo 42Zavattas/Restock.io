@@ -1,3 +1,5 @@
+'use strict';
+
 angular.module('restockApp')
   .directive('focusMe', function($timeout, $parse) {
     return {
