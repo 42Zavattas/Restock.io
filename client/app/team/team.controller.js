@@ -15,7 +15,7 @@ angular.module('restockApp')
       },
       {
         name: 'Mériadec Pillet',
-        url: 'assets/images/m.png',
+        url: 'assets/images/m.jpg',
         social: [
           { name: 'github', url: 'https://github.com/meriadec' },
           { name: 'stackoverflow', url: 'http://stackoverflow.com/users/1845964/meriadec' },
