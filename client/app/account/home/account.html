@@ -1,7 +1,7 @@
 <div class="container">
 
   <h2 class="doc-h2">
-    <span>Account</span>
+    <span>Stocks</span>
   </h2>
 
   <table ng-class="{'no-margin':!stocks.length}">
@@ -34,6 +34,10 @@
     </tbody>
   </table>
   <h3 ng-if="!stocks.length" class="marged-bottom"><strong>Nothing for now</strong></h3>
+
+  <h2 class="doc-h2">
+    <span>Change password</span>
+  </h2>
 
   <form class="form change-pwd" name="form" ng-submit="changePassword(form)" novalidate>
 
