@@ -47,7 +47,8 @@ angular.module('restockApp', [
 
     $rootScope.ui = {
       isLogged: false,
-      domain: 'http://restock.io'
+      domain: 'http://restock.io',
+      currentUser: Auth.getCurrentUser()
     };
 
     $rootScope.ui.domain = $location.protocol() + '://' + $location.host() + ':' + $location.port();

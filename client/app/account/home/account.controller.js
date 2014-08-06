@@ -6,7 +6,7 @@ angular.module('restockApp')
     $scope.errors = {};
     $scope.stocks = stocks;
 
-    socket.syncUpdates('stock', $scope.stocks);
+    socket.syncUpdates('stock', $scope.stocks, 'user', $scope.$root.ui.currentUser._id);
 
     $scope.deleteStock = function (stock) {
       if (!stock._id) {
