@@ -62,6 +62,12 @@ body {
   background: $blue;
   color: rgba(black, .6);
   @include user-select(none);
+  cursor: default;
+}
+
+.cursor-default {
+  @include user-select(none);
+  cursor: default;
 }
 
 .rs-shadow {
@@ -113,8 +119,9 @@ a.rs-logo {
         display:block;
         border: 1px solid transparent;
         &.brand {
-          border-color: rgba($blue, .7);
-          color: darken($blue, 15);
+          &:hover {
+            border-bottom-color: rgba($orange, .7);
+          }
         }
         &:hover {
           color: rgba(white, .7);
