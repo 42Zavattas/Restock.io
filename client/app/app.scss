@@ -170,10 +170,10 @@ input.has-error {
     color: white;
   }
   &.danger {
-    border-color: $red;
+    border: none;
     color: $red;
     &:hover {
-      color: black;
+      color: rgba(black, .7);
       background-color: $red;
       border-color: darken($red, 10);
     }
