@@ -38,4 +38,11 @@
     disabled
     ng-class="{ invalid: !isValid(rule.input), valid: isValid(rule.input) && rule.input !== '' }"
     class="rs-sketch-container">{{ res | json }}</textarea>
+
+  <div class="rs-reference-bloc">
+    <div class="rs-reference" ng-repeat="ref in reference">
+      <span class="rs-code">{{ ref[0] }}</span> {{ ref[1] }}
+    </div>
+  </div>
+
 </section>
