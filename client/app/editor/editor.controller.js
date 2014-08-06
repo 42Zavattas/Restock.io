@@ -77,7 +77,7 @@ angular.module('restockApp')
     $scope.$watch('rule.input', function () {
       if ($scope.rule.input !== '' && $scope.isValid($scope.rule.input)) {
 
-        if (new Date().getTime() - ping > 5000) {
+        if (new Date().getTime() - ping > 1000) {
 
           $scope.isLoading = false;
           ping = new Date().getTime();
