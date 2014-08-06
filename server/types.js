@@ -7,10 +7,6 @@ exports.getWord = function () {
   return chance.word();
 }
 
-exports.getWordCode = function () {
-  return chance.word({syllables: 3});
-}
-
 exports.getParagraph = function () {
   return chance.paragraph();
 }
@@ -23,6 +19,15 @@ exports.getNumber = function () {
   return chance.integer();
 }
 
+exports.getBoolean = function () {
+  return chance.bool();
+}
+
+exports.getDate = function () {
+  return chance.date();
+}
+
+//not implemented yet
 exports.getEmail = function () {
   return chance.email();
 }
@@ -35,14 +40,19 @@ exports.getPhone = function () {
   return chance.phone();
 }
 
-exports.getColor = function () {
-  return chance.color();
+exports.getCharacter = function () {
+  return chance.character({alpha: true});
 }
 
-exports.getBoolean = function () {
-  return chance.bool();
+exports.getIp = function () {
+  return chance.ip();
 }
 
-exports.getDate = function () {
-  return chance.date();
+exports.getTimestamp = function () {
+  return chance.timestamp();
+}
+
+//Generate utility
+exports.getWordCode = function () {
+  return chance.word({syllables: 3});
 }

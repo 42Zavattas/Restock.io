@@ -20,7 +20,9 @@ function getElementOfType (type) {
     'e': types.getEmail,
     'p': types.getPhone,
     'a': types.getAddress,
-    'c': types.getColor,
+    'c': types.getCharacter,
+    'i': types.getIp,
+    't': types.getTimestamp
   };
 
   return indexes[type]();
