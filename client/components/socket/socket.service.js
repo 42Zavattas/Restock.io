@@ -38,6 +38,11 @@ angular.module('restockApp')
           if (item[prop] !== equal) {
             return cb(event, null, []);
           }
+          if (modelName === 'stock' && item.active === false) {
+            event = 'deleted';
+            _.remove(array, {_id: item._id});
+            return cb(event, item, array);
+          }
           var oldItem = _.find(array, {_id: item._id});
           var index = array.indexOf(oldItem);
           event = 'created';
