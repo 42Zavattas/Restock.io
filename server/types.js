@@ -8,7 +8,7 @@ exports.getWord = function () {
 }
 
 exports.getParagraph = function () {
-  return chance.paragraph();
+  return chance.paragraph({sentences: 2});
 }
 
 exports.getLittleNumber = function () {
