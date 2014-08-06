@@ -1,4 +1,22 @@
 
+@-webkit-keyframes trLittleDownIn {
+  0% {
+    -webkit-transform: translateY(-25px);
+  }
+  100% {
+    -webkit-transform: translateY(0);
+  }
+}
+
+@-webkit-keyframes trLittleUpOut {
+  0% {
+    -webkit-transform: translateY(0);
+  }
+  100% {
+    -webkit-transform: translateY(-5px);
+  }
+}
+
 .tr-up {
     animation-name: trUp;
     animation-iteration-count: 1;

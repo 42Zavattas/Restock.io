@@ -3,6 +3,7 @@
 angular.module('restockApp', [
   'ngCookies',
   'ngResource',
+  'ngAnimate',
   'ngSanitize',
   'ngRoute',
   'btford.socket-io'

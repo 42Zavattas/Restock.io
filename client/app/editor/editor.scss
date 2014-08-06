@@ -14,6 +14,12 @@
   position: absolute;
   top: 0; left: 20px; right: 20px;
   text-align: center;
+  &.ng-enter{
+    animation-name: trLittleDownIn ;
+    animation-iteration-count: 1;
+    animation-timing-function: cubic-bezier(0.240, 1.650, 0.785, 1.120);
+    animation-duration: 250ms;
+  }
 }
 
 .rs-ruler-input {
