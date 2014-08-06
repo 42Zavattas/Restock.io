@@ -73,10 +73,10 @@
 a.rs-launch-item {
   text-align: center;
   padding: 30px;
+  padding-bottom: 0;
   border-right: none;
   text-decoration: none;
   width: 230px;
-  border-bottom: 5px solid transparent;
   i {
     display:block;
     margin: 50px auto 20px auto;
@@ -93,9 +93,11 @@ a.rs-launch-item {
     margin-bottom: 20px;
   }
   &:hover {
-    border-color: rgba(white, .7);
     h2, i {
       color: rgba(white, .7);
+    }
+    .underline {
+      @include scaleX(1);
     }
   }
 }

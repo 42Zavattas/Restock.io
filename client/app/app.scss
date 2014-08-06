@@ -356,6 +356,14 @@ strong {
   }
 }
 
+.underline {
+  height: 5px;
+  margin-top: 35px;
+  background-color: rgba(white, .7);
+  @include transition(all 0.3s ease-in-out);
+  @include scaleX(0);
+}
+
 .spinner {
   @include animation(0s, 2s, spin, infinite);
 }
