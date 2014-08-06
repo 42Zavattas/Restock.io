@@ -168,7 +168,8 @@
     height: 8px;
     opacity: .5;
     @include transition-property('*');
-    @include transition-duration(2s);
+    @include transition-duration(5s);
+    @include transition-timing-function(linear);
     border-bottom: 1px solid rgba(black, .1);
     &.load {
       width: 800px;
