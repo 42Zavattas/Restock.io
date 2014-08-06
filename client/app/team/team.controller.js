@@ -10,7 +10,7 @@ angular.module('restockApp')
         social: [
           { name: 'github', url: 'https://github.com/Apercu' },
           { name: 'stackoverflow', url: 'http://stackoverflow.com/users/2054072/aper%C3%A7u' },
-          { name: 'linkedin', url: 'https://www.linkedin.com/profile/view?id=333418914' }
+          { name: 'linkedin', url: 'fr.linkedin.com/in/bgronon/' }
         ]
       },
       {
@@ -19,7 +19,7 @@ angular.module('restockApp')
         social: [
           { name: 'github', url: 'https://github.com/meriadec' },
           { name: 'stackoverflow', url: 'http://stackoverflow.com/users/1845964/meriadec' },
-          { name: 'linkedin', url: 'https://www.linkedin.com/profile/view?id=334221265' }
+          { name: 'linkedin', url: 'https://www.linkedin.com/in/meriadec' }
         ]
       }
     ];
