@@ -27,6 +27,10 @@
     maxlength="51"
     class="rs-ruler-input">
   </div>
+  <div class="rs-timer">
+    <div class="bar" ng-class="{ load: isLoading, hide: !isLoading }">
+    </div>
+  </div>
   <textarea
     ng-class="{ invalid: !isValid(rule.input), valid: isValid(rule.input) && rule.input !== '' }"
     class="rs-sketch-container">{{ res | json }}</textarea>

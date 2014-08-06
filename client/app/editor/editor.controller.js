@@ -10,6 +10,8 @@ angular.module('restockApp')
       saving: false
     };
 
+    $scope.isLoading = true;
+
     $scope.res = null;
 
     var ping = new Date().getTime() - 9999;
@@ -56,10 +58,13 @@ angular.module('restockApp')
       if ($scope.rule.input !== '' && $scope.isValid($scope.rule.input)) {
 
         if (new Date().getTime() - ping > 2000) {
+
+          $scope.isLoading = false;
           ping = new Date().getTime();
           $http
             .get($scope.$root.ui.domain + '/api/' + $scope.rule.input)
               .then(function (res) {
+                $scope.isLoading = true;
                 $scope.res = res.data;
               }, function (err) {
                 console.log(err);
