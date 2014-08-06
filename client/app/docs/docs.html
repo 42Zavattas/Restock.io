@@ -12,9 +12,10 @@
       <li>
         <a href="/docs#environment">Environment</a>
         <ol>
-          <li><a href="/docs#env-cmd">command line</a></li>
+          <li><a href="/docs#env-cmd">cURL</a></li>
           <li><a href="/docs#env-angular">AngularJs</a></li>
-          <li><a href="/docs#env-drupal">Drupal ftw</a></li>
+          <li><a href="/docs#env-nodejs">NodeJs</a></li>
+          <li><a href="/docs#env-python">Python</a></li>
         </ol>
       </li>
     </ul>
@@ -181,7 +182,7 @@
     <table>
       <tbody>
         <tr>
-          <td><span class="code">Command Line (cURL)</span></td>
+          <td><span class="code">cURL</span></td>
           <td><pre class="no-marged">
 curl http://restock.io/api/5s</pre>
           </td>
@@ -193,6 +194,7 @@ $http.get('http://restock.io/api/5s').then(function (res) {
   console.log(res);
 });</pre>
           </td>
+        </tr>
         <tr>
           <td><span class="code">NodeJs</span></td>
           <td><pre class="no-marged">
@@ -210,6 +212,15 @@ http.request(options, function (res) {
 })</pre>
           </td>
         </tr>
+        <tr>
+          <td><span class="code">Python</span></td>
+          <td><pre class="no-marged">
+import urllib
+
+url = 'http://restock.io/api/5s'
+u = urllib.urlopen(url)
+data = u.read()</pre>
+          </td>
         </tr>
       </tbody>
     </table>
