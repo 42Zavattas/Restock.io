@@ -1,0 +1,15 @@
+.team {
+  > div:first-child {
+    margin-right: 30px;
+  }
+  h2 {
+    color: white;
+    font-family: 'Sinkin Italic';
+    font-size: 18px;
+    margin-top: 10px;
+  }
+  img {
+    width: 200px;
+    height: 200px;
+  }
+}
