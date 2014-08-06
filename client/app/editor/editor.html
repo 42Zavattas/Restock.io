@@ -5,11 +5,11 @@
     ng-model="rule.input"
     type="text"
     class="rs-ruler-input">
-    <rule-sketch
-      class="rs-ruler-result"
-      ng-class="{ invalid: !isValid(rule.input), valid: isValid(rule.input) && rule.input !== '' }"
-      rule="rule">
-    </rule-sketch>
+  <rule-sketch
+    class="rs-ruler-result"
+    ng-class="{ invalid: !isValid(rule.input), valid: isValid(rule.input) && rule.input !== '' }"
+    rule="rule">
+  </rule-sketch>
   <div ng-if="errorMsg">
     <div class="flex centered rs-sub-input">
       <div class="rs-badge error">ERR<br>400</div>
