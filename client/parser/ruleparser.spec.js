@@ -151,6 +151,15 @@ describe('RuleParser', function () {
     expect(err.msg).toBeFalsy();
   });
 
+  it('should verify number of properties', function () {
+
+    ruleparser.lex('{p:s}',                 err); expect(err.msg).toBeFalsy();
+    ruleparser.lex('{p1:s,p2:s}',           err); expect(err.msg).toBeFalsy();
+    ruleparser.lex('{p1:s,p2:s,p3:s}',      err); expect(err.msg).toBeFalsy();
+    ruleparser.lex('{p1:s,p2:s,p3:s,p4:s}', err); expect(err.msg).toMatch(/Too much properties/);
+
+  });
+
   it('should test when trying to go up the limitations', function () {
     expect(ruleparser.lex('180n', err)).toBeFalsy();
     expect(err.msg).toBe('Too much elements (limit: 50)');

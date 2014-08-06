@@ -155,6 +155,11 @@
         }
         return out;
       })(str.substr(1, str.length - 2).split(','));
+      if (props.length > 3) {
+        err.msg = "Too much properties (max: 3)";
+        err.valid = false;
+        return false;
+      }
       for (var i = 0; i < props.length; i++) {
         if (!/^[^:]+:.+$/.test(props[i])) {
           err.msg = "No value for property '" + props[i] + "'";
