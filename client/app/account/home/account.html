@@ -5,7 +5,8 @@
     <thead ng-if="stocks.length">
       <tr>
         <th>Rule</th>
-        <th>Code</th>
+        <th>Url</th>
+        <th>Calls</th>
         <th>Created</th>
         <th>Actions</th>
       </tr>
@@ -15,7 +16,10 @@
         <td class="code-cell">
           <span class="code">{{stock.rule}}</span>
         </td>
-        <td>{{stock.code}}</td>
+        <td>
+          <a class="little-link" ng-href="{{ui.domain}}/api/stocks{{stock.url}}">/api/stocks{{stock.url}}</a>
+        </td>
+        <td>{{stock.calls}}</td>
         <td>{{stock.created_at | date:'HH:mm dd/MM/yyyy'}}</td>
         <td>
           <button class="btn"><i class="icon-remove"></i></button>
@@ -23,7 +27,7 @@
       </tr>
     </tbody>
   </table>
-  <h3 class="marged-bottom"><strong>Nothing for now</strong></h3>
+  <h3 ng-if="!stocks.length" class="marged-bottom"><strong>Nothing for now</strong></h3>
 
   <form class="form change-pwd" name="form" ng-submit="changePassword(form)" novalidate>
 

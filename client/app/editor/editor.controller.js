@@ -1,9 +1,8 @@
 'use strict';
 
 angular.module('restockApp')
-  .controller('EditorCtrl', function ($scope, $http, $routeParams, $location) {
+  .controller('EditorCtrl', function ($scope, $http, $routeParams) {
 
-    $scope.domain = $location.protocol() + '://' + $location.host() + ':' + $location.port();
     $scope.rule = { input: $routeParams.q || '', lexed: null };
 
     $scope.saveStock = function (rule) {

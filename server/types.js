@@ -7,6 +7,10 @@ exports.getWord = function () {
   return chance.word();
 }
 
+exports.getWordCode = function () {
+  return chance.word({syllables: 3});
+}
+
 exports.getParagraph = function () {
   return chance.paragraph();
 }

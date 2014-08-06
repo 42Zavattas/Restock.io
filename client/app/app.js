@@ -46,8 +46,11 @@ angular.module('restockApp', [
   .run(function ($rootScope, $location, Auth) {
 
     $rootScope.ui = {
-      isLogged: false
+      isLogged: false,
+      domain: 'http://restock.io'
     };
+
+    $rootScope.ui.domain = $location.protocol() + '://' + $location.host() + ':' + $location.port();
 
     $rootScope.logout = function() {
       Auth.logout();

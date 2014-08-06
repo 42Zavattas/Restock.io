@@ -62,4 +62,18 @@ function handleError(res, err) {
   return res.send(500, err);
 }
 
+router.getStringified = function (rule) {
+  var test = ruleparser.test(rule);
+  if (test.valid === false) {
+    return test;
+  }
+  var err = {};
+  var lex = ruleparser.lex(rule, err);
+  if (err.msg) {
+    return res.send(400, err);
+  }
+  var result = recurse(lex);
+  return JSON.stringify(result);;
+}
+
 module.exports = router;
