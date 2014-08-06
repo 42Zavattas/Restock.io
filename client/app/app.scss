@@ -375,6 +375,14 @@ strong {
   @include animation(0s, 2s, spin, infinite);
 }
 
+.link {
+  color:rgba(darken($blue,10),.8);
+  text-decoration:none;
+  &:hover {
+    text-decoration:underline;
+  }
+}
+
 // Component styles are injected through grunt
 // injector
 @import 'account/home/account.scss';
