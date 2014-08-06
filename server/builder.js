@@ -58,7 +58,7 @@ function build (req, res) {
     return res.send(400, err);
   }
   var result = recurse(lex);
-  return res.send(200, result);
+  return res.status(200).send(result);
 }
 
 router.get('/:rule', build);
