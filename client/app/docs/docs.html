@@ -25,7 +25,13 @@
 
     <h3 class="doc-h3">Introduction</h3>
 
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus leo diam, porttitor nec odio at, vehicula ultrices leo. Ut interdum libero et ligula pharetra fringilla. Pellentesque vel justo consequat, condimentum velit id, egestas lorem. Nullam vel dolor scelerisque, porta lacus a, convallis nunc. Praesent commodo est in nisi congue rhoncus. In urna magna, bibendum quis quam at, consectetur imperdiet est. Mauris id congue tortor. Ut orci elit, faucibus a rhoncus a, sagittis in tortor. Nam ac tellus placerat, fermentum nunc ut, molestie ante. Aenean lacinia id sapien eget aliquet.</p>
+    <p class="select">The main purpose of Restock is to provide a ready-to-use toolbox to mock your REST calls and don't bother with them.
+    You can create some simple results composed of one item of the following supported types, or more complex one by nesting them inside an array or an object.
+    <br>
+    Note that you can't return only a number since the HTTP protocol will not allow this.
+    <br>
+    <br>
+    Feel free to contact us when you encounter an issue or an inconsistency.</p>
 
   </div>
 
@@ -44,26 +50,30 @@
             <span class="code">s</span> /
             <span class="code">S</span>
           </td>
-          <td class="cursor-default">Any <strong>string</strong></td>
+          <td class="select cursor-default">Any <strong>string</strong></td>
+          <td class="select cursor-default">ajeke</td>
         </tr>
         <tr>
           <td>
             <span class="code">n</span> /
             <span class="code">N</span>
           </td>
-          <td class="cursor-default">Any <strong>number</strong></td>
+          <td class="select cursor-default">Any <strong>number</strong></td>
+          <td class="select cursor-default">32 / -491264923402240</td>
         </tr>
         <tr>
           <td>
             <span class="code">b</span>
           </td>
-          <td class="cursor-default">"Any" <strong>boolean</strong></td>
+          <td class="select cursor-default">"Any" <strong>boolean</strong></td>
+          <td class="select cursor-default">true</td>
         </tr>
         <tr>
           <td>
             <span class="code">d</span>
           </td>
-          <td class="cursor-default">Any <strong>date</strong></td>
+          <td class="select cursor-default">Any <strong>date</strong></td>
+          <td class="select cursor-default">2054-06-04T01:37:33.311Z</td>
         </tr>
       </tbody>
     </table>
@@ -74,19 +84,23 @@
       <tbody>
         <tr>
           <td class="code-cell"><span class="code">e</span></td>
-          <td class="cursor-default">Any <strong>email</strong></td>
+          <td class="select cursor-default">Any <strong>email</strong></td>
+          <td class="select cursor-default">kqzdp@aiklqq.gv</td>
         </tr>
         <tr>
           <td class="code-cell"><span class="code">p</span></td>
-          <td class="cursor-default">Any <strong>phone</strong> (US formatted)</td>
+          <td class="select cursor-default">Any <strong>phone</strong> (US formatted)</td>
+          <td class="select cursor-default">(561) 927-1354</td>
         </tr>
         <tr>
           <td class="code-cell"><span class="code">a</span></td>
-          <td class="cursor-default">Any <strong>address</strong> (US formatted)</td>
+          <td class="select cursor-default">Any <strong>address</strong> (US formatted)</td>
+          <td class="select cursor-default">1337 Netne Le</td>
         </tr>
         <tr>
           <td class="code-cell"><span class="code">c</span></td>
-          <td class="cursor-default">Any <strong>color</strong></td>
+          <td class="select cursor-default">Any <strong>color</strong></td>
+          <td class="select cursor-default">#ffa13f</td>
         </tr>
       </tbody>
     </table>
@@ -127,6 +141,31 @@
   }
 ]</pre>
           </td>
+        <tr>
+          <td><span class="code">2{name:s,birth:d,female:b,childrens:2s}</span></td>
+          <td><pre class="no-marged">
+[
+  {
+    "name": "ikifal",
+    "birth": "2061-02-28T03:47:13.981Z",
+    "female": true,
+    "childrens": [
+      "gelerawu",
+      "be"
+    ]
+  },
+  {
+    "name": "bohkev",
+    "birth": "2058-10-19T03:43:11.450Z",
+    "female": true,
+    "childrens": [
+      "he",
+      "omefuf"
+    ]
+  }
+]</pre>
+          </td>
+        </tr>
         </tr>
       </tbody>
     </table>
@@ -138,6 +177,42 @@
   <div id="environment" class="segment">
     <a class="gotop" href="/docs#top"><i class="icon-arrow-up"></i></a>
     <h3 class="doc-h3">Environment</h3>
+
+    <table>
+      <tbody>
+        <tr>
+          <td><span class="code">Command Line (cURL)</span></td>
+          <td><pre class="no-marged">
+curl http://restock.io/api/5s</pre>
+          </td>
+        </tr>
+        <tr>
+          <td><span class="code">AngularJs</span></td>
+          <td><pre class="no-marged">
+$http.get('http://restock.io/api/5s').then(function (res) {
+  console.log(res);
+});</pre>
+          </td>
+        <tr>
+          <td><span class="code">NodeJs</span></td>
+          <td><pre class="no-marged">
+var options = {
+  host: 'http://restock.io',
+  port: 80,
+  path: '/api/5s',
+  method: 'GET'
+};
+
+http.request(options, function (res) {
+  res.on('data', function (data) {
+    console.log(data);
+  });
+})</pre>
+          </td>
+        </tr>
+        </tr>
+      </tbody>
+    </table>
   </div>
 
 </section>
