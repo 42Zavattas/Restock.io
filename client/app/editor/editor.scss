@@ -179,3 +179,29 @@
     }
   }
 }
+
+.rs-reference-bloc {
+  font-size: 12px;
+  width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 1em;
+  border: 1px solid rgba(black, .3);
+  padding: 0 0 30px 30px;
+}
+
+.rs-reference {
+  width: 150px;
+  margin: 30px 30px 0 0;
+}
+
+.rs-code {
+  font-family: monospace;
+  color:rgba(white,.8);
+  background:rgba(black,.6);
+  padding:5px;
+}

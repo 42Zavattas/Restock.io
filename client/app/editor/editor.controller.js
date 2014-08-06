@@ -10,6 +10,21 @@ angular.module('restockApp')
       saving: false
     };
 
+    $scope.reference = [
+      ['s', 'string'],
+      ['S', 'paragraph'],
+      ['n', 'number (0-100)'],
+      ['N', 'big (+/-) number'],
+      ['b', 'boolean'],
+      ['d', 'date'],
+      ['e', 'email'],
+      ['p', 'phone'],
+      ['a', 'adress'],
+      ['t', 'timestamp'],
+      ['c', 'character'],
+      ['i', 'ip']
+    ];
+
     $scope.isLoading = true;
 
     $scope.res = null;
