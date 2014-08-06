@@ -1,10 +1,10 @@
 @font-face {
 	font-family: 'icomoon';
-	src:url('fonts/icomoon.eot?cvv506');
-	src:url('fonts/icomoon.eot?#iefixcvv506') format('embedded-opentype'),
-		url('fonts/icomoon.woff?cvv506') format('woff'),
-		url('fonts/icomoon.ttf?cvv506') format('truetype'),
-		url('fonts/icomoon.svg?cvv506#icomoon') format('svg');
+	src:url('fonts/icomoon.eot?iwduqr');
+	src:url('fonts/icomoon.eot?#iefixiwduqr') format('embedded-opentype'),
+		url('fonts/icomoon.woff?iwduqr') format('woff'),
+		url('fonts/icomoon.ttf?iwduqr') format('truetype'),
+		url('fonts/icomoon.svg?iwduqr#icomoon') format('svg');
 	font-weight: normal;
 	font-style: normal;
 }
@@ -211,6 +211,9 @@
 }
 .icon-windows8:before {
 	content: "\e631";
+}
+.icon-linkedin:before {
+	content: "\e648";
 }
 .icon-stackoverflow:before {
 	content: "\e632";
