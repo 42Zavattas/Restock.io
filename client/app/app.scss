@@ -118,6 +118,10 @@ a.rs-logo {
         padding: 15px;
         display:block;
         border: 1px solid transparent;
+        &.superbrand {
+          border-color: rgba($blue, .7);
+          color: darken($blue, 15);
+        }
         &.brand {
           &:hover {
             border-bottom-color: rgba($orange, .7);
