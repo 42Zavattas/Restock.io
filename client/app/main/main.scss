@@ -44,9 +44,7 @@
   padding: 1em;
   border-top: 1px solid rgba(black,.7);
   @include box-shadow(rgba(black,.5) 0 2px 8px);
-  display:flex;
-  justify-content: center;
-  a {
+  > a {
     margin-right: 1em;
     font-family:monospace;
     display:block;
