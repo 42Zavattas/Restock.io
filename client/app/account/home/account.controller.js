@@ -5,8 +5,8 @@ angular.module('restockApp')
 
     $scope.errors = {};
 
-    $http.get('/rules/mine').then(function () {
-      console.log(res);
+    $http.get('api/stocks/mine').then(function (res) {
+      $scope.stocks = res.data;
     });
 
     $scope.changePassword = function (form) {
