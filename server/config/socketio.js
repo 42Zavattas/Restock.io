@@ -10,11 +10,21 @@ var config = require('./environment');
 function onDisconnect(socket) {
 }
 
+function printClientIp (socket) {
+  if (socket.address) {
+    console.info('[%s] ', socket.address);
+  }
+  else {
+    console.info('[%s:%s] ', socket.handshake.headers['x-forwarded-for'], socket.handshake.headers['x-forwarded-port']);
+  }
+}
+
 // When the user connects.. perform this
 function onConnect(socket) {
   // When the client emits 'info', this listens and executes
   socket.on('info', function (data) {
-    console.info('[%s] %s', socket.address, JSON.stringify(data, null, 2));
+    printClientIp(socket);
+    console.info('%s', JSON.stringify(data, null, 2));
   });
 
   // Insert sockets below
@@ -47,11 +57,13 @@ module.exports = function (socketio) {
     // Call onDisconnect.
     socket.on('disconnect', function () {
       onDisconnect(socket);
-      console.info('[%s] DISCONNECTED', socket.address);
+      printClientIp(socket);
+      console.info('DISCONNECTED', socket.address);
     });
 
     // Call onConnect.
     onConnect(socket);
-    console.info('[%s] CONNECTED', socket.address);
+    printClientIp(socket);
+    console.info('CONNECTED', socket.address);
   });
 };
