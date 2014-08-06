@@ -4,12 +4,26 @@ angular.module('restockApp')
   .controller('EditorCtrl', function ($scope, $http, $routeParams) {
 
     $scope.rule = { input: $routeParams.q || '', lexed: null };
+    $scope.stocks = {
+      saved: [],
+      saving: false
+    };
 
     $scope.saveStock = function (rule) {
-      $http.post('/api/stocks', { rule: rule }).then(function (res) {
-        console.log(res);
+      if ($scope.stocks.saved.indexOf(rule) > -1) {
+        return ;
+      }
+      $scope.stocks.saving = true;
+      var test = $http.post('/api/stocks', { rule: rule }).then(function () {
+        $scope.stocks.saving = false;
+        $scope.stocks.saved.push(rule);
+      }, function () {
+        $scope.stocks.saving = false;
       });
-      console.log(rule);
+    };
+
+    $scope.isSaved = function () {
+      return $scope.stocks.saved.indexOf($scope.rule.input) > -1;
     };
 
     /**
