@@ -246,6 +246,35 @@ strong {
   font-family: "Sinkin Bold";
 }
 
+[tooltip]:not(.no-tooltip) {
+  display: inline;
+  cursor: pointer;
+  &:hover:before {
+    content: '';
+    display: block;
+    position: absolute;
+    border-right: 5px solid transparent;
+    border-left: 5px solid transparent;
+    border-bottom: 5px solid rgba(black, .7);
+    top: 35px;
+    left: 13px;
+    z-index: 999;
+  }
+  &:hover:after {
+    content: attr(tooltip);
+    color: rgba(white, .8);
+    font-size: 13px;
+    display: block;
+    position: absolute;
+    width: 150px;
+    background-color: rgba(black, .7);
+    top: 40px;
+    left: 12px;
+    z-index: 999;
+    padding: 5px 10px;
+  }
+}
+
 @mixin keyframe ($animation_name) {
   @-webkit-keyframes $animation_name {
     @content;
