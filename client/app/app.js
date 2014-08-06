@@ -51,9 +51,9 @@ angular.module('restockApp', [
       currentUser: Auth.getCurrentUser()
     };
 
-    $rootScope.ui.domain = $location.protocol()
-                         + '://' + $location.host()
-                         + ($location.port() !== 80 ? ':' + $location.port() : '');
+    $rootScope.ui.domain = $location.protocol() +
+        '://' + $location.host() +
+        ($location.port() !== 80 ? ':' + $location.port() : '');
 
     $rootScope.logout = function() {
       Auth.logout();
