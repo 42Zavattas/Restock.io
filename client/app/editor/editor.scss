@@ -88,3 +88,31 @@
   color:rgba(black, .5);
   @include text-shadow(rgba(white, .1) 0 1px);
 }
+
+.rs-sketch-container {
+  margin: 0 auto;
+  width: 800px;
+  height:400px;
+  position: relative;
+  background: rgba(black, .3);
+  margin-top: 2em;
+  border: 1px solid rgba(white, .2);
+  @include box-shadow(rgba(black, .5) 0 0 12px inset);
+  font-family: monospace;
+  font-size: 11px;
+  &.invalid {
+    border-color:$red;
+  }
+  &.valid {
+    border-color:$green;
+  }
+}
+
+.sk-prop {
+  color: rgba(white, .8);
+}
+
+.sk-type {
+  background: rgba(white, .8);
+  padding: 3px;
+}
