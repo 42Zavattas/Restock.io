@@ -9,17 +9,20 @@
     <div class="rs-super-notif" ng-if="isValid(rule.input) && rule.input !== ''">
       <div class="rs-sub-input">
         <div class="rs-badge">HTTP<br>GET</div>
-        <a target="_blank" ng-href="{{domain}}/api/{{rule.input}}" class="rs-ruler-url">
+        <a target="_blank" ng-href="{{domain}}/api/{{rule.input}}"
+          class="rs-ruler-url"
+          ng-class="{ small: rule.input.length > 30 }">
           {{ ui.domain }}/api/{{ rule.input }}
         </a>
         <button ng-click="saveStock(rule.input)" ng-disabled="!ui.isLogged" class="rs-btn absright"><i class="icon-star"></i></button>
       </div>
     </div>
   <input
-    ng-class="{ invalid: !isValid(rule.input), waiting: rule.input === '' }"
+    ng-class="{ invalid: !isValid(rule.input), waiting: rule.input === '', small: rule.input.length > 30 }"
     focus-me="!loading"
     ng-model="rule.input"
     type="text"
+    maxlength="51"
     class="rs-ruler-input">
   </div>
   <div

@@ -1,6 +1,7 @@
 @import 'compass/reset';
 @import 'compass/css3';
 
+
 // Colors
 // ------
 $white: #ecf0f1;
@@ -173,7 +174,7 @@ input.has-error {
     color: $red;
     &:hover {
       color: black;
-      background-color: $red);
+      background-color: $red;
       border-color: darken($red, 10);
     }
   }
