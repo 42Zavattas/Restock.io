@@ -34,19 +34,19 @@
 }
 
 .rs-glue-launch {
-  width: 600px;
   margin: 0 auto;
   margin-bottom: 5em;
+  margin-top: 5em;
   background: rgba(black, .7);
   padding: 1em;
   border-top: 1px solid rgba(black,.7);
   @include box-shadow(rgba(black,.5) 0 2px 8px);
   display:flex;
-  justify-content: space-between;
+  justify-content: center;
   a {
+    margin-right: 1em;
     font-family:monospace;
     display:block;
-    border: 1px solid rgba(white,.1);
     padding: 1em;
     text-align: center;
     text-decoration:none;
@@ -62,7 +62,7 @@
     i {
       font-size:28px;
       display:block;
-      padding: .5em 0;
+      padding-bottom: .5em;
     }
   }
 }
