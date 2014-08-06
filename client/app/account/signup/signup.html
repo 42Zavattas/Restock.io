@@ -1,21 +1,16 @@
 <section class="auth-wrapper">
-  <h2>Sign up</h2>
+  <h2 class="doc-h2">Register</h2>
 
-  <p>Signup to access new features and save your personnal <em>stocks</em>.</p>
+  <p>Register to access new features and save your personnal <em>stocks</em>.</p>
   <form class="form" name="form" ng-submit="register(form)" novalidate>
 
     <div class="form-group">
-      <input ng-class="{'has-error':form.name.$error.required && submitted}" placeholder="Enter your name"
-             type="text" name="name" class="form-control" ng-model="user.name" required>
-    </div>
-
-    <div class="form-group">
-      <input ng-class="{'has-error':(form.email.$error.email || form.email.$error.required) && submitted}" placeholder="Enter your email"
+      <input focus-me="!loading" ng-class="{'has-error':(form.email.$error.email || form.email.$error.required) && submitted}" placeholder="email"
              type="email" name="email" class="form-control" ng-model="user.email" required mongoose-error>
     </div>
 
     <div class="form-group">
-      <input ng-class="{'has-error':(form.password.$error.minlength || form.password.$error.required) && submitted}" placeholder="Enter your password"
+      <input ng-class="{'has-error':(form.password.$error.minlength || form.password.$error.required) && submitted}" placeholder="password"
              type="password" name="password" class="form-control" ng-model="user.password" ng-minlength="3" required mongoose-error>
     </div>
 
@@ -25,7 +20,9 @@
 
     <div class="flex">
       <a class="btn mid" href="/login">Login</a>
-      <a ng-click="loginOauth('google')" class="btn mid google-plus" href="">Google+</a>
+      <a ng-click="loginOauth('google')" class="btn mid google-plus" href="">
+        <i class="icon-googleplus"></i>
+      </a>
     </div>
 
   </form>
