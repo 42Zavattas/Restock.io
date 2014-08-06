@@ -12,7 +12,7 @@ angular.module('restockApp')
 
     $scope.res = null;
 
-    var ping = new Date().getTime();
+    var ping = new Date().getTime() - 9999;
 
     $scope.saveStock = function (rule) {
       if ($scope.stocks.saved.indexOf(rule) > -1) {
@@ -32,6 +32,11 @@ angular.module('restockApp')
     };
 
     $scope.isValid = function (str) {
+
+      if ($scope.rule.input === '') {
+        return true;
+      }
+
       var res = ruleparser.test(str), err = {};
       if (res.valid === false) {
         $scope.errorMsg = res.msg;
@@ -44,24 +49,25 @@ angular.module('restockApp')
       }
       $scope.errorMsg = '';
       $scope.rule.lexed = res;
-
-      if ($scope.rule.input === '') {
-        return;
-      }
-
-      if (new Date().getTime() - ping > 2000) {
-        ping = new Date().getTime();
-        $http
-          .get($scope.$root.ui.domain + '/api/' + $scope.rule.input)
-            .then(function (res) {
-              $scope.res = res.data;
-            }, function (err) {
-              console.log(err);
-          });
-      }
-
       return true;
     };
+
+    $scope.$watch('rule.input', function () {
+      if ($scope.rule.input !== '' && $scope.isValid($scope.rule.input)) {
+
+        if (new Date().getTime() - ping > 2000) {
+          ping = new Date().getTime();
+          $http
+            .get($scope.$root.ui.domain + '/api/' + $scope.rule.input)
+              .then(function (res) {
+                $scope.res = res.data;
+              }, function (err) {
+                console.log(err);
+            });
+        }
+
+      }
+    });
 
     $scope.isValid($scope.rule.input);
 
