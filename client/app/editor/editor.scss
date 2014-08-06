@@ -32,6 +32,9 @@
   &:hover {
     color: rgba(black, .7);
   }
+  &.small {
+    font-size: 20px;
+  }
   &:focus {
     color: rgba(black, .7);
     border-color: $green;
@@ -101,9 +104,15 @@
   @include user-select(text);
   color: rgba(black, .5);
   text-decoration: none;
+  background:rgba($green,.3);
+  padding:10px;
+  font-family:monospace;
   @include text-shadow(rgba(white, .1) 0 1px);
   &:hover {
     text-decoration:underline;
+  }
+  &.small {
+    font-size: 14px;
   }
 }
 
