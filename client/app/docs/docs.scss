@@ -25,7 +25,13 @@ table {
   }
 }
 
+.selectext {
+  cursor:text;
+  @include user-select(text);
+}
+
 pre {
+  cursor:text;
   @include user-select(text);
 }
 
@@ -106,7 +112,6 @@ pre {
   background: rgba(white, .7);
   padding: 12px;
   margin-bottom: 2em;
-  @include box-shadow(rgba(black, .3) 0 4px 8px);
 }
 
 .code-cell {
@@ -114,6 +119,8 @@ pre {
 }
 
 .code {
+  @include user-select(text);
+  cursor: text;
   color: white;
   padding: 5px;
   font-family: monospace;
