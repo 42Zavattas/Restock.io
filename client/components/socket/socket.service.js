@@ -30,6 +30,7 @@ angular.module('restockApp')
       syncUpdates: function (modelName, array, prop, equal, cb) {
         cb = cb || angular.noop;
 
+        var event;
         /**
          * Syncs item creation/updates on 'model:save'
          */
@@ -39,7 +40,7 @@ angular.module('restockApp')
           }
           var oldItem = _.find(array, {_id: item._id});
           var index = array.indexOf(oldItem);
-          var event = 'created';
+          event = 'created';
 
           // replace oldItem if it exists
           // otherwise just add item to the collection
@@ -57,7 +58,7 @@ angular.module('restockApp')
          * Syncs removed items on 'model:remove'
          */
         socket.on(modelName + ':remove', function (item) {
-          var event = 'deleted';
+          event = 'deleted';
           _.remove(array, {_id: item._id});
           cb(event, item, array);
         });
