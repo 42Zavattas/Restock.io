@@ -59,6 +59,13 @@ $blue: #7ec5d4;
   outline: none;
 }
 
+::selection {
+  background: rgba($blue,.3);
+}
+::-moz-selection {
+  background: rgba($blue,.3);
+}
+
 input, textarea, select, button, .select {
   -moz-user-select: text !important;
   -ms-user-select: text !important;
