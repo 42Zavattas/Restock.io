@@ -17,13 +17,16 @@ table {
   }
   td, th {
     padding: 20px;
-    @include user-select(text);
     &.code {
     }
     &.medium {
       word-wrap: break-word;
     }
   }
+}
+
+pre {
+  @include user-select(text);
 }
 
 .info-contact {
@@ -81,7 +84,7 @@ ol {
   li {
     line-height: 24px;
     a {
-      color: rgba(black, .6);
+      color:rgba(white,.5);
       text-decoration: none;
       &:hover {
         text-decoration: underline;

@@ -189,22 +189,19 @@
       <tbody>
         <tr>
           <td><span id="env-cmd" class="code">cURL</span></td>
-          <td><pre class="no-marged">
-curl http://restock.io/api/5s</pre>
+          <td><pre class="no-marged">curl http://restock.io/api/5s</pre>
           </td>
         </tr>
         <tr>
           <td><span id="env-angular" class="code">AngularJs</span></td>
-          <td><pre class="no-marged">
-$http.get('http://restock.io/api/5s').then(function (res) {
+          <td><pre class="no-marged">$http.get('http://restock.io/api/5s').then(function (res) {
   console.log(res);
 });</pre>
           </td>
         </tr>
         <tr>
           <td><span id="env-node" class="code">NodeJs</span></td>
-          <td><pre class="no-marged">
-var options = {
+          <td><pre class="no-marged">var options = {
   host: 'http://restock.io',
   port: 80,
   path: '/api/5s',
@@ -220,8 +217,7 @@ http.request(options, function (res) {
         </tr>
         <tr>
           <td><span id="env-python" class="code">Python</span></td>
-          <td><pre class="no-marged">
-import urllib
+          <td><pre class="no-marged">import urllib
 
 url = 'http://restock.io/api/5s'
 u = urllib.urlopen(url)
