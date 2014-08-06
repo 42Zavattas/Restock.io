@@ -118,7 +118,7 @@
       out.type = 'array';
       out.nbChilds = Number(str.substr(0, res[0].length));
       if (out.nbChilds > 50) {
-        err.msg = 'Too much elements (limit: 50, or premium account)';
+        err.msg = 'Too much elements (limit: 50)';
         err.valid = false;
         return false;
       }
