@@ -22,7 +22,7 @@
         <td>{{stock.calls}}</td>
         <td>{{stock.created_at | date:'HH:mm dd/MM/yyyy'}}</td>
         <td>
-          <button class="btn"><i class="icon-remove"></i></button>
+          <button ng-click="deleteStock(stock)" class="btn danger"><i class="icon-remove"></i></button>
         </td>
       </tr>
     </tbody>
