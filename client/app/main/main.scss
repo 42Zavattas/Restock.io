@@ -16,7 +16,7 @@
   img {
     min-width: 400px;
     margin: 30px;
-    @include box-shadow(rgba(black,.2) 0 3px 5px);
+    @include box-shadow(rgba(black,.4) 0 3px 5px);
   }
   .descr {
     padding: 30px;
