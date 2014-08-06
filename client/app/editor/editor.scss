@@ -134,11 +134,13 @@
   height:400px;
   position: relative;
   background: rgba(black, .3);
+  padding: 20px;
+  color: rgba(white,.5);
   margin-top: 2em;
-  border: 1px solid rgba(white, .2);
+  border: 1px solid rgba(black, .5);
   @include box-shadow(rgba(black, .5) 0 0 12px inset);
   font-family: monospace;
-  font-size: 11px;
+  font-size: 13px;
   &.invalid {
     border-color:$red;
   }
