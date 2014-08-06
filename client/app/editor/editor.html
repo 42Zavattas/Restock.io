@@ -9,7 +9,7 @@
     <div class="rs-super-notif" ng-if="isValid(rule.input) && rule.input !== ''">
       <div class="rs-sub-input">
         <div class="rs-badge">HTTP<br>GET</div>
-        <a target="_blank" ng-href="{{domain}}/api/{{rule.input}}"
+        <a target="_blank" ng-href="{{ui.domain}}/api/{{rule.input}}"
           class="rs-ruler-url"
           ng-class="{ small: rule.input.length > 30 }">
           {{ ui.domain }}/api/{{ rule.input }}
@@ -27,8 +27,7 @@
     maxlength="51"
     class="rs-ruler-input">
   </div>
-  <div
+  <textarea
     ng-class="{ invalid: !isValid(rule.input), valid: isValid(rule.input) && rule.input !== '' }"
-    class="rs-sketch-container">
-  </div>
+    class="rs-sketch-container">{{ res | json }}</textarea>
 </section>
