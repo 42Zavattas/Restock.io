@@ -17,7 +17,7 @@ angular.module('restockApp')
     var ping = new Date().getTime() - 9999;
 
     $scope.saveStock = function (rule) {
-      if ($scope.stocks.saved.indexOf(rule) > -1) {
+      if (!$scope.$root.ui.isLogged || $scope.stocks.saved.indexOf(rule) > -1) {
         return ;
       }
       $scope.stocks.saving = true;
