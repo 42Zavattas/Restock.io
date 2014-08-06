@@ -14,6 +14,17 @@ angular.module('restockApp')
       .when('/account', {
         templateUrl: 'app/account/home/account.html',
         controller: 'AccountCtrl',
-        authenticate: true
+        authenticate: true,
+        resolve: {
+          stocks: function ($q, $http) {
+            var deferred = $q.defer();
+            $http.get('api/stocks/mine').then(function (res) {
+              deferred.resolve(res.data);
+            }, function (err) {
+              deferred.reject(err);
+            });
+            return deferred.promise;
+          }
+        }
       });
   });

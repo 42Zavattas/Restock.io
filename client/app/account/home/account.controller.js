@@ -1,13 +1,11 @@
 'use strict';
 
 angular.module('restockApp')
-  .controller('AccountCtrl', function ($scope, $http, Auth) {
+  .controller('AccountCtrl', function ($scope, $http, Auth, stocks) {
 
     $scope.errors = {};
 
-    $http.get('api/stocks/mine').then(function (res) {
-      $scope.stocks = res.data;
-    });
+    $scope.stocks = stocks;
 
     $scope.changePassword = function (form) {
       $scope.submitted = true;
