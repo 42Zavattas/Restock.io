@@ -155,13 +155,13 @@ describe('RuleParser', function () {
 
   it('should test when trying to go up the limitations', function () {
     expect(ruleparser.lex('180n', err)).toBeFalsy();
-    expect(err.msg).toBe('Too much elements (limit: 50, or premium account)');
+    expect(err.msg).toBe('Too much elements (limit: 50)');
     ruleparser.lex('{name:4s,age:52d}', err);
-    expect(err.msg).toBe('Too much elements (limit: 50, or premium account)');
+    expect(err.msg).toBe('Too much elements (limit: 50)');
     ruleparser.lex('40{name:4s,teams:{members:54s}}', err);
-    expect(err.msg).toBe('Too much elements (limit: 50, or premium account)');
+    expect(err.msg).toBe('Too much elements (limit: 50)');
     ruleparser.lex('{teams:{members:4s},{houses:{cats:59s}}}', err);
-    expect(err.msg).toBe('Too much elements (limit: 50, or premium account)');
+    expect(err.msg).toBe('Too much elements (limit: 50)');
   });
 
   it('should fail when putting only a number, without type', function () {
