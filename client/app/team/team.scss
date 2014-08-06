@@ -1,15 +1,39 @@
 .team {
-  > div:first-child {
-    margin-right: 30px;
+  .team-bloc {
+    display:flex;
+    margin-right: 20px;
   }
-  h2 {
-    color: white;
-    font-family: 'Sinkin Italic';
-    font-size: 18px;
+  .pic {
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+  }
+  .legend {
+    color: rgba(white,.5);
+    font-size: 13px;
+    font-family: monospace;
     margin-top: 10px;
+  }
+  .social {
+    display:flex;
+    flex-direction:column;
+    padding: 20px;
+    justify-content: center;
+    font-size: 30px;
+    li {
+      margin-bottom:10px;
+    }
+    a {
+      color: rgba(black, .7);
+      text-decoration: none;
+      &:hover {
+        color: rgba(white, .8);
+      }
+    }
   }
   img {
     width: 200px;
     height: 200px;
+    @include box-shadow(rgba(black,.4) 0 2px 4px);
   }
 }
