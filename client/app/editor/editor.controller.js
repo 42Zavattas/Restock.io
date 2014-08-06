@@ -25,6 +25,11 @@ angular.module('restockApp')
       ['i', 'ip']
     ];
 
+    $scope.specialReference = [
+      ['[0-9]', 'multiply next object'],
+      ['{...}', 'new object']
+    ];
+
     $scope.isLoading = true;
 
     $scope.res = null;
