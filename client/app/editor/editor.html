@@ -14,7 +14,7 @@
           ng-class="{ small: rule.input.length > 30 }">
           {{ ui.domain }}/api/{{ rule.input }}
         </a>
-        <button ng-class="{spinner:stocks.saving,lock:isSaved()}" ng-click="saveStock(rule.input)" ng-disabled="!ui.isLogged" class="rs-btn absright">
+        <button ng-class="{spinner:stocks.saving,lock:isSaved()||!ui.isLogged}" ng-click="saveStock(rule.input)" ng-disabled="!ui.isLogged" class="rs-btn absright">
           <i ng-class="{'icon-spinner':stocks.saving,'icon-star2':isSaved(),'icon-star':!stocks.saving && !isSaved()}"></i>
         </button>
       </div>

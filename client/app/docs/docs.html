@@ -14,7 +14,7 @@
         <ol>
           <li><a href="/docs#env-cmd">cURL</a></li>
           <li><a href="/docs#env-angular">AngularJs</a></li>
-          <li><a href="/docs#env-nodejs">NodeJs</a></li>
+          <li><a href="/docs#env-node">NodeJs</a></li>
           <li><a href="/docs#env-python">Python</a></li>
         </ol>
       </li>
@@ -182,13 +182,13 @@
     <table>
       <tbody>
         <tr>
-          <td><span class="code">cURL</span></td>
+          <td><span id="env-cmd" class="code">cURL</span></td>
           <td><pre class="no-marged">
 curl http://restock.io/api/5s</pre>
           </td>
         </tr>
         <tr>
-          <td><span class="code">AngularJs</span></td>
+          <td><span id="env-angular" class="code">AngularJs</span></td>
           <td><pre class="no-marged">
 $http.get('http://restock.io/api/5s').then(function (res) {
   console.log(res);
@@ -196,7 +196,7 @@ $http.get('http://restock.io/api/5s').then(function (res) {
           </td>
         </tr>
         <tr>
-          <td><span class="code">NodeJs</span></td>
+          <td><span id="env-node" class="code">NodeJs</span></td>
           <td><pre class="no-marged">
 var options = {
   host: 'http://restock.io',
@@ -213,7 +213,7 @@ http.request(options, function (res) {
           </td>
         </tr>
         <tr>
-          <td><span class="code">Python</span></td>
+          <td><span id="env-python" class="code">Python</span></td>
           <td><pre class="no-marged">
 import urllib
 
