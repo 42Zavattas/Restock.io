@@ -1,29 +1,29 @@
 <section class="rs-ruler editor-view">
+  <div class="rs-super-input">
+    <div class="rs-super-notif" ng-if="errorMsg">
+      <div class="rs-sub-input">
+        <div class="rs-badge error">ERR<br>400</div>
+        <div class="rs-error-msg">{{ errorMsg }}</div>
+      </div>
+    </div>
+    <div class="rs-super-notif" ng-if="isValid(rule.input) && rule.input !== ''">
+      <div class="rs-sub-input">
+        <div class="rs-badge">HTTP<br>GET</div>
+        <a target="_blank" ng-href="{{domain}}/api/{{rule.input}}" class="rs-ruler-url">
+          {{ ui.domain }}/api/{{ rule.input }}
+        </a>
+        <button ng-click="saveStock(rule.input)" ng-disabled="!ui.isLogged" class="rs-btn absright"><i class="icon-star"></i></button>
+      </div>
+    </div>
   <input
     ng-class="{ invalid: !isValid(rule.input), waiting: rule.input === '' }"
     focus-me="!loading"
     ng-model="rule.input"
     type="text"
     class="rs-ruler-input">
+  </div>
   <div
     ng-class="{ invalid: !isValid(rule.input), valid: isValid(rule.input) && rule.input !== '' }"
     class="rs-sketch-container">
-  </div>
-  <div ng-if="errorMsg">
-    <div class="flex centered rs-sub-input">
-      <div class="rs-badge error">ERR<br>400</div>
-      <div class="rs-error-msg">{{ errorMsg }}</div>
-    </div>
-  </div>
-  <div ng-if="isValid(rule.input) && rule.input !== ''">
-    <div class="flex centered rs-sub-input">
-      <div class="rs-badge">HTTP<br>GET</div>
-      <a target="_blank" ng-href="{{domain}}/api/{{rule.input}}" class="rs-ruler-url">
-        {{ ui.domain }}/api/{{ rule.input }}
-      </a>
-    </div>
-    <div ng-click="saveStock(rule.input)" ng-disabled="!ui.isLogged" class="rs-badge big clickable">
-      <i class="icon-disk"></i> Save this Stock
-    </div>
   </div>
 </section>

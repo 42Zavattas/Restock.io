@@ -6,6 +6,16 @@
   min-height: 500px;
 }
 
+.rs-super-input {
+  position: relative;
+}
+
+.rs-super-notif {
+  position: absolute;
+  top: 0; left: 20px; right: 20px;
+  text-align: center;
+}
+
 .rs-ruler-input {
   outline: none;
   border: none;
@@ -34,26 +44,25 @@
   }
 }
 
-.rs-sub-input {
-  margin: 20px auto;
+.absright {
+  position:absolute;
+  top: 20px;
+  right: 0px;
 }
 
-.rs-ruler-url {
-  @include user-select(text);
-  margin-left: 20px;
-  color: rgba(black, .5);
-  text-decoration: none;
-  @include text-shadow(rgba(white, .1) 0 1px);
+.rs-btn {
+  cursor:pointer;
+  border:none;
+  background: transparent;
+  font-size: 24px;
+  color: rgba(black, .4);
   &:hover {
-    text-decoration:underline;
+    color: rgba(black, .7);
   }
 }
 
-.rs-error-msg {
-  margin-left: 20px;
-}
-
 .rs-badge {
+  float: left;
   font-family: "Lucida Console";
   font-size: 10px;
   color: rgba(white, .7);
@@ -82,6 +91,24 @@
       background-color: darken($blue, 30);
     }
   }
+}
+
+.rs-sub-input {
+  margin: 20px auto;
+}
+
+.rs-ruler-url {
+  @include user-select(text);
+  color: rgba(black, .5);
+  text-decoration: none;
+  @include text-shadow(rgba(white, .1) 0 1px);
+  &:hover {
+    text-decoration:underline;
+  }
+}
+
+.rs-error-msg {
+  margin-left: 20px;
 }
 
 .rs-error-msg {
