@@ -12,8 +12,7 @@
         <a target="_blank" ng-href="{{ui.domain}}/api/{{rule.input}}"
           class="rs-ruler-url"
           ng-class="{ small: rule.input.length > 30 }">
-          {{ ui.domain }}/api/{{ rule.input }}
-        </a>
+          {{ ui.domain }}/api/{{ rule.input }}</a>
         <button ng-class="{'no-tooltip':ui.isLogged && isSaved(),'lock':isSaved() || !ui.isLogged}"
           ng-attr-tooltip="{{!ui.isLogged && 'You need to be logged' || 'Save this in my account' }}" ng-click="saveStock(rule.input)" class="rs-btn absright">
           <div ng-class="{'spinner':stocks.saving}">
