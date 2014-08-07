@@ -11,18 +11,18 @@ angular.module('restockApp')
     };
 
     $scope.reference = [
-      ['s', 'string'],
+      ['s', 'tring'],
       ['S', 'paragraph'],
-      ['n', 'number (0-100)'],
-      ['N', 'big (+/-) number'],
-      ['b', 'boolean'],
-      ['d', 'date'],
-      ['e', 'email'],
-      ['p', 'phone'],
-      ['a', 'adress'],
-      ['t', 'timestamp'],
-      ['c', 'character'],
-      ['i', 'ip']
+      ['n', 'umber (0-100)'],
+      ['N', 'umber (big)'],
+      ['b', 'oolean'],
+      ['d', 'ate'],
+      ['e', 'mail'],
+      ['p', 'hone'],
+      ['a', 'ddress'],
+      ['t', 'imestamp'],
+      ['c', 'haracter'],
+      ['i', 'p']
     ];
 
     $scope.specialReference = [
