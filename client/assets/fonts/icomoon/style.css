@@ -1,12 +1,12 @@
 @font-face {
-  font-family: 'icomoon';
-  src:url('fonts/icomoon.eot?iwduqr');
-  src:url('fonts/icomoon.eot?#iefixiwduqr') format('embedded-opentype'),
-    url('fonts/icomoon.woff?iwduqr') format('woff'),
-    url('fonts/icomoon.ttf?iwduqr') format('truetype'),
-    url('fonts/icomoon.svg?iwduqr#icomoon') format('svg');
-  font-weight: normal;
-  font-style: normal;
+	font-family: 'icomoon';
+	src:url('fonts/icomoon.eot?uoiyhn');
+	src:url('fonts/icomoon.eot?#iefixuoiyhn') format('embedded-opentype'),
+		url('fonts/icomoon.woff?uoiyhn') format('woff'),
+		url('fonts/icomoon.ttf?uoiyhn') format('truetype'),
+		url('fonts/icomoon.svg?uoiyhn#icomoon') format('svg');
+	font-weight: normal;
+	font-style: normal;
 }
 
 [class^="icon-"], [class*=" icon-"] {
@@ -241,4 +241,7 @@
 }
 .icon-safari:before {
 	content: "\e63a";
+}
+.icon-copy2:before {
+	content: "\e649";
 }
