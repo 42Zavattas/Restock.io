@@ -2,12 +2,14 @@
 'use strict';
 
 angular.module('restockApp')
-  .factory('socket', function(socketFactory) {
+  .factory('socket', function($cookieStore, socketFactory) {
 
     // socket.io now auto-configures its connection when we ommit a connection url
-    var ioSocket = io(null, {
-      // Send auth token on connection, you will need to DI the Auth service above
-      // 'query': 'token=' + Auth.getToken()
+    var ioSocket = io('', {
+      'query': 'token=' + $cookieStore.get('token')
+      //'reconnection delay': 1000,
+      //'reconnection limit': 1000,
+      //'max reconnection attempts': 'Infinity'
     });
 
     var socket = socketFactory({

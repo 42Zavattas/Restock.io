@@ -50,12 +50,12 @@ function build (req, res) {
 
   var test = ruleparser.test(req.params.rule);
   if (test.valid === false) {
-    return res.send(400, test);
+    return res.status(400).send(test);
   }
   var err = {};
   var lex = ruleparser.lex(req.params.rule, err);
   if (err.msg) {
-    return res.send(400, err);
+    return res.status(400).send(err);
   }
   var result = recurse(lex);
   return res.status(200).send(result);
@@ -64,7 +64,7 @@ function build (req, res) {
 router.get('/:rule', build);
 
 function handleError(res, err) {
-  return res.send(500, err);
+  return res.status(500).send(err);
 }
 
 router.getStringified = function (rule) {

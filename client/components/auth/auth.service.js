@@ -3,7 +3,7 @@
 angular.module('restockApp')
   .factory('Auth', function Auth($location, $rootScope, $http, User, $cookieStore, $q) {
     var currentUser = {};
-    if($cookieStore.get('token')) {
+    if ($cookieStore.get('token')) {
       currentUser = User.get();
     }
 

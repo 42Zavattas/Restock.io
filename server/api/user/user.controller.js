@@ -6,7 +6,7 @@ var config = require('../../config/environment');
 var jwt = require('jsonwebtoken');
 
 var validationError = function(res, err) {
-  return res.json(422, err);
+  return res.status(422).json(err);
 };
 
 /**
@@ -15,8 +15,8 @@ var validationError = function(res, err) {
  */
 exports.index = function(req, res) {
   User.find({}, '-salt -hashedPassword', function (err, users) {
-    if(err) return res.send(500, err);
-    res.json(200, users);
+    if (err) return res.status(500).send(err);
+    res.status(200).json(users);
   });
 };
 
@@ -30,7 +30,7 @@ exports.create = function (req, res, next) {
   newUser.save(function(err, user) {
     if (err) return validationError(res, err);
     var token = jwt.sign({_id: user._id }, config.secrets.session, { expiresInMinutes: 60*5 });
-    res.json({ token: token });
+    res.status(201).json({ token: token });
   });
 };
 
@@ -42,8 +42,8 @@ exports.show = function (req, res, next) {
 
   User.findById(userId, function (err, user) {
     if (err) return next(err);
-    if (!user) return res.send(401);
-    res.json(user.profile);
+    if (!user) return res.status(401);
+    res.status(200).json(user.profile);
   });
 };
 
@@ -53,8 +53,8 @@ exports.show = function (req, res, next) {
  */
 exports.destroy = function(req, res) {
   User.findByIdAndRemove(req.params.id, function(err, user) {
-    if(err) return res.send(500, err);
-    return res.send(204);
+    if (err) return res.status(500).send(err);
+    return res.status(204);
   });
 };
 
@@ -67,14 +67,14 @@ exports.changePassword = function(req, res, next) {
   var newPass = String(req.body.newPassword);
 
   User.findById(userId, function (err, user) {
-    if(user.authenticate(oldPass)) {
+    if (user.authenticate(oldPass)) {
       user.password = newPass;
       user.save(function(err) {
         if (err) return validationError(res, err);
-        res.send(200);
+        res.status(200);
       });
     } else {
-      res.send(403);
+      res.status(403);
     }
   });
 };
@@ -88,8 +88,8 @@ exports.me = function(req, res, next) {
     _id: userId
   }, '-salt -hashedPassword', function(err, user) { // don't ever give out the password or salt
     if (err) return next(err);
-    if (!user) return res.json(401);
-    res.json(user);
+    if (!user) return res.status(401);
+    res.status(200).json(user);
   });
 };
 

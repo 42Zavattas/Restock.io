@@ -8,8 +8,8 @@ var builder = require('../../builder.js');
 // Get list of stocks
 exports.index = function(req, res) {
   Stock.find({}, '+active').exec(function (err, stocks) {
-    if(err) { return handleError(res, err); }
-    return res.json(200, stocks);
+    if (err) { return handleError(res, err); }
+    return res.status(200).json(stocks);
   });
 };
 
@@ -19,9 +19,9 @@ exports.show = function(req, res) {
     if(err) { return handleError(res, err); }
     if(!stock || stock.active === false) { return res.send(404); }
     if (stock.user !== req.user._id && req.user.role !== 'admin') {
-      return res.send(401);
+      return res.status(401);
     }
-    return res.json(stock);
+    return res.status(200).json(stock);
   });
 };
 
@@ -36,7 +36,7 @@ exports.getSaved = function(req, res) {
     if(!stock) { return res.send(404); }
     stock.calls++;
     stock.save();
-    return res.send(200, JSON.parse(stock.content));
+    return res.status(200).send(JSON.parse(stock.content));
   });
 };
 
@@ -47,7 +47,7 @@ exports.mine = function(req, res) {
     active: true
   }).exec(function (err, stocks) {
     if(err) { return handleError(res, err); }
-    return res.json(200, stocks);
+    return res.status(200).json(stocks);
   });
 };
 
@@ -57,7 +57,7 @@ exports.create = function(req, res) {
   req.body.content = builder.getStringified(req.body.rule);
   Stock.create(req.body, function(err, stock) {
     if(err) { return handleError(res, err); }
-    return res.json(201, stock);
+    return res.status(201).json(stock);
   });
 };
 
@@ -65,14 +65,14 @@ exports.update = function(req, res) {
   if(req.body._id) { delete req.body._id; }
   Stock.findById(req.params.id, function (err, stock) {
     if (err) { return handleError(res, err); }
-    if(!stock) { return res.send(404); }
+    if(!stock) { return res.status(404); }
     if (stock.user !== req.user._id && req.user.role !== 'admin') {
-      return res.send(401);
+      return res.status(401);
     }
     var updated = _.merge(stock, req.body);
     updated.save(function (err) {
       if (err) { return handleError(res, err); }
-      return res.json(200, stock);
+      return res.status(200).json(stock);
     });
   });
 };
@@ -80,26 +80,26 @@ exports.update = function(req, res) {
 exports.destroy = function(req, res) {
   Stock.findById(req.params.id, function (err, stock) {
     if(err) { return handleError(res, err); }
-    if(!stock) { return res.send(404); }
+    if(!stock) { return res.status(404); }
     if (!stock.user.equals(req.user._id) && req.user.role !== 'admin') {
-      return res.send(401);
+      return res.status(401);
     }
     if (req.user.role === 'admin') {
       stock.remove(function(err) {
         if(err) { return handleError(res, err); }
-        return res.send(204);
+        return res.status(204);
       });
     }
     else {
       stock.active = false;
       stock.save(function(err) {
         if(err) { return handleError(res, err); }
-        return res.send(204);
+        return res.status(204);
       });
     }
   });
 };
 
 function handleError(res, err) {
-  return res.send(500, err);
+  return res.status(500, err);
 }
