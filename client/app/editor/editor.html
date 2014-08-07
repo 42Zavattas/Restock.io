@@ -9,10 +9,14 @@
     <div class="rs-super-notif" ng-if="isValid(rule.input) && rule.input !== ''">
       <div class="rs-sub-input">
         <div class="rs-badge">HTTP<br>GET</div>
-        <a target="_blank" ng-href="{{ui.domain}}/api/{{rule.input}}"
+        <a target="_blank" ng-href="{{getUrl()}}"
           class="rs-ruler-url"
           ng-class="{ small: rule.input.length > 30 }">
-          {{ ui.domain }}/api/{{ rule.input }}</a>
+          {{ getUrl() }}</a>
+        <span ng-class="{'used':lastCopy === getUrl() }"
+          clip-click="updateCopied()" clip-copy="copy()" class="rs-copy">
+          <i class="icon-copy2"></i>
+        </span>
         <button ng-class="{'no-tooltip':ui.isLogged && isSaved(),'lock':isSaved() || !ui.isLogged}"
           ng-attr-tooltip="{{!ui.isLogged && 'You need to be logged' || 'Save this in my account' }}" ng-click="saveStock(rule.input)" class="rs-btn absright">
           <div ng-class="{'spinner':stocks.saving}">

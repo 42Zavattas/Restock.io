@@ -53,6 +53,18 @@
   }
 }
 
+.rs-copy {
+  padding: 10px;
+  cursor: pointer;
+  i {
+    vertical-align: middle;
+  }
+  &.used {
+    cursor: default;
+    color: rgba(black, .3);
+  }
+}
+
 .absright {
   position:absolute;
   top: 20px;

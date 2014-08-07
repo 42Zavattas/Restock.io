@@ -6,6 +6,7 @@ angular.module('restockApp', [
   'ngAnimate',
   'ngSanitize',
   'ngRoute',
+  'ngClipboard',
   'btford.socket-io'
 ])
   .config(function ($routeProvider, $locationProvider, $httpProvider) {

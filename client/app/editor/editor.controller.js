@@ -30,6 +30,17 @@ angular.module('restockApp')
       ['{...}', 'new object']
     ];
 
+    //Copy utils
+    $scope.lastCopy = '';
+
+    $scope.copy = function () {
+      return $scope.getUrl();
+    };
+
+    $scope.updateCopied = function () {
+      $scope.lastCopy = $scope.getUrl();
+    };
+
     $scope.isLoading = true;
 
     $scope.res = null;
@@ -51,6 +62,10 @@ angular.module('restockApp')
 
     $scope.isSaved = function () {
       return $scope.stocks.saved.indexOf($scope.rule.input) > -1;
+    };
+
+    $scope.getUrl = function () {
+      return $scope.$root.ui.domain + '/api/' + $scope.rule.input;
     };
 
     $scope.isValid = function (str) {
