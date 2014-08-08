@@ -5,6 +5,11 @@ angular.module('restockApp')
 
     $scope.rule = { input: $routeParams.q || '', lexed: null };
 
+    $scope.ui = {
+      editorType: 'extended',
+      reqType: 'GET'
+    };
+
     $scope.stocks = {
       saved: [],
       saving: false
@@ -108,6 +113,27 @@ angular.module('restockApp')
 
       }
     });
+
+    /**
+     * Change editor type
+     */
+    $scope.setEditor = function (type) {
+      switch (type) {
+        case 'basic':
+          $scope.ui.editorType = 'basic';
+          break;
+        case 'extended':
+          $scope.ui.editorType = 'extended';
+          break;
+      }
+    }
+
+    /**
+     * Change request type
+     */
+    $scope.setReqType = function (type) {
+      $scope.ui.reqType = type;
+    }
 
     $scope.isValid($scope.rule.input);
 

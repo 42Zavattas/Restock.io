@@ -54,20 +54,42 @@
     </div>
 
     <input
-      ng-class="{ invalid: !isValid(rule.input), waiting: rule.input === '', small: rule.input.length > 30 }"
+      ng-class="{
+        invalid: !isValid(rule.input),
+        waiting: rule.input === '',
+        small: rule.input.length > 30,
+        extended: ui.editorType === 'extended'
+      }"
       focus-me="!loading"
       ng-model="rule.input"
       type="text"
       maxlength="51"
       class="rs-ruler-input">
 
+    <div
+      class="rs-extended-editor"
+      ng-if="ui.editorType === 'extended'">
+      <ul class="rs-requests">
+        <li ng-class="{ selected : ui.reqType === 'GET' }" ng-click="setReqType('GET')">GET</li>
+        <li ng-class="{ selected : ui.reqType === 'POST' }" ng-click="setReqType('POST')">POST</li>
+        <li ng-class="{ selected : ui.reqType === 'PUT' }" ng-click="setReqType('PUT')">PUT</li>
+        <li ng-class="{ selected : ui.reqType === 'DELETE' }" ng-click="setReqType('DELETE')">DELETE</li>
+      </ul>
+    </div>
+
   </div>
 
   <div class="rs-picker tr-up">
-    <div class="rs-picker-value selected">
+    <div
+      class="rs-picker-value"
+      ng-class="{ selected : ui.editorType === 'basic' }"
+      ng-click="setEditor('basic')">
       Basic editor
     </div>
-    <div class="rs-picker-value">
+    <div
+      class="rs-picker-value"
+      ng-class="{ selected : ui.editorType === 'extended' }"
+      ng-click="setEditor('extended')">
       Extended editor
     </div>
   </div>

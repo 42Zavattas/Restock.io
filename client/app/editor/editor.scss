@@ -52,6 +52,10 @@
   &.waiting{
    border-color: $blue;
   }
+  &.extended {
+    height: 180px;
+    padding-bottom: 50px;
+  }
 }
 
 .rs-copy {
@@ -187,7 +191,7 @@
     opacity: .5;
     @include transition-property('*');
     @include transition-duration(1s);
-    border-bottom: 1px solid rgba(black, .1);
+    border-top: 1px solid rgba(black, .1);
     &.load {
       width: 800px;
       opacity: 1;
@@ -237,6 +241,7 @@
 .rs-picker-value {
   padding: .5em;
   border:1px solid rgba(white, .2);
+  border-right: none;
   font-family: monospace;
   font-size: 10px;
   cursor:pointer;
@@ -251,7 +256,52 @@
   &:hover {
     background:rgba(white, .1);
   }
-  &:first-child {
-    border-right: none;
+  &:last-child {
+    border-right: 1px solid rgba(white, .2);
   }
+}
+
+.rs-extended-editor {
+  background: rgba(black, .7);
+  position:absolute;
+  padding: 1em;
+  bottom: 5px; left: 0; right: 0;
+  border-top: 3px solid rgba(black, .2);
+  @include background-image(linear-gradient(top, rgba(black, .1), rgba(black, .3)));
+  &.ng-enter {
+    animation-name: trLittleUpIn;
+    animation-iteration-count: 1;
+    animation-timing-function: cubic-bezier(0.240, 1.650, 0.785, 1.120);
+    animation-duration: 250ms;
+  }
+}
+
+ul.rs-requests {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  li {
+    font-size: 13px;
+    font-family:monospace;
+    margin-right: 10px;
+    border: 1px solid transparent;
+    padding: 5px;
+    cursor:pointer;
+    &.selected, &.selected:hover {
+      cursor:default;
+      color:rgba($blue, .7);
+      border-bottom-color: rgba($blue,.3);
+    }
+    &:last-child {
+      margin-right: 0;
+    }
+    &:hover {
+      color: rgba(white,.3);
+      border-bottom-color: rgba(white,.3);
+    }
+  }
+}
+
+.no-marged {
+  margin-bottom: 0;
 }

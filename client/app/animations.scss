@@ -1,10 +1,28 @@
 
+@-webkit-keyframes trLittleUpIn {
+  0% {
+    -webkit-transform: translateY(25px);
+  }
+  100% {
+    -webkit-transform: translateY(0);
+  }
+}
+
 @-webkit-keyframes trLittleDownIn {
   0% {
     -webkit-transform: translateY(-25px);
   }
   100% {
     -webkit-transform: translateY(0);
+  }
+}
+
+@-webkit-keyframes trLittleDownOut {
+  0% {
+    -webkit-transform: translateY(0);
+  }
+  100% {
+    -webkit-transform: translateY(25px);
   }
 }
 
