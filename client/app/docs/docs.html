@@ -16,6 +16,7 @@
           <li><a href="/docs#env-angular">AngularJs</a></li>
           <li><a href="/docs#env-node">NodeJs</a></li>
           <li><a href="/docs#env-python">Python</a></li>
+          <li><a href="/docs#env-php">PHP</a></li>
         </ol>
       </li>
     </ul>
@@ -228,6 +229,12 @@ http.request(options, function (res) {
 url = 'http://restock.io/api/5s'
 u = urllib.urlopen(url)
 data = u.read()</pre>
+          </td>
+        </tr>
+        <tr>
+          <td><span id="env-php" class="code">PHP</span></td>
+					<td><pre class="no-marged">$response = file_get_contents('http://restock.io/api/5s');
+$data = json_decode($response);</pre>
           </td>
         </tr>
       </tbody>
