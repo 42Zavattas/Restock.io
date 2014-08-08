@@ -43,6 +43,8 @@
   }
   &:focus {
     color: rgba(black, .7);
+  }
+  &:not(.invalid) {
     border-color: $green;
   }
   &.invalid {
