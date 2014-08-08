@@ -139,6 +139,15 @@ angular.module('restockApp')
       },
 
       /**
+       * Check if user has a pro account
+       *
+       * @return {Boolean}
+       */
+      isPro: function() {
+        return currentUser.type !== 'basic';
+      },
+
+      /**
        * Get auth token
        */
       getToken: function() {
