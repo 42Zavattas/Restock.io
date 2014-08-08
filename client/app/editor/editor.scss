@@ -154,7 +154,6 @@
   background: rgba(black, .3);
   padding: 20px;
   color: rgba(white,.5);
-  margin-top: 1em;
   border: 1px solid rgba(black, .5);
   @include box-shadow(rgba(black, .5) 0 0 12px inset);
   font-family: monospace;
@@ -178,7 +177,7 @@
 
 .rs-timer {
   width: 800px;
-  margin-top: 1em;
+  margin-bottom: 1em;
   .bar {
     float:left;
     width: 0;
@@ -226,4 +225,32 @@
   color:rgba(white,.8);
   background:rgba(black,.6);
   padding:5px;
+}
+
+.rs-picker {
+  display:flex;
+  margin-bottom: 1em;
+  @include box-shadow(rgba(black, .3) 0 0 3px);
+}
+
+.rs-picker-value {
+  padding: .5em;
+  border:1px solid rgba(white, .2);
+  font-family: monospace;
+  font-size: 10px;
+  cursor:pointer;
+  &.selected {
+    background: rgba($green, .4);
+    color: rgba(white, .7);
+    cursor: default;
+    &:hover {
+      background: rgba($green, .4);
+    }
+  }
+  &:hover {
+    background:rgba(white, .1);
+  }
+  &:first-child {
+    border-right: none;
+  }
 }
