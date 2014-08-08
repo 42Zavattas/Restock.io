@@ -35,4 +35,16 @@
   </table>
   <h3 ng-if="!stocks.length" class="marged-bottom"><strong>Nothing for now</strong></h3>
 
+  <div ng-if="ui.currentUser.type !== 'basic'">
+    <h2 class="doc-h2">
+      <span>Allowed domains</span>
+    </h2>
+    <p class="select">This section list and allow you to set the domains that can request our API.
+    It will be used to authenticate you and every request that need a premium account, decrementing your month count. All the free request are not impacted.</p>
+    <div class="warning-block" ng-if="1==1">
+      <i class="icon-notification"></i> You've not set any allowed domain ! All the requests on your URLs will count.
+    </div>
+
+  </div>
+
 </div>
