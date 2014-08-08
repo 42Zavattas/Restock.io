@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('restockApp')
-  .controller('MainCtrl', function ($scope) {
+  .controller('MainCtrl', function () {
 
     console.log('jshint');
 
