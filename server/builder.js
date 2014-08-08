@@ -61,7 +61,14 @@ function build (req, res) {
   return res.status(200).send(result);
 }
 
+function opts (req, res) {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Headers', 'X-Requested-With, X-HTTP-Method-Override, Content-Type, Accept');
+  return res.send(200);
+}
+
 router.get('/:rule', build);
+router.options('/:rule', opts);
 
 function handleError(res, err) {
   return res.status(500).send(err);
