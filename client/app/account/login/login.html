@@ -5,13 +5,25 @@
   <form class="form" name="form" ng-submit="login(form)" novalidate>
 
     <div class="form-group">
-      <input focus-me="!loading" ng-class="{'has-error':(form.email.$error.email || form.email.$error.required) && submitted}"
-             type="email" placeholder="email" name="email" class="form-control" ng-model="user.email" required>
+      <input
+        focus-me="!loading"
+        ng-class="{'has-error':(form.email.$error.email || form.email.$error.required) && submitted}"
+        class="form-control"
+        type="email"
+        placeholder="email"
+        name="email"
+        ng-model="user.email" required>
     </div>
 
     <div class="form-group">
-      <input ng-class="{'has-error':(form.password.$error.minlength || form.password.$error.required) && submitted}"
-            type="password" placeholder="password" name="password" ng-minlength="3" class="form-control" ng-model="user.password" required>
+      <input
+        ng-class="{'has-error':(form.password.$error.minlength || form.password.$error.required) && submitted}"
+        class="form-control"
+        type="password"
+        placeholder="password"
+        name="password"
+        ng-minlength="3"
+        ng-model="user.password" required>
     </div>
 
     <button class="btn main" type="submit">

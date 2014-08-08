@@ -10,6 +10,7 @@ var UserSchema = new Schema({
   email         : { type: String, lowercase: true },
   role          : { type: String, default: 'user' },
   rules         : [{ type: Schema.ObjectId, ref: 'Stock' }],
+  type          : { type: String, enum: ['basic','pro','god'], default: 'basic' },
   hashedPassword: String,
   provider      : String,
   salt          : String,

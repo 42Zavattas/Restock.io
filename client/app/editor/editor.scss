@@ -65,6 +65,9 @@
     cursor: default;
     color: rgba(black, .3);
   }
+  &.zeroclipboard-is-hover:not(.used) {
+    color: rgba(black, .9);
+  }
 }
 
 .absright {

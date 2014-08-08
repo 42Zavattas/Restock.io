@@ -27,6 +27,7 @@ angular.module('restockApp')
         success(function(data) {
           $cookieStore.put('token', data.token);
           currentUser = User.get();
+          $rootScope.ui.currentUser = currentUser;
           deferred.resolve(data);
           return cb();
         }).
@@ -47,6 +48,7 @@ angular.module('restockApp')
       logout: function() {
         $cookieStore.remove('token');
         currentUser = {};
+        $rootScope.ui.currentUser = currentUser;
       },
 
       /**
@@ -134,6 +136,15 @@ angular.module('restockApp')
        */
       isAdmin: function() {
         return currentUser.role === 'admin';
+      },
+
+      /**
+       * Check if user has a pro account
+       *
+       * @return {Boolean}
+       */
+      isPro: function() {
+        return currentUser.type !== 'basic';
       },
 
       /**
