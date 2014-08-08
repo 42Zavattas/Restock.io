@@ -28,7 +28,7 @@
   border-bottom: 5px solid rgba(black, .2);
   background: rgba(white, .7);
   @include box-shadow(rgba(black, .3) 0 4px 8px);
-  font-family: "monospace";
+  font-family: "Courier New", Courier, monospace;
   font-size: 31px;
   width: 800px;
   height: 130px;
@@ -132,7 +132,7 @@
   text-decoration: none;
   background:rgba($green,.3);
   padding:10px;
-  font-family:monospace;
+  font-family: "Courier New", Courier, monospace;
   @include text-shadow(rgba(white, .1) 0 1px);
   &:hover {
     text-decoration:underline;
@@ -162,7 +162,7 @@
   margin-top: 1em;
   border: 1px solid rgba(black, .5);
   @include box-shadow(rgba(black, .5) 0 0 12px inset);
-  font-family: monospace;
+  font-family: "Courier New", Courier, monospace;
   font-size: 13px;
   &.invalid {
     border-color:$red;
@@ -227,7 +227,7 @@
 }
 
 .rs-code {
-  font-family: monospace;
+  font-family: "Courier New", Courier, monospace;
   color:rgba(white,.8);
   background:rgba(black,.6);
   padding:5px;

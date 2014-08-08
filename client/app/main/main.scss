@@ -46,7 +46,7 @@
   @include box-shadow(rgba(black,.5) 0 2px 8px);
   > a {
     margin-right: 1em;
-    font-family:monospace;
+    font-family: "Courier New", Courier, monospace;
     display:block;
     padding: 1em;
     text-align: center;
@@ -86,7 +86,7 @@ a.rs-launch-item {
   }
   h2 {
     text-transform: uppercase;
-    font-family: monospace;
+    font-family: "Courier New", Courier, monospace;
     color: rgba(black, .5);
     margin-bottom: 20px;
   }
