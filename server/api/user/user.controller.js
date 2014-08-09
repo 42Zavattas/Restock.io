@@ -1,5 +1,6 @@
 'use strict';
 
+var _ = require('lodash');
 var User = require('./user.model');
 var passport = require('passport');
 var config = require('../../config/environment');
@@ -86,10 +87,29 @@ exports.me = function(req, res, next) {
   var userId = req.user._id;
   User.findOne({
     _id: userId
-  }, '-salt -hashedPassword', function(err, user) { // don't ever give out the password or salt
+  }, '-salt -hashedPassword', function(err, user) {
     if (err) return next(err);
     if (!user) return res.status(401);
     res.status(200).json(user);
+  });
+};
+
+/**
+ * Update me
+ */
+exports.updateMe = function(req, res, next) {
+  User.findOne({
+    _id: req.user._id
+  }, '-salt -hashedPassword', function(err, user) {
+    if (err) return next(err);
+    if (!user) return res.status(401);
+    if (req.body.domains) {
+      user.domains = _.uniq(req.body.domains, 'name');
+    }
+    user.save(function (err) {
+      if (err) { return handleError(res, err); }
+      return res.status(200);
+    });
   });
 };
 

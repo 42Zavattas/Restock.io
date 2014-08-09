@@ -3,33 +3,40 @@
 angular.module('restockApp')
   .controller('AccountCtrl', function ($scope, $http, socket, Auth, stocks) {
 
-    $scope.errors = {};
+    $scope.me = $scope.$root.ui.currentUser;
     $scope.stocks = stocks;
+    $scope.controls = {
+      newDomain: ''
+    };
 
-    socket.syncUpdates('stock', $scope.stocks, 'user', $scope.$root.ui.currentUser._id);
+    console.log($scope.me);
+
+    socket.syncUpdates('stock', $scope.stocks, 'user', $scope.me._id);
 
     $scope.deleteStock = function (stock) {
-      if (!stock._id) {
-        return;
-      }
+      if (!stock._id) { return; }
       $http.delete('/api/stocks/' + stock._id);
     };
 
-    $scope.changePassword = function (form) {
-      $scope.submitted = true;
-      if (form.$valid) {
-        Auth.changePassword($scope.user.oldPassword, $scope.user.newPassword)
-        .then(function () {
-          $scope.message = 'Password successfully changed.';
-          $scope.user.success = true;
-          $scope.user.newPassword = '';
-          $scope.user.oldPassword = '';
-        })
-        .catch(function () {
-          form.password.$setValidity('mongoose', false);
-          $scope.message = 'Incorrect password';
-        });
-      }
-		};
+    $scope.alreadyAdded = function (domain) {
+      return $scope.me.domains.indexOf(domain) !== -1 || !domain;
+    };
+
+    $scope.addDomain = function (domain) {
+      if ($scope.alreadyAdded(domain)) { return; };
+      $scope.me.domains.push({ name: domain, calls: 0, active: true });
+      $http.put('/api/users/me', { domains: $scope.me.domains });
+      $scope.controls.newDomain = '';
+    };
+
+    $scope.deleteDomain = function (domain) {
+      $scope.me.domains = _.pull($scope.me.domains, domain);
+      $http.put('/api/users/me', { domains: $scope.me.domains });
+    };
+
+    $scope.changeState = function (domain) {
+      domain.active = !domain.active;
+      $http.put('/api/users/me', { domains: $scope.me.domains });
+    };
 
   });

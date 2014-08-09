@@ -27,15 +27,24 @@ td.date {
   text-align:center;
 }
 
-.del-icon {
+.icon {
   cursor:pointer;
   padding:10px;
   background:transparent;
   border:1px solid transparent;
   color:rgba(white,.3);
-  &:hover {
+  &.lock {
+    i {
+      margin-left: 3px;
+    }
+    &:hover {
+      background: rgba($orange, .4);
+      color:rgba(white,.8);
+    }
+  }
+  &.del:hover {
     background: rgba($red,.4);
-    color:rgba(white,.8);
+    color: rgba(white,.8);
   }
 }
 

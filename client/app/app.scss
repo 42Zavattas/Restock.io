@@ -201,7 +201,10 @@ a.rs-logo {
       padding-bottom: 18px;
     }
   }
-  &:hover {
+  &[disabled] {
+    cursor: not-allowed;
+  }
+  &:hover:not([disabled]) {
     color: rgba(white,.7);
     border-color: rgba(white,.7);
   }
@@ -212,7 +215,7 @@ a.rs-logo {
   &.danger {
     border: none;
     color: $red;
-    &:hover {
+    &:hover:not([disabled]) {
       color: rgba(black, .7);
       background-color: $red;
       border-color: darken($red, 10);
@@ -248,6 +251,16 @@ input.form-control {
     &.has-error {
       border-color: lighten($red, 10);
     }
+  }
+}
+
+.form-inline {
+  margin-top: 10px;
+  display: flex;
+  * {
+    width: initial !important;
+    flex-grow: 1;
+    max-height: 40px;
   }
 }
 

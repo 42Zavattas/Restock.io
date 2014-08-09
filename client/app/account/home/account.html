@@ -26,7 +26,7 @@
         <td class="text-center"><strong>{{stock.calls}}</strong></td>
         <td class="text-center date">{{stock.created_at | date:'dd/MM/yyyy'}}</td>
         <td>
-          <button ng-click="deleteStock(stock)" class="del-icon">
+          <button ng-click="deleteStock(stock)" class="icon del">
             <i class="icon-remove"></i>
           </button>
         </td>
@@ -41,8 +41,54 @@
     </h2>
     <p class="select">This section list and allow you to set the domains that can request our API.
     It will be used to authenticate you and every request that need a premium account, decrementing your month count. All the free request are not impacted.</p>
-    <div class="warning-block" ng-if="1==1">
+    <div class="warning-block" ng-if="!me.domains.length">
       <i class="icon-notification"></i> You've not set any allowed domain ! All the requests on your URLs will count.
+    </div>
+    <div class="domains-block">
+      <form ng-submit="addDomain(controls.newDomain)" class="form-inline">
+        <input
+          type="url"
+          placeholder="http://"
+          class="form-control"
+          ng-model="controls.newDomain">
+        <input
+          ng-disabled="alreadyAdded(controls.newDomain)"
+          class="btn"
+          type="submit"
+          value="Add this domain">
+      </form>
+      <table>
+        <thead ng-if="me.domains.length">
+          <tr>
+            <th>Name</th>
+            <th class="text-center">Calls</th>
+            <th class="text-center">Status</th>
+            <th>&nbsp;</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="domain in me.domains">
+            <td class="code-cell">
+              <a class="little-link" target="blanck" ng-href="{{domain.name}}">{{domain.name}}</a>
+            </td>
+            <td class="text-center">
+              <strong>{{domain.calls}}</strong>
+            </td>
+            <td class="text-center">
+              <span>{{ domain.active && 'Active' || 'Locked' }}</span>
+            </td>
+            <td>
+              <button ng-click="deleteDomain(domain)" class="icon del">
+                <i class="icon-remove"></i>
+              </button>
+              <button
+                ng-click="changeState(domain)" class="icon lock">
+                <i ng-class="{'icon-lock':domain.active,'icon-unlocked':!domain.active}"></i>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
 
   </div>

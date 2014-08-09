@@ -9,8 +9,12 @@ var UserSchema = new Schema({
   name          : String,
   email         : { type: String, lowercase: true },
   role          : { type: String, default: 'user' },
-  rules         : [{ type: Schema.ObjectId, ref: 'Stock' }],
   type          : { type: String, enum: ['basic','pro','god'], default: 'basic' },
+  domains       : [{
+    name: String,
+    calls: { type: Number, default: 0 },
+    active: { type: Boolean, default: true }
+  }],
   hashedPassword: String,
   provider      : String,
   salt          : String,
