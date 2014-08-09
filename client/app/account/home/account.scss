@@ -17,6 +17,9 @@
 
 th {
   font-family: "Sinkin Bold";
+  &.small {
+    width: 140px;
+  }
 }
 
 td.date {

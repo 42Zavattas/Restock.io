@@ -63,7 +63,7 @@
             <th>Name</th>
             <th class="text-center">Calls</th>
             <th class="text-center">Status</th>
-            <th>&nbsp;</th>
+            <th class="small">&nbsp;</th>
           </tr>
         </thead>
         <tbody>
@@ -78,12 +78,12 @@
               <span>{{ domain.active && 'Active' || 'Locked' }}</span>
             </td>
             <td>
-              <button ng-click="deleteDomain(domain)" class="icon del">
-                <i class="icon-remove"></i>
-              </button>
               <button
                 ng-click="changeState(domain)" class="icon lock">
-                <i ng-class="{'icon-lock':domain.active,'icon-unlocked':!domain.active}"></i>
+                <i ng-class="{'icon-lock':!domain.active,'icon-checkmark':domain.active}"></i>
+              </button>
+              <button ng-click="deleteDomain(domain)" class="icon del">
+                <i class="icon-remove"></i>
               </button>
             </td>
           </tr>
