@@ -191,7 +191,7 @@ a.rs-logo {
     padding: 20px;
     color:darken($green, 25);
     @include text-shadow(rgba(white,.3) 0 1px);
-    &:hover {
+    &:hover:not([disabled]) {
       color:darken($green, 25);
       background-color: darken($green,1);
       border-color: darken($green, 25);
@@ -225,8 +225,9 @@ a.rs-logo {
     background-color: rgba(#dd4b39,.8);
     border: 1px solid darken(#dd4b39, 20);
     color: white;
-    &:hover {
+    &:hover:not([disabled]) {
       background-color: darken(#dd4b39, 10);
+      border-color: darken(#dd4b39, 20);
     }
   }
 }
