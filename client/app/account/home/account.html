@@ -47,7 +47,7 @@
     <div class="domains-block">
       <form ng-submit="addDomain(controls.newDomain)" class="form-inline">
         <input
-          type="url"
+          type="text"
           placeholder="http://"
           class="form-control"
           ng-model="controls.newDomain">
@@ -75,7 +75,7 @@
               <strong>{{domain.calls}}</strong>
             </td>
             <td class="text-center">
-              <span>{{ domain.active && 'Active' || 'Locked' }}</span>
+              <span>{{ domain.active && 'Allowed' || 'Locked' }}</span>
             </td>
             <td>
               <button

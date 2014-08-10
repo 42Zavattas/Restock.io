@@ -46,7 +46,7 @@ function recurse (lex) {
 }
 
 function build (req, res) {
-  res.header("Access-Control-Allow-Origin", "*");
+  res.header('Access-Control-Allow-Origin', '*');
 
   var test = ruleparser.test(req.params.rule);
   if (test.valid === false) {

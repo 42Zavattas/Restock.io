@@ -43,7 +43,7 @@ exports.show = function (req, res, next) {
 
   User.findById(userId, function (err, user) {
     if (err) return next(err);
-    if (!user) return res.status(401);
+    if (!user) return res.status(401).end();
     res.status(200).json(user.profile);
   });
 };
@@ -55,7 +55,7 @@ exports.show = function (req, res, next) {
 exports.destroy = function(req, res) {
   User.findByIdAndRemove(req.params.id, function(err, user) {
     if (err) return res.status(500).send(err);
-    return res.status(204);
+    return res.status(204).end();
   });
 };
 
@@ -72,10 +72,10 @@ exports.changePassword = function(req, res, next) {
       user.password = newPass;
       user.save(function(err) {
         if (err) return validationError(res, err);
-        res.status(200);
+        res.status(200).end();
       });
     } else {
-      res.status(403);
+      res.status(403).end();
     }
   });
 };
@@ -102,13 +102,13 @@ exports.updateMe = function(req, res, next) {
     _id: req.user._id
   }, '-salt -hashedPassword', function(err, user) {
     if (err) return next(err);
-    if (!user) return res.status(401);
+    if (!user) return res.status(401).end();
     if (req.body.domains) {
       user.domains = _.uniq(req.body.domains, 'name');
     }
     user.save(function (err) {
       if (err) { return handleError(res, err); }
-      return res.status(200);
+      return res.status(200).end();
     });
   });
 };
