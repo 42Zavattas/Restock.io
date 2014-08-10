@@ -42,7 +42,7 @@ exports.getSaved = function(req, res) {
     }
     else {
       var alloweds = _.pluck(_.filter(stock.user.domains, 'active'), 'name');
-      if (!alloweds.length || alloweds.indexOf(origin) !== -1) {
+      if (alloweds.indexOf(origin) !== -1) {
         res.header('Access-Control-Allow-Origin', origin);
       }
       else {
