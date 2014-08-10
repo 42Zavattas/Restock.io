@@ -11,7 +11,7 @@ var StockSchema = new Schema({
   content   : String,
   calls     : { type: Number, default: 0 },
   user      : { type: Schema.ObjectId, ref: 'User' },
-  domains   : [{ name: String }],
+  origins   : [{ name: String }],
   active    : { type: Boolean, default: true, select: false },
   created_at: Date,
   updated_at: Date

@@ -6,7 +6,7 @@ angular.module('restockApp')
     $scope.me = $scope.$root.ui.currentUser;
     $scope.stocks = stocks;
     $scope.controls = {
-      newDomain: ''
+      newOrigin: ''
     };
 
     console.log($scope.me);
@@ -18,28 +18,28 @@ angular.module('restockApp')
       $http.delete('/api/stocks/' + stock._id);
     };
 
-    $scope.alreadyAdded = function (domain) {
-      if (!$scope.me.domains.length) {
+    $scope.alreadyAdded = function (origin) {
+      if (!$scope.me.origins.length) {
         return false;
       }
-      return _.pluck($scope.me.domains, 'name').indexOf(domain) !== -1 || !domain;
+      return _.pluck($scope.me.origins, 'name').indexOf(origin) !== -1 || !origin;
     };
 
-    $scope.addDomain = function (domain) {
-      if ($scope.alreadyAdded(domain)) { return; };
-      $scope.me.domains.push({ name: domain, calls: 0, active: true });
-      $http.put('/api/users/me', { domains: $scope.me.domains });
-      $scope.controls.newDomain = '';
+    $scope.addOrigin = function (origin) {
+      if ($scope.alreadyAdded(origin)) { return; };
+      $scope.me.origins.push({ name: origin, calls: 0, active: true });
+      $http.put('/api/users/me', { origins: $scope.me.origins });
+      $scope.controls.newOrigin = '';
     };
 
-    $scope.deleteDomain = function (domain) {
-      $scope.me.domains = _.pull($scope.me.domains, domain);
-      $http.put('/api/users/me', { domains: $scope.me.domains });
+    $scope.deleteOrigin = function (origin) {
+      $scope.me.origins = _.pull($scope.me.origins, origin);
+      $http.put('/api/users/me', { origins: $scope.me.origins });
     };
 
-    $scope.changeState = function (domain) {
-      domain.active = !domain.active;
-      $http.put('/api/users/me', { domains: $scope.me.domains });
+    $scope.changeState = function (origin) {
+      origin.active = !origin.active;
+      $http.put('/api/users/me', { origins: $scope.me.origins });
     };
 
   });

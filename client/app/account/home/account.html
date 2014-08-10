@@ -41,24 +41,24 @@
     </h2>
     <p class="select">This section list and allow you to set the origins that can request our API. Origins can be either domain names or IP.
     It will be used to authenticate you and every request that need a premium account, decrementing your month count. All the free request are not impacted.</p>
-    <div class="warning-block" ng-if="!me.domains.length">
+    <div class="warning-block" ng-if="!me.origins.length">
       <i class="icon-notification"></i> You've not set any allowed origin ! All the requests on your URLs will count.
     </div>
-    <div class="domains-block">
-      <form ng-submit="addDomain(controls.newDomain)" class="form-inline">
+    <div class="origins-block">
+      <form ng-submit="addOrigin(controls.newOrigin)" class="form-inline">
         <input
           type="text"
           placeholder="Domain or IP"
           class="form-control"
-          ng-model="controls.newDomain">
+          ng-model="controls.newOrigin">
         <input
-          ng-disabled="alreadyAdded(controls.newDomain)"
+          ng-disabled="alreadyAdded(controls.newOrigin)"
           class="btn"
           type="submit"
           value="Add this origin">
       </form>
       <table>
-        <thead ng-if="me.domains.length">
+        <thead ng-if="me.origins.length">
           <tr>
             <th>Name</th>
             <th class="text-center">Calls</th>
@@ -67,22 +67,22 @@
           </tr>
         </thead>
         <tbody>
-          <tr ng-repeat="domain in me.domains">
+          <tr ng-repeat="origin in me.origins">
             <td class="code-cell">
-              <a class="little-link" target="blanck" ng-href="{{domain.name}}">{{domain.name}}</a>
+              <a class="little-link" target="blanck" ng-href="{{origin.name}}">{{origin.name}}</a>
             </td>
             <td class="text-center">
-              <strong>{{domain.calls}}</strong>
+              <strong>{{origin.calls}}</strong>
             </td>
             <td class="text-center">
-              <span>{{ domain.active && 'Allowed' || 'Locked' }}</span>
+              <span>{{ origin.active && 'Allowed' || 'Locked' }}</span>
             </td>
             <td>
               <button
-                ng-click="changeState(domain)" class="icon lock">
-                <i ng-class="{'icon-lock':!domain.active,'icon-checkmark':domain.active}"></i>
+                ng-click="changeState(origin)" class="icon lock">
+                <i ng-class="{'icon-lock':!origin.active,'icon-checkmark':origin.active}"></i>
               </button>
-              <button ng-click="deleteDomain(domain)" class="icon del">
+              <button ng-click="deleteOrigin(origin)" class="icon del">
                 <i class="icon-remove"></i>
               </button>
             </td>

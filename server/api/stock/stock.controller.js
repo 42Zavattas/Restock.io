@@ -37,11 +37,11 @@ exports.getSaved = function(req, res) {
   .exec(function (err, stock) {
     if (err) { return handleError(res, err); }
     if (!stock) { return res.status(404).end(); }
-    if (!stock.user.domains.length) {
+    if (!stock.user.origins.length) {
       res.header('Access-Control-Allow-Origin', '*');
     }
     else {
-      var alloweds = _.pluck(_.filter(stock.user.domains, 'active'), 'name');
+      var alloweds = _.pluck(_.filter(stock.user.origins, 'active'), 'name');
       if (alloweds.indexOf(origin) !== -1) {
         res.header('Access-Control-Allow-Origin', origin);
       }
@@ -51,7 +51,7 @@ exports.getSaved = function(req, res) {
     }
     stock.calls++;
     stock.save();
-    stock.user.domains.map(function (el) {
+    stock.user.origins.map(function (el) {
       if (el.name === origin) {
         el.calls++;
       }

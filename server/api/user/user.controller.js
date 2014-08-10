@@ -103,8 +103,8 @@ exports.updateMe = function(req, res, next) {
   }, '-salt -hashedPassword', function(err, user) {
     if (err) return next(err);
     if (!user) return res.status(401).end();
-    if (req.body.domains) {
-      user.domains = _.uniq(req.body.domains, 'name');
+    if (req.body.origins) {
+      user.origins = _.uniq(req.body.origins, 'name');
     }
     user.save(function (err) {
       if (err) { return handleError(res, err); }
