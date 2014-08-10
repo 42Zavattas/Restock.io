@@ -258,7 +258,11 @@ input.form-control {
 .form-inline {
   margin-top: 10px;
   display: flex;
+  *:first-child {
+    margin-right: 10px;
+  }
   * {
+    padding: 0;
     width: initial !important;
     flex-grow: 1;
     max-height: 40px;

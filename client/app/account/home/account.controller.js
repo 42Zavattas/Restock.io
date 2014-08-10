@@ -19,7 +19,10 @@ angular.module('restockApp')
     };
 
     $scope.alreadyAdded = function (domain) {
-      return $scope.me.domains.indexOf(domain) !== -1 || !domain;
+      if (!$scope.me.domains.length) {
+        return false;
+      }
+      return _.pluck($scope.me.domains, 'name').indexOf(domain) !== -1 || !domain;
     };
 
     $scope.addDomain = function (domain) {
