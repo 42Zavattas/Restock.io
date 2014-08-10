@@ -37,25 +37,25 @@
 
   <div ng-if="ui.currentUser.type !== 'basic'">
     <h2 class="doc-h2">
-      <span>Allowed domains</span>
+      <span>Allowed origins</span>
     </h2>
-    <p class="select">This section list and allow you to set the domains that can request our API.
+    <p class="select">This section list and allow you to set the origins that can request our API. Origins can be either domain names or IP.
     It will be used to authenticate you and every request that need a premium account, decrementing your month count. All the free request are not impacted.</p>
     <div class="warning-block" ng-if="!me.domains.length">
-      <i class="icon-notification"></i> You've not set any allowed domain ! All the requests on your URLs will count.
+      <i class="icon-notification"></i> You've not set any allowed origin ! All the requests on your URLs will count.
     </div>
     <div class="domains-block">
       <form ng-submit="addDomain(controls.newDomain)" class="form-inline">
         <input
           type="text"
-          placeholder="http://"
+          placeholder="Domain or IP"
           class="form-control"
           ng-model="controls.newDomain">
         <input
           ng-disabled="alreadyAdded(controls.newDomain)"
           class="btn"
           type="submit"
-          value="Add this domain">
+          value="Add this origin">
       </form>
       <table>
         <thead ng-if="me.domains.length">
