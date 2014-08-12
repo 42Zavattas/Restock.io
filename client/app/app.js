@@ -10,6 +10,7 @@ angular.module('restockApp', [
   'btford.socket-io'
 ])
   .config(function ($routeProvider, $locationProvider, $httpProvider) {
+
     $routeProvider
       .otherwise({
         redirectTo: '/'

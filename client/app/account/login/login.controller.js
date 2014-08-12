@@ -1,12 +1,14 @@
 'use strict';
 
 angular.module('restockApp')
-  .controller('LoginCtrl', function ($scope, Auth, $location, $window) {
+  .controller('LoginCtrl', function ($scope, Auth, $window) {
 
     $scope.user = {};
     $scope.errors = {};
 
-    $scope.login = function(form) {
+    $scope.login = function ($event, form) {
+
+      $event.preventDefault();
       $scope.submitted = true;
 
       if (form.$valid) {
@@ -15,8 +17,7 @@ angular.module('restockApp')
           password: $scope.user.password
         })
         .then(function () {
-          // Logged in, redirect to home
-          $location.path('/');
+          $window.location.href = '/';
         })
         .catch(function (err) {
           $scope.errors.other = err.message;
