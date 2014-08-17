@@ -6,7 +6,8 @@ angular.module('restockApp')
 
     // socket.io now auto-configures its connection when we ommit a connection url
     var ioSocket = io('', {
-      'query': 'token=' + $cookieStore.get('token')
+      'query': 'token=' + $cookieStore.get('token'),
+      path: '/socket.io-client'
       //'reconnection delay': 1000,
       //'reconnection limit': 1000,
       //'max reconnection attempts': 'Infinity'
