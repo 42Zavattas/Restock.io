@@ -46,7 +46,7 @@ function recurse (lex) {
 }
 
 function build (req, res) {
-  res.header("Access-Control-Allow-Origin", "*");
+  res.header('Access-Control-Allow-Origin', '*');
 
   var test = ruleparser.test(req.params.rule);
   if (test.valid === false) {
@@ -63,6 +63,7 @@ function build (req, res) {
 
 function opts (req, res) {
   res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Methods', 'GET');
   res.header('Access-Control-Allow-Headers', 'X-Requested-With, X-HTTP-Method-Override, Content-Type, Accept');
   return res.send(200);
 }
