@@ -23,35 +23,35 @@ $blue: #7ec5d4;
 // Fonts
 // -----
 
-@include font-face("Sinkin Light", font-files("../assets/fonts/sinkinsans/sinkinsans_300light_macroman/SinkinSans-300Light-webfont.eot",
-                                        "../assets/fonts/sinkinsans/sinkinsans_300light_macroman/SinkinSans-300Light-webfont.svg",
-                                        "../assets/fonts/sinkinsans/sinkinsans_300light_macroman/SinkinSans-300Light-webfont.ttf",
-                                        "../assets/fonts/sinkinsans/sinkinsans_300light_macroman/SinkinSans-300Light-webfont.woff"));
+@include font-face("Sinkin Light", font-files("/assets/fonts/sinkinsans/sinkinsans_300light_macroman/SinkinSans-300Light-webfont.eot",
+                                        "/assets/fonts/sinkinsans/sinkinsans_300light_macroman/SinkinSans-300Light-webfont.svg",
+                                        "/assets/fonts/sinkinsans/sinkinsans_300light_macroman/SinkinSans-300Light-webfont.ttf",
+                                        "/assets/fonts/sinkinsans/sinkinsans_300light_macroman/SinkinSans-300Light-webfont.woff"));
 
-@include font-face("Sinkin Light Italic", font-files("../assets/fonts/sinkinsans/sinkinsans_300lightitalic_macroman/SinkinSans-300LightItalic-webfont.eot",
-                                        "../assets/fonts/sinkinsans/sinkinsans_300lightitalic_macroman/SinkinSans-300LightItalic-webfont.svg",
-                                        "../assets/fonts/sinkinsans/sinkinsans_300lightitalic_macroman/SinkinSans-300LightItalic-webfont.ttf",
-                                        "../assets/fonts/sinkinsans/sinkinsans_300lightitalic_macroman/SinkinSans-300LightItalic-webfont.woff"));
+@include font-face("Sinkin Light Italic", font-files("/assets/fonts/sinkinsans/sinkinsans_300lightitalic_macroman/SinkinSans-300LightItalic-webfont.eot",
+                                        "/assets/fonts/sinkinsans/sinkinsans_300lightitalic_macroman/SinkinSans-300LightItalic-webfont.svg",
+                                        "/assets/fonts/sinkinsans/sinkinsans_300lightitalic_macroman/SinkinSans-300LightItalic-webfont.ttf",
+                                        "/assets/fonts/sinkinsans/sinkinsans_300lightitalic_macroman/SinkinSans-300LightItalic-webfont.woff"));
 
-@include font-face("Sinkin", font-files("../assets/fonts/sinkinsans/sinkinsans_400regular_macroman/SinkinSans-400Regular-webfont.eot",
-                                        "../assets/fonts/sinkinsans/sinkinsans_400regular_macroman/SinkinSans-400Regular-webfont.svg",
-                                        "../assets/fonts/sinkinsans/sinkinsans_400regular_macroman/SinkinSans-400Regular-webfont.ttf",
-                                        "../assets/fonts/sinkinsans/sinkinsans_400regular_macroman/SinkinSans-400Regular-webfont.woff"));
+@include font-face("Sinkin", font-files("/assets/fonts/sinkinsans/sinkinsans_400regular_macroman/SinkinSans-400Regular-webfont.eot",
+                                        "/assets/fonts/sinkinsans/sinkinsans_400regular_macroman/SinkinSans-400Regular-webfont.svg",
+                                        "/assets/fonts/sinkinsans/sinkinsans_400regular_macroman/SinkinSans-400Regular-webfont.ttf",
+                                        "/assets/fonts/sinkinsans/sinkinsans_400regular_macroman/SinkinSans-400Regular-webfont.woff"));
 
-@include font-face("Sinkin Italic", font-files("../assets/fonts/sinkinsans/sinkinsans_400italic_macroman/SinkinSans-400Italic-webfont.eot",
-                                        "../assets/fonts/sinkinsans/sinkinsans_400italic_macroman/SinkinSans-400Italic-webfont.svg",
-                                        "../assets/fonts/sinkinsans/sinkinsans_400italic_macroman/SinkinSans-400Italic-webfont.ttf",
-                                        "../assets/fonts/sinkinsans/sinkinsans_400italic_macroman/SinkinSans-400Italic-webfont.woff"));
+@include font-face("Sinkin Italic", font-files("/assets/fonts/sinkinsans/sinkinsans_400italic_macroman/SinkinSans-400Italic-webfont.eot",
+                                        "/assets/fonts/sinkinsans/sinkinsans_400italic_macroman/SinkinSans-400Italic-webfont.svg",
+                                        "/assets/fonts/sinkinsans/sinkinsans_400italic_macroman/SinkinSans-400Italic-webfont.ttf",
+                                        "/assets/fonts/sinkinsans/sinkinsans_400italic_macroman/SinkinSans-400Italic-webfont.woff"));
 
-@include font-face("Sinkin Bold", font-files("../assets/fonts/sinkinsans/sinkinsans_600semibold_macroman/SinkinSans-600SemiBold-webfont.eot",
-                                        "../assets/fonts/sinkinsans/sinkinsans_600semibold_macroman/SinkinSans-600SemiBold-webfont.svg",
-                                        "../assets/fonts/sinkinsans/sinkinsans_600semibold_macroman/SinkinSans-600SemiBold-webfont.ttf",
-                                        "../assets/fonts/sinkinsans/sinkinsans_600semibold_macroman/SinkinSans-600SemiBold-webfont.woff"));
+@include font-face("Sinkin Bold", font-files("/assets/fonts/sinkinsans/sinkinsans_600semibold_macroman/SinkinSans-600SemiBold-webfont.eot",
+                                        "/assets/fonts/sinkinsans/sinkinsans_600semibold_macroman/SinkinSans-600SemiBold-webfont.svg",
+                                        "/assets/fonts/sinkinsans/sinkinsans_600semibold_macroman/SinkinSans-600SemiBold-webfont.ttf",
+                                        "/assets/fonts/sinkinsans/sinkinsans_600semibold_macroman/SinkinSans-600SemiBold-webfont.woff"));
 
-@include font-face("Sinkin Bold Italic", font-files("../assets/fonts/sinkinsans/sinkinsans_600semibolditalic_macroman/SinkinSans-600SemiBoldItali-webfont.eot",
-                                        "../assets/fonts/sinkinsans/sinkinsans_600semibolditalic_macroman/SinkinSans-600SemiBoldItali-webfont.svg",
-                                        "../assets/fonts/sinkinsans/sinkinsans_600semibolditalic_macroman/SinkinSans-600SemiBoldItali-webfont.ttf",
-                                        "../assets/fonts/sinkinsans/sinkinsans_600semibolditalic_macroman/SinkinSans-600SemiBoldItali-webfont.woff"));
+@include font-face("Sinkin Bold Italic", font-files("/assets/fonts/sinkinsans/sinkinsans_600semibolditalic_macroman/SinkinSans-600SemiBoldItali-webfont.eot",
+                                        "/assets/fonts/sinkinsans/sinkinsans_600semibolditalic_macroman/SinkinSans-600SemiBoldItali-webfont.svg",
+                                        "/assets/fonts/sinkinsans/sinkinsans_600semibolditalic_macroman/SinkinSans-600SemiBoldItali-webfont.ttf",
+                                        "/assets/fonts/sinkinsans/sinkinsans_600semibolditalic_macroman/SinkinSans-600SemiBoldItali-webfont.woff"));
 
 
 * {
