@@ -5,7 +5,7 @@
 module.exports = {
   // MongoDB connection options
   mongo: {
-    uri: 'mongodb://zavatta:danylB@kahana.mongohq.com:10061/restock'
+    uri: 'mongodb://localhost/restock-dev'
   },
 
   seedDB: true
