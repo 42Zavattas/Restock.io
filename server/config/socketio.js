@@ -6,20 +6,17 @@
 
 var config = require('./environment');
 
-// When the user disconnects.. perform this
 function onDisconnect(socket) {
 }
 
-function printClientIp (socket) {
-  if (socket.address) {
-    console.info('[%s] ', socket.address);
-  }
-  else {
-    console.info('[%s:%s] ', socket.handshake.headers['x-forwarded-for'], socket.handshake.headers['x-forwarded-port']);
+function printClientIp (socket, action) {
+  if (socket.handshake.address) {
+    console.info('[%s] %s', socket.handshake.address, action);
+  } else {
+    console.info('[%s:%s] %s', socket.handshake.headers['x-forwarded-for'], socket.handshake.headers['x-forwarded-port'], action);
   }
 }
 
-// When the user connects.. perform this
 function onConnect(socket) {
   // When the client emits 'info', this listens and executes
   socket.on('info', function (data) {
@@ -49,16 +46,12 @@ module.exports = function (socketio) {
 
     socket.connectedAt = new Date();
 
-    // Call onDisconnect.
     socket.on('disconnect', function () {
       onDisconnect(socket);
-      printClientIp(socket);
-      console.info('DISCONNECTED');
+      printClientIp(socket, 'DISCONNECT');
     });
 
-    // Call onConnect.
     onConnect(socket);
-    printClientIp(socket);
-    console.info('CONNECTED');
+    printClientIp(socket, 'CONNECT');
   });
 };
