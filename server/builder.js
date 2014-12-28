@@ -6,6 +6,10 @@ var router = express.Router();
 var ruleparser = require('../client/parser/ruleparser.js');
 var types = require('./types.js');
 
+function handleError(res, err) {
+  return res.status(500).send(err).end();
+}
+
 function getElementOfType (type) {
 
   var indexes = {
@@ -50,30 +54,26 @@ function build (req, res) {
 
   var test = ruleparser.test(req.params.rule);
   if (test.valid === false) {
-    return res.status(400).send(test);
+    return res.status(400).send(test).end();
   }
   var err = {};
   var lex = ruleparser.lex(req.params.rule, err);
   if (err.msg) {
-    return res.status(400).send(err);
+    return res.status(400).send(err).end();
   }
   var result = recurse(lex);
-  return res.status(200).send(result);
+  res.send(result);
 }
 
 function opts (req, res) {
   res.header('Access-Control-Allow-Origin', '*');
   res.header('Access-Control-Allow-Methods', 'GET');
   res.header('Access-Control-Allow-Headers', 'X-Requested-With, X-HTTP-Method-Override, Content-Type, Accept');
-  return res.send(200);
+  return res.status(200).end();
 }
 
 router.get('/:rule', build);
 router.options('/:rule', opts);
-
-function handleError(res, err) {
-  return res.status(500).send(err);
-}
 
 router.getStringified = function (rule) {
   var test = ruleparser.test(rule);
