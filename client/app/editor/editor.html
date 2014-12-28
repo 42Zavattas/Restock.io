@@ -1,0 +1,88 @@
+<section class="rs-ruler editor-view">
+
+  <div class="rs-super-input tr-up">
+
+    <div class="rs-super-notif" ng-if="errorMsg && rule.input !== ''">
+      <div class="rs-sub-input">
+        <div class="rs-badge error">ERR<br>400</div>
+        <div class="rs-error-msg">{{ errorMsg }}</div>
+      </div>
+    </div>
+
+    <div class="rs-super-notif"
+      ng-if="isValid(rule.input) && rule.input !== ''">
+
+      <div class="rs-sub-input">
+
+        <div class="rs-badge">HTTP<br>GET</div>
+
+        <a target="_blank" ng-href="{{getUrl()}}"
+          class="rs-ruler-url"
+          ng-class="{ small: rule.input.length > 30 }">
+          {{ getUrl() }}</a>
+
+        <span
+          ng-class="{'used':lastCopy === getUrl() }"
+          clip-click="updateCopied()"
+          clip-copy="copy()"
+          class="rs-copy">
+          <i class="icon-copy2"></i>
+        </span>
+
+        <button
+          ng-class="{
+            'no-tooltip':ui.isLogged && isSaved(),
+            'lock':isSaved() || !ui.isLogged
+          }"
+          ng-attr-tooltip="{{!ui.isLogged && 'You need to be logged' || 'Save this in my account' }}"
+          ng-click="saveStock(rule.input)"
+          class="rs-btn absright">
+
+          <div ng-class="{'spinner':stocks.saving}">
+            <i
+              ng-class="{
+                'icon-spinner':stocks.saving,
+                'icon-star2':isSaved(),
+                'icon-star':!stocks.saving && !isSaved()
+              }"></i>
+          </div>
+
+        </button>
+      </div>
+
+    </div>
+
+    <input
+      ng-class="{ invalid: !isValid(rule.input), waiting: rule.input === '', small: rule.input.length > 30 }"
+      focus-me="!loading"
+      ng-model="rule.input"
+      type="text"
+      maxlength="51"
+      placeholder="{}"
+      class="rs-ruler-input">
+
+  </div>
+
+  <div class="rs-timer tr-expand">
+    <div class="bar"
+      ng-class="{
+        load: isLoading,
+        hide: !isLoading
+      }"></div>
+  </div>
+
+  <textarea
+    disabled
+    ng-class="{ invalid: !isValid(rule.input), valid: isValid(rule.input) && rule.input !== '' }"
+    class="rs-sketch-container tr-down">{{ res | json }}</textarea>
+
+  <div class="rs-reference-bloc tr-down">
+    <div class="rs-reference" ng-repeat="ref in reference">
+      <span class="rs-code">{{ ref[0] }}</span> {{ ref[1] }}
+    </div>
+    <div class="rs-reference big" ng-repeat="ref in specialReference">
+      <span class="rs-code">{{ ref[0] }}</span> {{ ref[1] }}
+    </div>
+  </div>
+
+</section>

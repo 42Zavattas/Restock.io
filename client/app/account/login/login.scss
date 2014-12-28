@@ -1,0 +1,25 @@
+.auth-wrapper {
+  width: 500px;
+  margin: 0 auto;
+  padding: 50px 20px;
+  > p {
+    font-size: 13px;
+    margin-bottom: 2em;
+  }
+  p.help-block {
+    padding: 10px 0;
+    color: $red;
+    font-size: 15px;
+  }
+  form {
+    > button {
+      width: 100%;
+    }
+    .flex {
+      margin-top: 5px;
+      a:first-child {
+        margin-right: 5px;
+      }
+    }
+  }
+}

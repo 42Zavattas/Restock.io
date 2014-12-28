@@ -1,0 +1,244 @@
+<section class="container">
+
+  <h2 class="doc-h2">
+    <span>Documentation</span>
+  </h2>
+
+  <div class="doc-index-bloc">
+    <ol class="doc-index">
+      <li><a href="/docs#intro">Introduction</a></li>
+      <li><a href="/docs#codes"><strong>List of codes</strong></a></li>
+      <li><a href="/docs#examples">Examples</a></li>
+      <li>
+        <a href="/docs#practice">Practice cases</a>
+        <ol>
+          <li><a href="/docs#env-cmd">cURL</a></li>
+          <li><a href="/docs#env-angular">AngularJs</a></li>
+          <li><a href="/docs#env-node">NodeJs</a></li>
+          <li><a href="/docs#env-python">Python</a></li>
+          <li><a href="/docs#env-php">PHP</a></li>
+        </ol>
+      </li>
+    </ul>
+  </div>
+
+  <div id="intro" class="segment">
+    <a class="gotop" href="/docs"><i class="icon-arrow-up"></i></a>
+
+    <h3 class="doc-h3">Introduction</h3>
+
+    <p class="select">The main purpose of <strong>Restock</strong> is to provide a ready-to-use toolbox <strong>to mock your REST calls</strong> and don't bother with them.
+    You can create some simple results composed of one item of the following supported types, or more complex one by nesting them inside an array or an object.</p>
+    <div class="info-contact">
+      Feel free to
+      <a class="link" target="_blank" href="http://github.com/42Zavattas/Restock.io/issues">
+        <strong>contact us</strong>
+      </a>
+      when you encounter an issue or an inconsistency.
+    </div>
+
+  </div>
+
+  <div id="codes" class="segment">
+    <a class="gotop" href="/docs"><i class="icon-arrow-up"></i></a>
+
+    <h3 class="doc-h3">List of codes</h3>
+
+    <table>
+      <caption>Basic</caption>
+      <tbody>
+        <tr>
+          <td class="code-cell">
+            <span class="code">s</span> /
+            <span class="code">S</span>
+          </td>
+          <td class="select cursor-default">Any <strong>string</strong></td>
+          <td class="select cursor-default">ajeke</td>
+        </tr>
+        <tr>
+          <td>
+            <span class="code">n</span> /
+            <span class="code">N</span>
+          </td>
+          <td class="select cursor-default">Any <strong>number</strong></td>
+          <td class="select cursor-default">32 / -491264923402240</td>
+        </tr>
+        <tr>
+          <td>
+            <span class="code">b</span>
+          </td>
+          <td class="select cursor-default">"Any" <strong>boolean</strong></td>
+          <td class="select cursor-default">true</td>
+        </tr>
+        <tr>
+          <td>
+            <span class="code">d</span>
+          </td>
+          <td class="select cursor-default">Any <strong>date</strong></td>
+          <td class="select cursor-default">2054-06-04T01:37:33.311Z</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <table>
+      <caption>Extended</caption>
+      <tfoot></tfoot>
+      <tbody>
+        <tr>
+          <td class="code-cell"><span class="code">e</span></td>
+          <td class="select cursor-default">Any <strong>email</strong></td>
+          <td class="select cursor-default">kqzdp@aiklqq.gv</td>
+        </tr>
+        <tr>
+          <td class="code-cell"><span class="code">p</span></td>
+          <td class="select cursor-default">Any <strong>phone</strong> (US formatted)</td>
+          <td class="select cursor-default">(561) 927-1354</td>
+        </tr>
+        <tr>
+          <td class="code-cell"><span class="code">a</span></td>
+          <td class="select cursor-default">Any <strong>address</strong> (US formatted)</td>
+          <td class="select cursor-default">1337 Netne Le</td>
+        </tr>
+        <tr>
+          <td class="code-cell"><span class="code">t</span></td>
+          <td class="select cursor-default">Any <strong>timestamp</strong></td>
+          <td class="select cursor-default">1407304935</td>
+        </tr>
+        <tr>
+          <td class="code-cell"><span class="code">c</span></td>
+          <td class="select cursor-default">Any <strong>character</strong></td>
+          <td class="select cursor-default">b</td>
+        </tr>
+        <tr>
+          <td class="code-cell"><span class="code">i</span></td>
+          <td class="select cursor-default">Any <strong>IP</strong> (v4)</td>
+          <td class="select cursor-default">192.168.0.1</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div id="examples" class="segment">
+    <a class="gotop" href="/docs"><i class="icon-arrow-up"></i></a>
+
+    <h3 class="doc-h3">Examples</h3>
+
+    <table>
+      <tbody>
+        <tr>
+          <td class="medium"><span class="code">{data:s}</span></td>
+          <td class="medium"><pre class="no-marged">
+{
+  data: "huinaowo"
+}</pre>
+          </td>
+        </tr>
+        <tr>
+          <td class="medium"><span class="code">3{data:s,valid:b}</span></td>
+          <td class="medium"><pre class="no-marged">
+[
+  {
+    "data":"bomo",
+    "valid":false
+  },
+  {
+    "data":"casnanoz",
+    "valid":true
+  },
+  {
+    "data":"dad",
+    "valid":true
+  }
+]</pre>
+          </td>
+        <tr>
+          <td class="medium"><span class="code">2{name:s,date:d,items:2{n:b}}</span></td>
+          <td class="medium"><pre class="no-marged">
+[
+  {
+    "name": "di",
+    "date": "2108-08-23T08:20:11.824Z",
+    "items": [
+      {
+        "n": false
+      },
+      {
+        "n": true
+      }
+    ]
+  },
+  {
+    "name": "di",
+    "date": "2033-02-07T10:10:15.499Z",
+    "items": [
+      {
+        "n": true
+      },
+      {
+        "n": true
+      }
+    ]
+  }
+]</pre>
+          </td>
+        </tr>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+
+  <div id="practice" class="segment">
+    <a class="gotop" href="/docs"><i class="icon-arrow-up"></i></a>
+    <h3 class="doc-h3">Practice cases</h3>
+
+    <table>
+      <tbody>
+        <tr>
+          <td><span id="env-cmd" class="code">cURL</span></td>
+          <td><pre class="no-marged">curl http://restock.io/api/5s</pre>
+          </td>
+        </tr>
+        <tr>
+          <td><span id="env-angular" class="code">AngularJs</span></td>
+          <td><pre class="no-marged">$http.get('http://restock.io/api/5s').then(function (res) {
+  console.log(res);
+});</pre>
+          </td>
+        </tr>
+        <tr>
+          <td><span id="env-node" class="code">NodeJs</span></td>
+          <td><pre class="no-marged">var options = {
+  host: 'http://restock.io',
+  port: 80,
+  path: '/api/5s',
+  method: 'GET'
+};
+
+http.request(options, function (res) {
+  res.on('data', function (data) {
+    console.log(data);
+  });
+})</pre>
+          </td>
+        </tr>
+        <tr>
+          <td><span id="env-python" class="code">Python</span></td>
+          <td><pre class="no-marged">import urllib
+
+url = 'http://restock.io/api/5s'
+u = urllib.urlopen(url)
+data = u.read()</pre>
+          </td>
+        </tr>
+        <tr>
+          <td><span id="env-php" class="code">PHP</span></td>
+					<td><pre class="no-marged">$response = file_get_contents('http://restock.io/api/5s');
+$data = json_decode($response);</pre>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</section>

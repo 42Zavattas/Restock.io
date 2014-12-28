@@ -1,0 +1,40 @@
+.little-link {
+  color: white;
+  font-size: 12px;
+  text-decoration: none;
+  &:hover {
+    color: rgba(black, .7);
+  }
+}
+
+.change-pwd {
+  width: 400px;
+  .msg {
+    font-size: 12px;
+    margin-bottom: 10px;
+  }
+}
+
+th {
+  font-family: "Sinkin Bold";
+}
+
+td.date {
+  font-size: 12px;
+}
+
+.text-center {
+  text-align:center;
+}
+
+.del-icon {
+  cursor:pointer;
+  padding:10px;
+  background:transparent;
+  border:1px solid transparent;
+  color:rgba(white,.3);
+  &:hover {
+    background: rgba($red,.4);
+    color:rgba(white,.8);
+  }
+}
