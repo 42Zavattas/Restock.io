@@ -1,24 +1,12 @@
 'use strict';
 
-var User = require('./user.model');
-var passport = require('passport');
 var config = require('../../config/environment');
 var jwt = require('jsonwebtoken');
+var User = require('./user.model');
 
-var validationError = function(res, err) {
-  return res.status(422).json(err);
-};
-
-/**
- * Get list of users
- * restriction: 'admin'
- */
-exports.index = function(req, res) {
-  User.find({}, '-salt -hashedPassword', function (err, users) {
-    if (err) return res.status(500).send(err);
-    res.status(200).json(users);
-  });
-};
+function handleError (res, err) {
+  return res.status(500).send(err);
+}
 
 /**
  * Creates a new user
@@ -44,17 +32,6 @@ exports.show = function (req, res, next) {
     if (err) return next(err);
     if (!user) return res.status(401);
     res.status(200).json(user.profile);
-  });
-};
-
-/**
- * Deletes a user
- * restriction: 'admin'
- */
-exports.destroy = function(req, res) {
-  User.findByIdAndRemove(req.params.id, function(err, user) {
-    if (err) return res.status(500).send(err);
-    return res.status(204);
   });
 };
 
@@ -91,11 +68,4 @@ exports.me = function(req, res, next) {
     if (!user) return res.status(401);
     res.status(200).json(user);
   });
-};
-
-/**
- * Authentication callback
- */
-exports.authCallback = function(req, res, next) {
-  res.redirect('/');
 };

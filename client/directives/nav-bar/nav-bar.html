@@ -1,0 +1,9 @@
+<nav class="rs-main-nav">
+  <ul>
+    <li><a href="/editor" class="brand">Editor</a></li>
+    <li><a href="/docs">Docs</a></li>
+    <li ng-show="ui.isLogged"><a href="/account">Account</a></li>
+    <li ng-show="ui.isLogged"><a class="superbrand" ng-click="logout()" href="">Disconnect</a></li>
+    <li ng-show="!ui.isLogged"><a class="superbrand" href="/login">Login</a></li>
+  </ul>
+</nav>

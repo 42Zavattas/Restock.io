@@ -1,0 +1,38 @@
+<div class="container">
+
+  <h2 class="doc-h2">
+    <span>Stocks</span>
+  </h2>
+
+  <table ng-class="{'no-margin': !vm.stocks.length}">
+    <caption>Saved Stocks</caption>
+    <thead ng-if="vm.stocks.length">
+      <tr>
+        <th>Rule</th>
+        <th>Url</th>
+        <th class="text-center">Calls</th>
+        <th class="text-center">Created</th>
+        <th>&nbsp;</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="stock in vm.stocks">
+        <td class="code-cell">
+          <span class="code">{{ stock.rule }}</span>
+        </td>
+        <td>
+          <a class="little-link" target="blanck" ng-href="{{ ui.domain }}/api/stocks{{ stock.url }}">/api/stocks{{ stock.url }}</a>
+        </td>
+        <td class="text-center"><strong>{{ stock.calls }}</strong></td>
+        <td class="text-center date">{{ stock.created_at | date:'dd/MM/yyyy' }}</td>
+        <td>
+          <button ng-click="vm.deleteStock(stock)" class="del-icon">
+            <i class="icon-remove"></i>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 ng-if="!vm.stocks.length" class="marged-bottom"><strong>Nothing for now</strong></h3>
+
+</div>

@@ -1,0 +1,88 @@
+<section class="rs-ruler editor-view">
+
+  <div class="rs-super-input tr-up">
+
+    <div class="rs-super-notif" ng-if="errorMsg && rule.input !== ''">
+      <div class="rs-sub-input">
+        <div class="rs-badge error">ERR<br>400</div>
+        <div class="rs-error-msg">{{ vm.errorMsg }}</div>
+      </div>
+    </div>
+
+    <div class="rs-super-notif"
+      ng-if="vm.isValid(vm.rule.input) && vm.rule.input !== ''">
+
+      <div class="rs-sub-input">
+
+        <div class="rs-badge">HTTP<br>GET</div>
+
+        <a target="_blank" ng-href="{{ vm.getUrl() }}"
+          class="rs-ruler-url"
+          ng-class="{ small: vm.rule.input.length > 30 }">
+          {{ vm.getUrl() }}</a>
+
+        <span
+          ng-class="{ 'used': vm.lastCopy === vm.getUrl() }"
+          clip-click="vm.updateCopied()"
+          clip-copy="vm.copy()"
+          class="rs-copy">
+          <i class="icon-copy2"></i>
+        </span>
+
+        <button
+          ng-class="{
+            'no-tooltip': ui.isLogged && vm.isSaved(),
+            'lock': vm.isSaved() || !ui.isLogged
+          }"
+          ng-attr-tooltip="{{ !ui.isLogged && 'You need to be logged' || 'Save this in my account' }}"
+          ng-click="vm.saveStock(vm.rule.input)"
+          class="rs-btn absright">
+
+          <div ng-class="{'spinner': vm.stocks.saving }">
+            <i
+              ng-class="{
+                'icon-spinner': vm.stocks.saving,
+                'icon-star2': vm.isSaved(),
+                'icon-star': !vm.stocks.saving && !vm.isSaved()
+              }"></i>
+          </div>
+
+        </button>
+      </div>
+
+    </div>
+
+    <input
+      ng-class="{ invalid: !vm.isValid(vm.rule.input), waiting: vm.rule.input === '', small: vm.rule.input.length > 30 }"
+      focus-me="!vm.loading"
+      ng-model="vm.rule.input"
+      type="text"
+      maxlength="51"
+      placeholder="{}"
+      class="rs-ruler-input">
+
+  </div>
+
+  <div class="rs-timer tr-expand">
+    <div class="bar"
+      ng-class="{
+        load: vm.isLoading,
+        hide: !vm.isLoading
+      }"></div>
+  </div>
+
+  <textarea
+    disabled
+    ng-class="{ invalid: !vm.isValid(vm.rule.input), valid: vm.isValid(vm.rule.input) && vm.rule.input !== '' }"
+    class="rs-sketch-container tr-down">{{ vm.res | json }}</textarea>
+
+  <div class="rs-reference-bloc tr-down">
+    <div class="rs-reference" ng-repeat="ref in vm.reference">
+      <span class="rs-code">{{ ref[0] }}</span> {{ ref[1] }}
+    </div>
+    <div class="rs-reference big" ng-repeat="ref in vm.specialReference">
+      <span class="rs-code">{{ ref[0] }}</span> {{ ref[1] }}
+    </div>
+  </div>
+
+</section>

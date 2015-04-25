@@ -1,39 +1,18 @@
 {
-  "generator-angular-fullstack": {
-    "insertRoutes": true,
-    "registerRoutesFile": "server/routes.js",
-    "routesNeedle": "// Insert routes below",
-    "routesBase": "/api/",
-    "pluralizeRoutes": true,
-    "insertSockets": true,
-    "registerSocketsFile": "server/config/socketio.js",
-    "socketsNeedle": "// Insert sockets below",
+  "generator-bangular": {
+    "version": "0.10.3",
     "filters": {
-      "js": true,
-      "html": true,
-      "sass": true,
-      "ngroute": true,
-      "bootstrap": false,
-      "socketio": true,
-      "mongoose": true,
-      "auth": true,
-      "oauth": true,
-      "googleAuth": true
+      "backend": "mongo",
+      "reload": "livereload",
+      "ngCookies": true,
+      "ngAnimate": true,
+      "hasDocs": false,
+      "control": true,
+      "karma": true,
+      "mocha": true,
+      "hasTests": true,
+      "sockets": true,
+      "auth": true
     }
-  },
-  "generator-ng-component": {
-    "routeDirectory": "client/app/",
-    "directiveDirectory": "client/app/",
-    "filterDirectory": "client/app/",
-    "serviceDirectory": "client/app/",
-    "basePath": "client",
-    "filters": [
-      "ngroute"
-    ],
-    "extensions": [
-      "js",
-      "html",
-      "scss"
-    ]
   }
 }

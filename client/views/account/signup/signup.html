@@ -1,0 +1,27 @@
+<section class="auth-wrapper">
+  <h2 class="doc-h2">Register</h2>
+
+  <p>Register to access new features and save your personnal <em>stocks</em>.</p>
+  <form class="form" name="form" ng-submit="vm.register(form)" novalidate>
+
+    <div class="form-group">
+      <input focus-me="!vm.loading" ng-class="{'has-error':(form.email.$error.email || form.email.$error.required) && vm.submitted}" placeholder="email"
+             type="email" name="email" class="form-control" ng-model="vm.user.email" required mongoose-error>
+    </div>
+
+    <div class="form-group">
+      <input ng-class="{'has-error':(form.password.$error.minlength || form.password.$error.required) && vm.submitted}" placeholder="password"
+             type="password" name="password" class="form-control" ng-model="vm.user.password" ng-minlength="3" required mongoose-error>
+    </div>
+
+    <button class="btn main" type="submit">
+      Register
+    </button>
+
+    <div class="flex">
+      <a class="btn full" href="/login">Login</a>
+    </div>
+
+  </form>
+
+</section>

@@ -1,0 +1,31 @@
+.rs-main-nav {
+  margin-left: auto;
+  ul {
+    display: flex;
+    li {
+      margin-left: 25px;
+      &:first-child { margin-left: 0; }
+      a {
+        text-decoration: none;
+        color: rgba(black, .4);
+        padding: 15px;
+        display:block;
+        border: 1px solid transparent;
+        &.superbrand {
+          border-color: rgba($blue, .7);
+          color: darken($blue, 15);
+        }
+        &.brand {
+          &:hover {
+            border-bottom-color: rgba($orange, .7);
+          }
+        }
+        &:hover {
+          color: rgba(white, .7);
+          border-bottom-color: rgba($blue, .7);
+        }
+      }
+    }
+  }
+}
+

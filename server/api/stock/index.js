@@ -1,12 +1,10 @@
 'use strict';
 
 var express = require('express');
+var router = express.Router();
 var controller = require('./stock.controller');
 var auth = require('../../auth/auth.service');
 
-var router = express.Router();
-
-router.get('/', auth.hasRole('admin'), controller.index);
 router.get('/mine', auth.isAuthenticated(), controller.mine);
 router.get('/:id', auth.isAuthenticated(), controller.show);
 router.get('/:user/:rand', controller.getSaved);

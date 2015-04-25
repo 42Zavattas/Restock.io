@@ -1,0 +1,47 @@
+<section class="auth-wrapper">
+  <h2 class="doc-h2">Login</h2>
+
+  <p>Please enter your credentials to get access to new features.</p>
+  <form
+    class="form"
+    action="/"
+    method="POST"
+    name="form"
+    ng-submit="vm.login($event, form)"
+    novalidate>
+
+    <div class="form-group">
+      <input
+        focus-me="!loading"
+        ng-class="{'has-error':(form.email.$error.email || form.email.$error.required) && vm.submitted}"
+        class="form-control"
+        type="email"
+        placeholder="email"
+        name="email"
+        ng-model="vm.user.email"
+        required>
+    </div>
+
+    <div class="form-group">
+      <input
+        ng-class="{'has-error':(form.password.$error.minlength || form.password.$error.required) && vm.submitted}"
+        class="form-control"
+        type="password"
+        placeholder="password"
+        name="password"
+        ng-minlength="3"
+        ng-model="vm.user.password"
+        required>
+    </div>
+
+    <button class="btn main" type="submit">
+      Login
+    </button>
+
+    <div class="flex">
+      <a class="btn full" href="/signup">Register</a>
+    </div>
+
+  </form>
+
+</section>

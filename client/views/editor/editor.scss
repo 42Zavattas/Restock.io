@@ -1,0 +1,235 @@
+.rs-ruler {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 500px;
+}
+
+.rs-super-input {
+  position: relative;
+}
+
+.rs-super-notif {
+  position: absolute;
+  top: 0; left: 20px; right: 20px;
+  text-align: center;
+  &.ng-enter{
+    animation-name: trLittleDownIn ;
+    animation-iteration-count: 1;
+    animation-timing-function: cubic-bezier(0.240, 1.650, 0.785, 1.120);
+    animation-duration: 250ms;
+  }
+}
+
+.rs-ruler-input {
+  outline: none;
+  border: none;
+  border-bottom: 5px solid rgba(black, .2);
+  background: rgba(white, .7);
+  box-shadow: rgba(black, .3) 0 4px 8px;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 31px;
+  width: 800px;
+  height: 130px;
+  text-align: center;
+  padding-top: 20px;
+  color: rgba(black, .5);
+  &:hover {
+    color: rgba(black, .7);
+  }
+  &.small {
+    font-size: 20px;
+  }
+  &:focus {
+    color: rgba(black, .7);
+  }
+  &:not(.invalid) {
+    border-color: $green;
+  }
+  &.invalid {
+   border-color: $red;
+  }
+  &.waiting{
+   border-color: $blue;
+  }
+}
+
+.rs-copy {
+  padding: 10px;
+  cursor: pointer;
+  i {
+    vertical-align: middle;
+  }
+  &.used {
+    cursor: default;
+    color: rgba(black, .3);
+  }
+  &.zeroclipboard-is-hover:not(.used) {
+    color: rgba(black, .9);
+  }
+}
+
+.absright {
+  position:absolute;
+  top: 20px;
+  right: 0px;
+}
+
+.rs-btn {
+  cursor:pointer;
+  border:none;
+  background: transparent;
+  font-size: 24px;
+  color: rgba(black, .4);
+  &:hover:not(.lock) {
+    color: rgba(black, .7);
+  }
+  &.lock {
+    cursor: default;
+  }
+}
+
+.rs-badge {
+  position:absolute;
+  font-family: "Lucida Console";
+  font-size: 10px;
+  color: rgba(white, .7);
+  background: rgba($green,.7);
+  padding: 2px;
+  padding-top: 3px;
+  padding-bottom: 1px;
+  display:block;
+  text-align:center;
+  border: 1px solid darken($green, 8);
+  box-shadow: rgba(black,.3) 0 1px 1px;
+  &.error {
+    background: rgba($red, .5);
+    border: 1px solid darken($red, 10);
+  }
+  &.big {
+    background: darken($blue, 40);
+    border: 1px solid darken($blue, 50);
+    height: 40px;
+    font-size: 17px;
+    padding: 9px 10px;
+  }
+  &.clickable {
+    cursor: pointer;
+    &:hover {
+      background-color: darken($blue, 30);
+    }
+  }
+}
+
+.rs-sub-input {
+  margin: 20px auto;
+}
+
+.rs-ruler-url {
+  user-select: text;
+  color: rgba(black, .5);
+  text-decoration: none;
+  background:rgba($green,.3);
+  padding:10px;
+  font-family: "Courier New", Courier, monospace;
+  text-shadow: rgba(white, .1) 0 1px;
+  &:hover {
+    text-decoration:underline;
+  }
+  &.small {
+    font-size: 14px;
+  }
+}
+
+.rs-error-msg {
+  margin-left: 20px;
+}
+
+.rs-error-msg {
+  color:rgba(black, .5);
+  text-shadow: rgba(white, .1) 0 1px;
+}
+
+.rs-sketch-container {
+  margin: 0 auto;
+  width: 800px;
+  height:400px;
+  position: relative;
+  background: rgba(black, .3);
+  padding: 20px;
+  color: rgba(white,.5);
+  margin-top: 1em;
+  border: 1px solid rgba(black, .5);
+  box-shadow: rgba(black, .5) 0 0 12px inset;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 13px;
+  &.invalid {
+    border-color:$red;
+  }
+  &.valid {
+    border-color:$green;
+  }
+}
+
+.sk-prop {
+  color: rgba(white, .8);
+}
+
+.sk-type {
+  background: rgba(white, .8);
+  padding: 3px;
+}
+
+.rs-timer {
+  width: 800px;
+  margin-top: 1em;
+  .bar {
+    float:left;
+    width: 0;
+    background: rgba(black, .1);
+    height: 8px;
+    opacity: .5;
+    transition-property: '*';
+    transition-duration: 1s;
+    border-bottom: 1px solid rgba(black, .1);
+    &.load {
+      width: 800px;
+      opacity: 1;
+    }
+    &.hide {
+      transition-property: none;
+    }
+  }
+}
+
+.rs-reference-bloc {
+  font-size: 12px;
+  width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  display:flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-top: 1em;
+  padding-top: 30px;
+  border: 1px solid rgba(black, .3);
+}
+
+.rs-reference {
+  width: 150px;
+  margin-bottom: 30px;
+  margin-left:30px;
+  &.big {
+    width: 200px;
+  }
+}
+
+.rs-code {
+  font-family: "Courier New", Courier, monospace;
+  color:rgba(white,.8);
+  background:rgba(black,.6);
+  padding:5px;
+}
+

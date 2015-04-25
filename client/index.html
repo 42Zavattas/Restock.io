@@ -1,48 +1,37 @@
-<!doctype HTML>
-<html>
+<!DOCTYPE html>
+<html ng-app="restock">
   <head>
-
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, user-scalable=no">
 
     <base href="/">
 
-    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
-    <link rel="icon" href="/favicon.ico" type="image/x-icon">
-
     <title>Restock</title>
 
-    <link rel="stylesheet" href="/assets/fonts/icomoon/style.css">
-    <!-- build:css(client) app/vendor.css -->
-      <!-- bower:css -->
-      <!-- endbower -->
-    <!-- endbuild -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
 
-    <!-- build:css({.tmp,client}) app/app.css -->
-    <link rel="stylesheet" href="app/app.css">
-      <!-- injector:css -->
-      <!-- endinjector -->
+    <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+
+    <!-- build:css app.css -->
+
+    <link rel="stylesheet" href="/assets/fonts/icomoon/style.css">
+    <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/reset-css/reset.css">
+    <!-- endinject -->
+
+    <!-- inject:css -->
+    <link rel="stylesheet" href="styles/css/app.css">
+    <!-- endinject -->
+
     <!-- endbuild -->
 
   </head>
-  <body ng-app="restockApp">
+  <body>
 
     <div class="rs-shadow"></div>
 
     <header class="rs-main-head">
-
       <a class="rs-logo" href="/"><h1><span class="embed">REST</span>ock</h1></a>
-
-      <nav class="rs-main-nav">
-        <ul>
-          <li><a href="/editor" class="brand">Editor</a></li>
-          <li><a href="/docs">Docs</a></li>
-          <li ng-show="ui.isLogged"><a href="/account">Account</a></li>
-          <li ng-show="ui.isLogged"><a class="superbrand" ng-click="logout()" href="">Disconnect</a></li>
-          <li ng-show="!ui.isLogged"><a class="superbrand" href="/login">Login</a></li>
-        </ul>
-      </nav>
-
+      <nav-bar></nav-bar>
     </header>
 
     <div ng-view></div>
@@ -53,50 +42,46 @@
       </span>
     </footer>
 
-    <!-- build:js({client,node_modules}) app/vendor.js -->
-      <!-- bower:js -->
-      <script src="bower_components/jquery/dist/jquery.js"></script>
-      <script src="bower_components/angular/angular.js"></script>
-      <script src="bower_components/angular-resource/angular-resource.js"></script>
-      <script src="bower_components/angular-cookies/angular-cookies.js"></script>
-      <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
-      <script src="bower_components/angular-route/angular-route.js"></script>
-      <script src="bower_components/lodash/dist/lodash.compat.js"></script>
-      <script src="bower_components/angular-socket-io/socket.js"></script>
-      <script src="bower_components/angular-animate/angular-animate.js"></script>
-      <script src="bower_components/zeroclipboard/dist/ZeroClipboard.js"></script>
-      <script src="bower_components/ng-clip/dest/ng-clip.min.js"></script>
-      <!-- endbower -->
-      <script src="socket.io-client/socket.io.js"></script>
+    <script src="socket.io/socket.io.js"></script>
+
+    <!-- build:js app.js -->
+
+    <script src="parser/ruleparser.js"></script>
+    <!-- bower:js -->
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/angular-socket-io/socket.js"></script>
+    <script src="bower_components/zeroclipboard/dist/ZeroClipboard.js"></script>
+    <script src="bower_components/ng-clip/src/ngClip.js"></script>
+    <!-- endinject -->
+
+    <!-- inject:js -->
+    <script src="app.js"></script>
+    <script src="directives/nav-bar/nav-bar.directive.js"></script>
+    <script src="services/auth/auth.js"></script>
+    <script src="services/socket/socket.mock.js"></script>
+    <script src="services/socket/socket.service.js"></script>
+    <script src="views/account/home/home.controller.js"></script>
+    <script src="views/account/login/login.controller.js"></script>
+    <script src="views/account/signup/signup.controller.js"></script>
+    <script src="views/account/account.js"></script>
+    <script src="views/docs/docs.controller.js"></script>
+    <script src="views/docs/docs.js"></script>
+    <script src="views/editor/editor.controller.js"></script>
+    <script src="views/editor/editor.js"></script>
+    <script src="views/home/home.controller.js"></script>
+    <script src="views/home/home.js"></script>
+    <script src="views/pricing/pricing.controller.js"></script>
+    <script src="views/pricing/pricing.js"></script>
+    <script src="views/team/team.controller.js"></script>
+    <script src="views/team/team.js"></script>
+    <!-- endinject -->
+
     <!-- endbuild -->
 
-    <!-- build:js({.tmp,client}) app/app.js -->
-    <script src="parser/ruleparser.js"></script>
-    <script src="app/app.js"></script>
-      <!-- injector:js -->
-      <script src="app/account/account.js"></script>
-      <script src="app/account/home/account.controller.js"></script>
-      <script src="app/account/login/login.controller.js"></script>
-      <script src="app/account/signup/signup.controller.js"></script>
-      <script src="app/admin/admin.controller.js"></script>
-      <script src="app/admin/admin.js"></script>
-      <script src="app/docs/docs.controller.js"></script>
-      <script src="app/docs/docs.js"></script>
-      <script src="app/editor/editor.controller.js"></script>
-      <script src="app/editor/editor.js"></script>
-      <script src="app/main/main.controller.js"></script>
-      <script src="app/main/main.js"></script>
-      <script src="app/pricing/pricing.controller.js"></script>
-      <script src="app/pricing/pricing.js"></script>
-      <script src="app/team/team.controller.js"></script>
-      <script src="app/team/team.js"></script>
-      <script src="components/auth/auth.service.js"></script>
-      <script src="components/auth/user.service.js"></script>
-      <script src="components/focus-me/focus-me.js"></script>
-      <script src="components/mongoose-error/mongoose-error.directive.js"></script>
-      <script src="components/socket/socket.service.js"></script>
-      <!-- endinjector -->
-    <!-- endbuild -->
+    <script src="http://localhost:35729/livereload.js?snipver=1"></script>
 
   </body>
 </html>

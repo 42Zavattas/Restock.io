@@ -1,7 +1,7 @@
 'use strict';
 
-var mongoose = require('mongoose'),
-    Schema = mongoose.Schema;
+var mongoose = require('mongoose');
+var Schema = mongoose.Schema;
 
 var StockSchema = new Schema({
   name      : String,
@@ -17,7 +17,7 @@ var StockSchema = new Schema({
 });
 
 StockSchema
-  .pre('save', function(next) {
+  .pre('save', function (next) {
     var now = new Date();
     this.updated_at = now;
     if (!this.created_at) {

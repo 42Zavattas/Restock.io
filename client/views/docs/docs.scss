@@ -1,0 +1,139 @@
+table {
+  width: 100%;
+  margin-bottom: 2em;
+  caption {
+    color: rgba(black, .3);
+    font-family: "Sinkin Italic";
+    margin-bottom: 1em;
+  }
+  tbody tr {
+    border-bottom: 1px solid rgba(black, .1);
+    &:last-child {
+      border-bottom: none;
+    }
+    &:hover {
+      background: rgba(white, .03);
+    }
+  }
+  td, th {
+    padding: 20px;
+    &.medium {
+      word-wrap: break-word;
+    }
+  }
+}
+
+.selectext {
+  cursor:text;
+  user-select: text;
+}
+
+pre {
+  cursor:text;
+  user-select: text;
+}
+
+.info-contact {
+  text-align:center;
+  font-size:13px;
+}
+
+.container p {
+  background: rgba(white, .05);
+  padding: 1em;
+  line-height: 1.8em;
+  margin-bottom: 2em;
+}
+
+.segment {
+  padding-top: 3em;
+  margin-bottom: 3em;
+}
+
+.doc-h2 {
+  font-family: "Sinkin";
+  font-size: 24px;
+  margin-bottom: 2em;
+  span {
+    border-bottom: 2px dashed rgba(black, .2);
+  }
+  &.center {
+    text-align:center;
+  }
+}
+
+.doc-h3 {
+  font-family: "Sinkin Bold";
+  margin-bottom: 3em;
+  text-align:center;
+  color: darken($green,10);
+  text-shadow: rgba(black, .2) 0 1px 1px;
+  span {
+    border-bottom: 2px dashed rgba(black, .2);
+  }
+}
+
+.doc-index-bloc {
+}
+
+ol {
+  list-style-type:upper-roman;
+}
+
+.doc-index {
+  ol {
+    list-style-type:lower-alpha;
+    margin-left: 20px;
+  }
+  li {
+    line-height: 24px;
+    a {
+      color:rgba(white,.5);
+      text-decoration: none;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+.smart-hr {
+  width: 100%;
+  height: 8px;
+  background: rgba(black, .1);
+  border-top: 1px solid rgba(black, .2);
+  margin: 0 auto;
+}
+
+pre {
+  font-family: "Courier New", Courier, monospace;
+  background: rgba(white, .7);
+  padding: 12px;
+  margin-bottom: 2em;
+}
+
+.code-cell {
+  width: 150px;
+}
+
+.code {
+  user-select: text;
+  cursor: text;
+  color: white;
+  padding: 5px;
+  font-family: "Courier New", Courier, monospace;
+}
+
+.no-marged {
+  margin: 0;
+}
+
+.gotop {
+  float: right;
+  font-size: 22px;
+  color: rgba(black, .4);
+  text-decoration: none;
+  &:hover {
+    color: white;
+  }
+}

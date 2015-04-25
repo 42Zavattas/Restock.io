@@ -1,0 +1,44 @@
+.team {
+  .team-bloc {
+    display:flex;
+    margin-right: 20px;
+  }
+  .pic {
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+  }
+  .legend {
+    color: rgba(white,.5);
+    font-size: 13px;
+    font-family: "Courier New", Courier, monospace;
+    margin-top: 10px;
+  }
+  .social {
+    display:flex;
+    flex-direction:column;
+    padding: 20px;
+    justify-content: center;
+    font-size: 30px;
+    li {
+      margin-bottom:10px;
+    }
+    a {
+      color: rgba(white, .2);
+      text-decoration: none;
+      &:hover {
+        color: rgba(white, .8);
+      }
+    }
+  }
+  img {
+    width: 200px;
+    height: 200px;
+    box-shadow: rgba(black,.4) 0 2px 4px;
+  }
+}
+
+.orga {
+  display:block;
+  margin: 0 auto;
+}

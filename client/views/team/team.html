@@ -1,0 +1,30 @@
+<div class="container">
+  <h2 class="doc-h2 center tr-down">
+    <span>Who we are ?</span>
+  </h2>
+</div>
+<div class="rs-glue-launch flex centered team">
+
+  <div class="team-bloc" ng-repeat="member in vm.rMembers">
+    <div class="pic" ng-if="$index === 1">
+      <img ng-src="{{ member.url }}">
+      <div class="legend select">{{ member.name }}</div>
+    </div>
+    <div class="social">
+      <ul>
+        <li ng-repeat="social in member.social">
+          <a target="_blank" ng-href="{{social.url}}">
+            <i class="icon-{{social.name}}"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="pic" ng-if="$index === 0">
+      <img ng-src="{{ member.url }}">
+      <div class="legend select">{{ member.name }}</div>
+    </div>
+  </div>
+
+</div>
+
+<img src="/assets/images/42.png" class="orga tr-expand">
