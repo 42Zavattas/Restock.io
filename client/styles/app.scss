@@ -1,13 +1,5 @@
-// Colors
-// ------
-$white: #ecf0f1;
-$red: #9c3734;
-$orange: #bf9646;
-$yellow: #c1bd48;
-$green: #82c64e;
-$green2: #a4c44b;
-$blue: #7ec5d4;
-
+@import "colors";
+@import "animations";
 @import "../directives/nav-bar/nav-bar";
 @import "../views/home/home";
 @import "../views/docs/docs";
@@ -315,7 +307,6 @@ strong {
   }
 }
 
-/*
 @mixin keyframe ($animation_name) {
   @-webkit-keyframes $animation_name {
     @content;
@@ -333,7 +324,6 @@ strong {
     @content;
   }
 }
-*/
 
 @mixin animation ($delay, $duration, $animation, $iteration) {
     -webkit-animation-delay: $delay;
@@ -352,8 +342,7 @@ strong {
     animation-iteration-count: $iteration;
 }
 
-/*
-@include keyframes (spin) {
+@include keyframe (spin) {
   from {
     transform:rotate(0deg);
   }
@@ -361,7 +350,6 @@ strong {
     transform:rotate(360deg);
   }
 }
-*/
 
 .underline {
   height: 5px;

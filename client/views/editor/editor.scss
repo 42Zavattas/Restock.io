@@ -14,8 +14,12 @@
   position: absolute;
   top: 0; left: 20px; right: 20px;
   text-align: center;
-  &.ng-enter{
-    animation-name: trLittleDownIn ;
+  &.ng-enter {
+    -webkit-animation-name: trLittleDownIn;
+    -webkit-animation-iteration-count: 1;
+    -webkit-animation-timing-function: cubic-bezier(0.240, 1.650, 0.785, 1.120);
+    -webkit-animation-duration: 250ms;
+    animation-name: trLittleDownIn;
     animation-iteration-count: 1;
     animation-timing-function: cubic-bezier(0.240, 1.650, 0.785, 1.120);
     animation-duration: 250ms;
@@ -190,7 +194,7 @@
     background: rgba(black, .1);
     height: 8px;
     opacity: .5;
-    transition-property: '*';
+    transition-property: all;
     transition-duration: 1s;
     border-bottom: 1px solid rgba(black, .1);
     &.load {
