@@ -1,5 +1,7 @@
 {
   "browser": true,
+  "validthis": true,
+  "-W018": true,
   "globals": {
     "angular": true,
     "browser": true,
@@ -14,6 +16,9 @@
     "alert": true,
     "afterEach": true,
     "beforeEach": true,
-    "io" : true
+    "io" : true,
+    "ruleparser": true,
+    "jasmine": true,
+    "exports": true
   }
 }

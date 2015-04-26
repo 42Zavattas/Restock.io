@@ -13,23 +13,6 @@ angular.module('restock')
       deleteStock: function (stock) {
         if (!stock._id) { return ; }
         $http.delete('/api/stocks/' + stock._id);
-      },
-
-      changePassword: function () {
-        vm.submitted = true;
-        if (form.$valid) {
-          Auth.changePassword(vm.user.oldPassword, vm.user.newPassword)
-          .then(function () {
-            vm.message = 'Password successfully changed.';
-            vm.user.success = true;
-            vm.user.newPassword = '';
-            vm.user.oldPassword = '';
-          })
-          .catch(function () {
-            form.password.$setValidity('mongoose', false);
-            $scope.message = 'Incorrect password';
-          });
-        }
       }
 
     });

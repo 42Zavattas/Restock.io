@@ -1,4 +1,6 @@
-(function(exports){
+'use strict';
+
+(function (exports) {
 
   /**
    * ----------------------------------------------
@@ -31,11 +33,19 @@
 
     // "object" node
     if (str.charAt(0) === '{') {
-      var count = [1, 0], preventLoop = 100, i = 0;
+      var count = [1, 0],
+        preventLoop = 100,
+        i = 0;
       while (++i && count[0] !== count[1] && preventLoop--) {
         switch (str.charAt(i)) {
-          case '{': ++count[0]; break;
-          case '}': ++count[1]; break;
+          case '{': {
+            ++count[0];
+            break;
+          }
+          case '}': {
+            ++count[1];
+            break;
+          }
         }
       }
       return str.substring(0, i);
@@ -49,10 +59,11 @@
    */
   function lex (str, err) {
 
-    var out = {}, res;
+    var out = {},
+        res;
 
     if (typeof err === 'undefined') {
-      var err = {};
+      err = {};
     }
 
     // Regular
@@ -102,7 +113,7 @@
       }
       for (var i = 0; i < props.length; i++) {
         if (!/^[^:]+:.+$/.test(props[i])) {
-          return buildError(err, "No value for property '" + props[i] + "'");
+          return buildError(err, 'No value for property \'' + props[i] + '\'');
         }
         out.props.push({
           name: props[i].substring(0, props[i].indexOf(':')),
@@ -165,10 +176,10 @@
   }
 
   var testFunctions = [
-    { f:limitLength, msg: 'Too many characters.' },
-    { f:validateCharacters, msg: 'Invalid characters.' },
-    { f:checkBraces, msg: 'Wrong objet structure.' },
-    { f:checkDeep, msg: 'Your struture is too deep.' }
+    { f: limitLength, msg: 'Too many characters.' },
+    { f: validateCharacters, msg: 'Invalid characters.' },
+    { f: checkBraces, msg: 'Wrong objet structure.' },
+    { f: checkDeep, msg: 'Your struture is too deep.' }
   ];
 
   /**
@@ -198,4 +209,4 @@
     return { valid: true };
   };
 
-})(typeof exports === 'undefined' ? this['ruleparser'] = {} : exports);
+})(typeof exports === 'undefined' ? this.ruleparser = {} : exports);

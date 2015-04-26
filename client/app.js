@@ -53,9 +53,8 @@ angular.module('restock', [
       currentUser: Auth.getUser()
     };
 
-    $rootScope.ui.domain = $location.protocol() +
-        '://' + $location.host() +
-        ($location.port() !== 80 ? ':' + $location.port() : '');
+    $rootScope.ui.domain = $location.protocol() + '://' + $location.host()
+      + ($location.port() !== 80 ? ':' + $location.port() : '');
 
     $rootScope.logout = function () {
       Auth.logout();
@@ -63,7 +62,7 @@ angular.module('restock', [
     };
 
     $rootScope.$on('$routeChangeStart', function (event, next) {
-      $http.get('/api/users/me').then(function (user) {
+      $http.get('/api/users/me').then(function () {
         $rootScope.ui.isLogged = true;
       }).catch(function () {
         $rootScope.ui.isLogged = false;

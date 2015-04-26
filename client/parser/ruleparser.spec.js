@@ -84,7 +84,7 @@ describe('RuleParser', function () {
     expect(ruleparser.test('3{teams:d{names:4s').valid).toBeFalsy();
     expect(ruleparser.test('1:4na{ms:4s').valid).toBeFalsy();
 
-    //no type specified at the end
+    // No type specified at the end
     expect(ruleparser.test('2{name:s,birth:d,skills:5{tags:24}}').valid).toBeFalsy();
     expect(ruleparser.test('5{teams:4{name:s},houses:5{name:s,code:n}}').valid).toBeTruthy();
   });

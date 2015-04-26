@@ -30,6 +30,6 @@ angular.module('restock')
     var rand = Math.floor(Math.random() * 2);
 
     vm.rMembers.push(vm.members[rand]);
-    vm.rMembers.push(vm.members[rand === 0 ? 1 :0]);
+    vm.rMembers.push(vm.members[rand === 0 ? 1 : 0]);
 
   });

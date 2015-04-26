@@ -47,7 +47,7 @@ exports.getSaved = function (req, res) {
 // Get all stocks of the current user
 exports.mine = function (req, res) {
   Stock.find({
-    user  : req.user._id,
+    user: req.user._id,
     active: true
   }).exec(function (err, stocks) {
     if (err) { return handleError(res, err); }

@@ -4,14 +4,14 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var StockSchema = new Schema({
-  name      : String,
-  desc      : String,
-  url       : String,
-  rule      : String,
-  content   : String,
-  calls     : { type: Number, default: 0 },
-  user      : { type: Schema.ObjectId, ref: 'User' },
-  active    : { type: Boolean, default: true, select: false },
+  name: String,
+  desc: String,
+  url: String,
+  rule: String,
+  content: String,
+  calls: { type: Number, default: 0 },
+  user: { type: Schema.ObjectId, ref: 'User' },
+  active: { type: Boolean, default: true, select: false },
   created_at: Date,
   updated_at: Date
 });

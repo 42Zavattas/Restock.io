@@ -75,7 +75,9 @@ angular.module('restock')
           return true;
         }
 
-        var res = ruleparser.test(str), err = {};
+        var res = ruleparser.test(str),
+            err = {};
+
         if (res.valid === false) {
           vm.errorMsg = res.msg;
           return false;

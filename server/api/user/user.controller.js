@@ -11,7 +11,7 @@ function handleError (res, err) {
 /**
  * Creates a new user
  */
-exports.create = function (req, res, next) {
+exports.create = function (req, res) {
   User.create(req.body, function (err, user) {
     if (err) { return handleError(res, err); }
     var token = jwt.sign(
@@ -30,8 +30,8 @@ exports.show = function (req, res, next) {
   var userId = req.params.id;
 
   User.findById(userId, function (err, user) {
-    if (err) return next(err);
-    if (!user) return res.status(401).end();
+    if (err) { return next(err); }
+    if (!user) { return res.status(401).end(); }
     res.status(200).json(user.profile);
   });
 };
@@ -39,7 +39,7 @@ exports.show = function (req, res, next) {
 /**
  * Change a users password
  */
-exports.changePassword = function (req, res, next) {
+exports.changePassword = function (req, res) {
   var userId = req.user._id;
   var oldPass = String(req.body.oldPassword);
   var newPass = String(req.body.newPassword);
@@ -60,13 +60,13 @@ exports.changePassword = function (req, res, next) {
 /**
  * Get my info
  */
-exports.me = function(req, res, next) {
+exports.me = function (req, res, next) {
   var userId = req.user._id;
   User.findOne({
     _id: userId
   }, '-salt -hashedPassword', function (err, user) {
-    if (err) return next(err);
-    if (!user) return res.status(401);
+    if (err) { return next(err); }
+    if (!user) { return res.status(401); }
     res.status(200).json(user);
   });
 };

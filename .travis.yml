@@ -6,4 +6,7 @@ node_js:
 before_script:
   - npm install -g bower gulp
   - bower install
+script:
+  - npm test
+  - gulp control
 services: mongodb

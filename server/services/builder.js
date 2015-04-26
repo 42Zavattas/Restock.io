@@ -6,25 +6,21 @@ var router = express.Router();
 var ruleparser = require('../../client/parser/ruleparser.js');
 var types = require('./types.js');
 
-function handleError (res, err) {
-  return res.status(500).send(err).end();
-}
-
 function getElementOfType (type) {
 
   var indexes = {
-    's': types.getWord,
-    'S': types.getParagraph,
-    'n': types.getLittleNumber,
-    'N': types.getNumber,
-    'b': types.getBoolean,
-    'd': types.getDate,
-    'e': types.getEmail,
-    'p': types.getPhone,
-    'a': types.getAddress,
-    'c': types.getCharacter,
-    'i': types.getIp,
-    't': types.getTimestamp
+    s: types.getWord,
+    S: types.getParagraph,
+    n: types.getLittleNumber,
+    N: types.getNumber,
+    b: types.getBoolean,
+    d: types.getDate,
+    e: types.getEmail,
+    p: types.getPhone,
+    a: types.getAddress,
+    c: types.getCharacter,
+    i: types.getIp,
+    t: types.getTimestamp
   };
 
   return indexes[type]();
@@ -86,6 +82,6 @@ router.getStringified = function (rule) {
     return err;
   }
   return JSON.stringify(recurse(lex));
-}
+};
 
 module.exports = router;
