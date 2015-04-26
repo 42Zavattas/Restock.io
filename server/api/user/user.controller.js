@@ -12,13 +12,14 @@ function handleError (res, err) {
  * Creates a new user
  */
 exports.create = function (req, res, next) {
-  var newUser = new User(req.body);
-  newUser.provider = 'local';
-  newUser.role = 'user';
-  newUser.save(function(err, user) {
-    if (err) return validationError(res, err);
-    var token = jwt.sign({_id: user._id }, config.secrets.session, { expiresInMinutes: 60*5 });
-    res.status(201).json({ token: token });
+  User.create(req.body, function (err, user) {
+    if (err) { return handleError(res, err); }
+    var token = jwt.sign(
+      { _id: user._id },
+      config.secrets.session,
+      { expiresInMinutes: 60 * 5 }
+    );
+    res.status(201).json({ token: token, user: user });
   });
 };
 
@@ -30,7 +31,7 @@ exports.show = function (req, res, next) {
 
   User.findById(userId, function (err, user) {
     if (err) return next(err);
-    if (!user) return res.status(401);
+    if (!user) return res.status(401).end();
     res.status(200).json(user.profile);
   });
 };
@@ -38,7 +39,7 @@ exports.show = function (req, res, next) {
 /**
  * Change a users password
  */
-exports.changePassword = function(req, res, next) {
+exports.changePassword = function (req, res, next) {
   var userId = req.user._id;
   var oldPass = String(req.body.oldPassword);
   var newPass = String(req.body.newPassword);
@@ -46,12 +47,12 @@ exports.changePassword = function(req, res, next) {
   User.findById(userId, function (err, user) {
     if (user.authenticate(oldPass)) {
       user.password = newPass;
-      user.save(function(err) {
-        if (err) return validationError(res, err);
-        res.status(200);
+      user.save(function (err) {
+        if (err) { return handleError(res, err); }
+        res.status(200).end();
       });
     } else {
-      res.status(403);
+      res.status(403).end();
     }
   });
 };
@@ -63,7 +64,7 @@ exports.me = function(req, res, next) {
   var userId = req.user._id;
   User.findOne({
     _id: userId
-  }, '-salt -hashedPassword', function(err, user) { // don't ever give out the password or salt
+  }, '-salt -hashedPassword', function (err, user) {
     if (err) return next(err);
     if (!user) return res.status(401);
     res.status(200).json(user);

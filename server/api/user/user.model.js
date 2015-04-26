@@ -5,15 +5,15 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var UserSchema = new Schema({
-  name          : String,
-  email         : { type: String, lowercase: true },
-  role          : { type: String, default: 'user' },
-  rules         : [{ type: Schema.ObjectId, ref: 'Stock' }],
-  type          : { type: String, enum: ['basic','pro','god'], default: 'basic' },
-  hashedPassword: String,
-  salt          : String,
-  created_at    : Date,
-  updated_at    : Date
+  name        : String,
+  email       : { type: String, lowercase: true },
+  role        : { type: String, default: 'user' },
+  rules       : [{ type: Schema.ObjectId, ref: 'Stock' }],
+  type        : { type: String, enum: ['basic', 'pro', 'god'], default: 'basic' },
+  passwordHash: String,
+  salt        : String,
+  created_at  : Date,
+  updated_at  : Date
 });
 
 /**

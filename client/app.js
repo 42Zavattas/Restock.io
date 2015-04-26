@@ -19,7 +19,7 @@ angular.module('restock', [
 
   })
   .factory('authInterceptor',
-  function ($rootScope, $q, $cookieStore, $location) {
+  function ($rootScope, $q, $cookieStore) {
     return {
 
       request: function (config) {
@@ -32,7 +32,6 @@ angular.module('restock', [
 
       responseError: function (response) {
         if (response.status === 401) {
-          $location.path('/login');
           $cookieStore.remove('token');
           return $q.reject(response);
         }
