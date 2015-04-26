@@ -2,6 +2,6 @@
 
 module.exports = {
   mongo: {
-    uri: 'mongodb://localhost/restock-dev'
+    uri: 'mongodb://zavatta:omghack@ds027521.mongolab.com:27521/restock'
   }
 };
